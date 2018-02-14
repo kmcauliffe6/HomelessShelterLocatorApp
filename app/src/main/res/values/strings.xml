@@ -6,8 +6,8 @@
     <string name="prompt_email">User ID</string>
     <string name="cancel">Cancel Login</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_register">Register</string>
+    <string name="action_sign_in_short">Log in</string>
     <string name="error_invalid_email">This User ID is invalid</string>
     <string name="error_invalid_password">This password is invalid</string>
     <string name="error_incorrect_password">This password is incorrect</string>
@@ -16,5 +16,5 @@
         completions."
     </string>
     <string name="title_activity_register">Register A New Account</string>
-    <string name="title_activity_application">ApplicationActivity</string>
+    <string name="title_activity_application">Welcome To Our App</string>
 </resources>

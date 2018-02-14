@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         setupActionBar();
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-        populateAutoComplete();
+        //populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -96,15 +96,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mProgressView = findViewById(R.id.login_progress);
 
     }
-
+    /*
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
             return;
         }
 
         getLoaderManager().initLoader(0, null, this);
-    }
-
+    } */
+    /*
     private boolean mayRequestContacts() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             return true;
@@ -129,7 +129,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     /**
      * Callback received when a permissions request has been completed.
-     */
+     */ /*
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 populateAutoComplete();
             }
         }
-    }
+    } */
 
     /**
      * Set up the {@link android.app.ActionBar}, if the API is available.
@@ -199,7 +199,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             // perform the user login attempt.
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+            Intent intent = new Intent (this, ApplicationActivity.class);
+            startActivity(intent);
+            //mAuthTask.execute(startActivity(intent));
         }
     }
 

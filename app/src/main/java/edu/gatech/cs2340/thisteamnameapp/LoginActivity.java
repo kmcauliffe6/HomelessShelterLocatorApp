@@ -91,11 +91,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 attemptLogin();
             }
         });
+        Button cancelEmailButton = (Button) findViewById(R.id.cancelLoginButton);
+        cancelEmailButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
     }
+
     /*
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
@@ -360,7 +368,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
         }
-
 
 
     }

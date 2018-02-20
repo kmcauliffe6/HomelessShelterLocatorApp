@@ -112,6 +112,14 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
             }
         });
 
+        Button cancelEmailButton = (Button) findViewById(R.id.cancelLoginButton);
+        cancelEmailButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 

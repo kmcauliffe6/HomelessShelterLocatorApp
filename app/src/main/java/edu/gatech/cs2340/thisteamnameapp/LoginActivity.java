@@ -63,6 +63,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         //populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        /*mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
@@ -82,7 +83,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
                 return false;
             }
-        });
+        }); */
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
@@ -197,30 +198,45 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             focusView = mEmailView;
             cancel = true;
         }
-
-        if (cancel) {
+        boolean isValid = checkCredentials(email, password);
+        if (!isValid) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
+            mEmailView.setError(getString(R.string.error_invalid_credentials));
+            focusView = mEmailView;
             focusView.requestFocus();
         } else {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
+            //mAuthTask = new UserLoginTask(email, password);
+
             Intent intent = new Intent (this, ApplicationActivity.class);
             startActivity(intent);
+
             //mAuthTask.execute(startActivity(intent));
         }
     }
-
+    private boolean checkCredentials(String email, String password) {
+        Model m = Model.getInstance();
+        for (User u : m.getUsers()) {
+            String userid = u.getUserid();
+            String pass = u.getPassword();
+            if (userid.equals(email)) {
+                // Account exists, return true if the password matches.
+                return pass.equals(password);
+            }
+        }
+        return false;
+    }
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.equals("user");
+        return true;
     }
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.equals("pass");
+        return true;
     }
 
     /**
@@ -330,21 +346,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-
+            /*
             try {
                 // Simulate network access.
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 return false;
-            }
+            } */
+            //Model m = new Model();
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
 
             // TODO: register the new account here.
             return true;

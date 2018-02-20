@@ -60,21 +60,27 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
 
     // UI references.
     private AutoCompleteTextView mEmailView;
+    private AutoCompleteTextView mNameView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private View mTypeView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         setupActionBar();
+        final Model m = Model.getInstance();
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
-        populateAutoComplete();
-
+        //populateAutoComplete();
+        mNameView = (AutoCompleteTextView) findViewById(R.id.name);
         mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        mTypeView = findViewById(R.id.spinner);
+        /*mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
@@ -83,24 +89,34 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
                 }
                 return false;
             }
-        });
+        }); */
+        final Spinner actTypeSpinner = (Spinner) findViewById(R.id.spinner);
+        String[] arr = {"Admin", "User"};
+        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        actTypeSpinner.setAdapter(adapter);
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+                String email = mEmailView.getText().toString();
+                String password = mPasswordView.getText().toString();
+                String name = mNameView.getText().toString();
+                String type = actTypeSpinner.getSelectedItem().toString(); //find a way to select type from spinner
+                User u = new User(name, email, password, type);
+                m.addUser(u);
+                System.out.println(m.getUsers().size());
+                Intent intent = new Intent (RegisterActivity.this, ApplicationActivity.class);
+                startActivity(intent);
             }
         });
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
-        Spinner actTypeSpinner = (Spinner) findViewById(R.id.spinner);
-        String[] arr = {"User", "Admin"};
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        actTypeSpinner.setAdapter(adapter);
+
+
     }
 
     private void populateAutoComplete() {
@@ -162,7 +178,13 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
+
     private void attemptLogin() {
+
+
+        Intent intent = new Intent (this, ApplicationActivity.class);
+        startActivity(intent);
+    }/*
         if (mAuthTask != null) {
             return;
         }
@@ -179,7 +201,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         View focusView = null;
 
         // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
+        if (!TextUtils.isEmpty(password)) {
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
@@ -188,10 +210,6 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
             mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
-            cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
         }
@@ -209,8 +227,8 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
             startActivity(intent);
             //mAuthTask.execute((Void) null);
         }
-    }
-
+    } */
+    /*
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
         return email.equals("user");
@@ -219,7 +237,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
         return password.equals("pass");
-    }
+    } */
 
     /**
      * Shows the progress UI and hides the login form.
@@ -328,7 +346,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-
+            /*
             try {
                 // Simulate network access.
                 Thread.sleep(2000);
@@ -336,13 +354,13 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
                 return false;
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
+            for (String credential : Model.getUsers()) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mEmail)) {
                     // Account exists, return true if the password matches.
                     return pieces[1].equals(mPassword);
                 }
-            }
+            } */
 
             // TODO: register the new account here.
             return true;

@@ -11,6 +11,7 @@
     <string name="action_register">Register</string>
     <string name="action_sign_in_short">Log in</string>
     <string name="error_invalid_email">This User ID is invalid</string>
+    <string name="error_invalid_credentials">User ID or password is incorrect</string>
     <string name="error_invalid_password">This password is invalid</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>

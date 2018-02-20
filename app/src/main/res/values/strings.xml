@@ -4,7 +4,7 @@
 
     <!-- Strings related to login -->
     <string name="prompt_email">User ID</string>
-    <string name="cancel">Cancel Login</string>
+    <string name="cancel">Cancel</string>
     <string name="prompt_password">Password</string>
     <string name="prompt_name">Name</string>
     <string name="prompt_type">Account Type</string>

@@ -29,6 +29,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,6 +95,12 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        Spinner actTypeSpinner = (Spinner) findViewById(R.id.spinner);
+        String[] arr = {"User", "Admin"};
+        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        actTypeSpinner.setAdapter(adapter);
     }
 
     private void populateAutoComplete() {

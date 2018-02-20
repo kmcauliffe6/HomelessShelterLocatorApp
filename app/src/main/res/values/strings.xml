@@ -7,6 +7,7 @@
     <string name="cancel">Cancel Login</string>
     <string name="prompt_password">Password</string>
     <string name="prompt_name">Name</string>
+    <string name="prompt_type">Account Type</string>
     <string name="action_register">Register</string>
     <string name="action_sign_in_short">Log in</string>
     <string name="error_invalid_email">This User ID is invalid</string>

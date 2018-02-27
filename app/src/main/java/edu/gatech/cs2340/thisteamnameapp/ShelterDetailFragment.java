@@ -22,12 +22,12 @@ public class ShelterDetailFragment extends Fragment {
      * The fragment argument representing the item ID that this fragment
      * represents.
      */
-    public static final String ARG_ITEM_ID = "item_id";
+    public static final String ARG_ITEM_ID = "name";
 
     /**
      * The dummy content this fragment is presenting.
      */
-    private DummyContent.DummyItem mItem;
+    private Shelter mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -44,12 +44,13 @@ public class ShelterDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+            int id = getArguments().getInt(ARG_ITEM_ID);
+            mItem = Model.getInstance().findItemByID(id);
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
-                appBarLayout.setTitle(mItem.content);
+                appBarLayout.setTitle(mItem.getName());
             }
         }
     }
@@ -61,7 +62,13 @@ public class ShelterDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.shelter_detail)).setText(mItem.details);
+            ((TextView) rootView.findViewById(R.id.gender)).setText(mItem.getGender());
+            ((TextView) rootView.findViewById(R.id.name)).setText(mItem.getName());
+            ((TextView) rootView.findViewById(R.id.capacity)).setText(mItem.getCapacity());
+            ((TextView) rootView.findViewById(R.id.longitude)).setText(mItem.getLongitude());
+            ((TextView) rootView.findViewById(R.id.latitude)).setText(mItem.getLatitude());
+            ((TextView) rootView.findViewById(R.id.address)).setText(mItem.getAddress());
+            ((TextView) rootView.findViewById(R.id.phone)).setText(mItem.getPhone());
         }
 
         return rootView;

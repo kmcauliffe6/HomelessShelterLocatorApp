@@ -62,13 +62,13 @@ public class ShelterDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.gender)).setText(mItem.getGender());
-            ((TextView) rootView.findViewById(R.id.name)).setText(mItem.getName());
-            ((TextView) rootView.findViewById(R.id.capacity)).setText(mItem.getCapacity());
-            ((TextView) rootView.findViewById(R.id.longitude)).setText(mItem.getLongitude());
-            ((TextView) rootView.findViewById(R.id.latitude)).setText(mItem.getLatitude());
-            ((TextView) rootView.findViewById(R.id.address)).setText(mItem.getAddress());
-            ((TextView) rootView.findViewById(R.id.phone)).setText(mItem.getPhone());
+            ((TextView) rootView.findViewById(R.id.gender)).setText("Gender Restrictions: " + mItem.getGender());
+            ((TextView) rootView.findViewById(R.id.details)).setText(mItem.getDetails());
+            ((TextView) rootView.findViewById(R.id.capacity)).setText("Capacity: " + mItem.getCapacity());
+            ((TextView) rootView.findViewById(R.id.longitude)).setText("Longitude: " + mItem.getLongitude());
+            ((TextView) rootView.findViewById(R.id.latitude)).setText("Latitude: " +mItem.getLatitude());
+            ((TextView) rootView.findViewById(R.id.address)).setText("Address: " +mItem.getAddress());
+            ((TextView) rootView.findViewById(R.id.phone)).setText("Phone Number: " +mItem.getPhone());
         }
 
         return rootView;

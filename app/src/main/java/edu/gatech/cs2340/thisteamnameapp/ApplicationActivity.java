@@ -25,4 +25,9 @@ public class ApplicationActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToShelterListActivity (View view){
+        Intent intent = new Intent (this, ShelterListActivity.class);
+        startActivity(intent);
+    }
+
 }

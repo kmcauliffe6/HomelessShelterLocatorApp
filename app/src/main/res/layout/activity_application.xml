@@ -19,6 +19,17 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <Button
+            android:id="@+id/seeSheltersButton"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="See Shelters"
+            android:onClick="goToShelterListActivity"
+            android:textStyle="bold"
+            />
+
+        <Button
             android:id="@+id/logoutButton"
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"

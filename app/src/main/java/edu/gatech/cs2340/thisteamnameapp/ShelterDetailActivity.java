@@ -78,4 +78,9 @@ public class ShelterDetailActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void goToShelterActivity (View view){
+        Intent intent = new Intent (this, ShelterListActivity.class);
+        startActivity(intent);
+    }
 }

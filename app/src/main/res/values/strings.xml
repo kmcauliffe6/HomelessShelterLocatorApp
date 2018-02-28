@@ -23,4 +23,5 @@
     <string name="title_activity_shelter_list">ShelterListActivity</string>
     <string name="title_shelter_list">Shelters</string>
     <string name="title_shelter_detail">Shelter Detail</string>
+    <string name="backtoshelters">back</string>
 </resources>

@@ -44,15 +44,23 @@
         android:layout_margin="@dimen/text_margin"
         android:textAppearance="?attr/textAppearanceListItem" />
 
-<TextView
+
+
+    <TextView
     android:id="@+id/phone"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/text_margin"
     android:textAppearance="?attr/textAppearanceListItem" />
 
-
-
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goToShelterActivity"
+        android:text= "@string/backtoshelters" />
 
 
 </LinearLayout>
+
+

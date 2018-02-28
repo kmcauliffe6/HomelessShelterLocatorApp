@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-import edu.gatech.cs2340.thisteamnameapp.dummy.DummyContent;
 
 import java.util.List;
 
@@ -79,16 +78,16 @@ public class ShelterListActivity extends AppCompatActivity {
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DummyContent.DummyItem item = (DummyContent.DummyItem) view.getTag();
+                Shelter item = (Shelter) view.getTag();
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
-                    arguments.putString(ShelterDetailFragment.ARG_ITEM_ID, item.id);
+                    arguments.putString(ShelterDetailFragment.ARG_ITEM_ID, Integer.toString(item.getId()));
                     ShelterDetailFragment fragment = new ShelterDetailFragment();
                     fragment.setArguments(arguments);
                 } else {
                     Context context = view.getContext();
                     Intent intent = new Intent(context, ShelterDetailActivity.class);
-                    intent.putExtra(ShelterDetailFragment.ARG_ITEM_ID, item.id);
+                    intent.putExtra(ShelterDetailFragment.ARG_ITEM_ID, Integer.toString(item.getId()));
 
                     context.startActivity(intent);
                 }

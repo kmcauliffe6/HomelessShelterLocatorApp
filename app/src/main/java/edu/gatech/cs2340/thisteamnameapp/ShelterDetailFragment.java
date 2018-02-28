@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import edu.gatech.cs2340.thisteamnameapp.dummy.DummyContent;
 
 /**
  * A fragment representing a single Shelter detail screen.
@@ -22,7 +21,7 @@ public class ShelterDetailFragment extends Fragment {
      * The fragment argument representing the item ID that this fragment
      * represents.
      */
-    public static final String ARG_ITEM_ID = "name";
+    public static final String ARG_ITEM_ID = "id";
 
     /**
      * The dummy content this fragment is presenting.
@@ -44,7 +43,7 @@ public class ShelterDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            int id = getArguments().getInt(ARG_ITEM_ID);
+            int id = getArguments().getInt(ARG_ITEM_ID);;
             mItem = Model.getInstance().findItemByID(id);
 
             Activity activity = this.getActivity();

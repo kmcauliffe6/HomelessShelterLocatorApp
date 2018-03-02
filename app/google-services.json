@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "374916677871",
+    "firebase_url": "https://homelessapp-fe251.firebaseio.com",
+    "project_id": "homelessapp-fe251",
+    "storage_bucket": "homelessapp-fe251.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374916677871:android:804a27183ca261b5",
+        "android_client_info": {
+          "package_name": "edu.gatech.cs2340.thisteamnameapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374916677871-4mnksjjhnqen7pc1linodlh7tibubtar.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "edu.gatech.cs2340.thisteamnameapp",
+            "certificate_hash": "0ce4433840e3af5726dd0f337aba4698c75a7ae9"
+          }
+        },
+        {
+          "client_id": "374916677871-2mo673jh6tqfobh0ur28nnjq702kguim.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAHfIwEDNwW330svojuwbt-8Pxp-0nBNQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374916677871-2mo673jh6tqfobh0ur28nnjq702kguim.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

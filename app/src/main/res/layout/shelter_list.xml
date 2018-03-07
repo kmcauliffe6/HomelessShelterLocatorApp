@@ -10,4 +10,8 @@
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
     tools:context="edu.gatech.cs2340.thisteamnameapp.ShelterListActivity"
-    tools:listitem="@layout/shelter_list_content" />
+    tools:listitem="@layout/shelter_list_content">
+
+</android.support.v7.widget.RecyclerView>
+
+

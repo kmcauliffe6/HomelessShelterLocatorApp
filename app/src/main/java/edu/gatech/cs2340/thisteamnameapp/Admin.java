@@ -2,6 +2,8 @@ package edu.gatech.cs2340.thisteamnameapp;
 
 /**
  * Created by paigemca on 2/20/18.
+ *
+ * we aren't using this yet, all users are instantiated as User but may be useful later
  */
 
 public class Admin {

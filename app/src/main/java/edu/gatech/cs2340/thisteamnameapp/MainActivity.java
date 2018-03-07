@@ -32,6 +32,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+/**
+ * welcome screen with buttons for log-in and register activity
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

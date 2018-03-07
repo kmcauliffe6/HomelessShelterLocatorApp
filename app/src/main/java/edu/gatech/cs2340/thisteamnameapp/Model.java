@@ -46,6 +46,11 @@ public class Model {
     public void addShelter(Shelter s) {
             shelters.add(s);}
 
+    /**
+     * parses CSV file and adds Shelters to shelters list
+     * @param is the input from the CSV file
+     * @throws IOException
+     */
     public void createShelterList(InputStream is) throws IOException {
         try {
 
@@ -73,6 +78,11 @@ public class Model {
     } catch (IOException o) {
     }}
 
+    /**
+     * finds shelters with input parameter
+     * @param id the shelter id
+     * @return shelter matching the input id
+     */
     public Shelter findItemByID(int id) {
         for (Shelter d : shelters) {
             if (d.getId() == id) return d;

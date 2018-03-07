@@ -35,7 +35,9 @@ public class ShelterDetailFragment extends Fragment {
      */
     public ShelterDetailFragment() {
     }
-
+    /**
+     * determines which Shelter is selected
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,9 @@ public class ShelterDetailFragment extends Fragment {
             }
         }
     }
-
+    /**
+     * sets up detail view for selected shelter
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

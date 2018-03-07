@@ -15,6 +15,18 @@ public class Shelter {
     private int id;
     private String details;
 
+    /**
+     * shelter constructor
+     * @param shelterName
+     * @param capacity
+     * @param gender
+     * @param longitude
+     * @param latitude
+     * @param address
+     * @param phoneNumber
+     * @param id
+     * @param details
+     */
     public Shelter(String shelterName, String capacity, String gender,
             String longitude, String latitude, String address,
             String phoneNumber, int id, String details) {
@@ -34,14 +46,13 @@ public class Shelter {
         return shelterName;
     }
 
+    //getters
     public String getName() {
         return shelterName;
     }
-
     public int getId() {
         return id;
     }
-
     public String getCapacity() {
         return capacity;
     }

@@ -25,4 +25,11 @@ public class Admin {
     public void setUserid(String id) {
         userid = id;
     }
+
+    public void editUser(int userid) {
+
+    }
+    public void editShelter(int shelterid) {
+
+    }
 }

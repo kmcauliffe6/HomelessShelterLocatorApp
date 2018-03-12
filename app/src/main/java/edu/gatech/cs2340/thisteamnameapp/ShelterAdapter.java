@@ -76,18 +76,36 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
             @Override
             protected FilterResults performFiltering(CharSequence charSequence) {
                 String charString = charSequence.toString();
-                if (charString.isEmpty()) {
+
+                boolean filterby = false;
+                String[] arr = {"Anyone", "Male", "Female", "Children", "Family/Newborn", "Young Adults"};
+                for (String p: arr) {
+                    if (charString.equals(p)) {
+                        List<Shelter> filteredList = new ArrayList<>();
+                        filterby = true;
+                        System.out.println("filterinnnnggggg");
+                        System.out.println("charString:" + charString);
+                        if (charString.equals("Anyone")) {
+                            shelterListFiltered = shelterList;
+                        } else {
+                            for (Shelter s: shelterList) {
+                                System.out.println(s.getGender());
+                                if (s.getGender().toLowerCase().contains(charString.toLowerCase())) {
+                                    filteredList.add(s);
+                                }
+                            }
+                            shelterListFiltered = filteredList;
+                        }
+
+                    }
+                }
+                if (charString.isEmpty() && !filterby) {
                     shelterListFiltered = shelterList;
-                } else {
+                } else if (!filterby) {
                     List<Shelter> filteredList = new ArrayList<>();
                     for (Shelter row : shelterList) {
-
+                        System.out.println("ugggghhhhhh");
                         // shelter name match condition
-                        if (charSequence.equals("Anyone")) {
-                            FilterResults filterResults = new FilterResults();
-                            filterResults.values = shelterList;
-                            return filterResults;
-                        }
                         if (row.getName().toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(row);
                         }

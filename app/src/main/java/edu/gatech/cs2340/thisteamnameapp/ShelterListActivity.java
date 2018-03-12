@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -57,7 +58,6 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
     private List<Shelter> shelterList;
     private ShelterAdapter mAdapter;
     private SearchView searchView;
-    private String filterby;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +87,15 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
-        
 
+        Button filterButton = (Button) findViewById(R.id.filterButton);
+        filterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String type = filterSpinner.getSelectedItem().toString(); //find a way to select type from spinner
+                mAdapter.getFilter().filter(type);
+            }
+        });
 
     }
 

@@ -22,6 +22,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Build;
 import android.graphics.Color;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import android.util.Log;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,28 +68,27 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
 
         recyclerView = findViewById(R.id.shelter_list);
         shelterList = new ArrayList<>();
+        getShelters();
         mAdapter = new ShelterAdapter(this, shelterList, this);
 
         whiteNotificationBar(recyclerView);
-
-        if (findViewById(R.id.shelter_detail_container) != null) {
-            // The detail container view will be present only in the
-            // large-screen layouts (res/values-w900dp).
-            // If this view is present, then the
-            // activity should be in two-pane mode.
-            mTwoPane = true;
-        }
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
+
+
+
+
+        //assert recyclerView != null;
+        //recyclerView.setAdapter(new ShelterAdapter(this, shelterList, this));
+    }
+
+    private void getShelters() {
         Model m = Model.getInstance();
         shelterList = m.getShelters();
-
-        assert recyclerView != null;
-        setupRecyclerView((RecyclerView) recyclerView);
     }
 
     @Override
@@ -151,11 +158,6 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
     public void onShelterSelected(Shelter shelter) {
         Toast.makeText(getApplicationContext(), "Selected: " + shelter.getName(), Toast.LENGTH_LONG).show();
 
-    }
-
-    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        Model m = Model.getInstance();
-        recyclerView.setAdapter(new ShelterAdapter(this, shelterList, this));
     }
 }
 

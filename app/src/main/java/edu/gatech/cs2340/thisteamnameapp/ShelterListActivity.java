@@ -18,6 +18,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Filter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Build;
@@ -54,6 +57,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
     private List<Shelter> shelterList;
     private ShelterAdapter mAdapter;
     private SearchView searchView;
+    private String filterby;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,12 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        final Spinner filterSpinner = (Spinner) findViewById(R.id.filterspinner);
+        String[] arr = {"Anyone", "Male", "Female", "Children", "Family/Newborn", "Young Adults"};
+        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        filterSpinner.setAdapter(adapter);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.toolbar_title);
@@ -77,14 +87,11 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
+        
 
 
-
-
-
-        //assert recyclerView != null;
-        //recyclerView.setAdapter(new ShelterAdapter(this, shelterList, this));
     }
+
 
     private void getShelters() {
         Model m = Model.getInstance();
@@ -118,7 +125,10 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
                 return false;
             }
         });
+
+
         return true;
+
     }
 
     @Override

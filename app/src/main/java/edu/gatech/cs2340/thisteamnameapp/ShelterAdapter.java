@@ -82,16 +82,19 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
                     List<Shelter> filteredList = new ArrayList<>();
                     for (Shelter row : shelterList) {
 
-                        // name match condition. this might differ depending on your requirement
-                        // here we are looking for name or phone number match
-                        if (row.getName().toLowerCase().contains(charString.toLowerCase()) || row.getPhone().contains(charSequence)) {
+                        // shelter name match condition
+                        if (charSequence.equals("Anyone")) {
+                            FilterResults filterResults = new FilterResults();
+                            filterResults.values = shelterList;
+                            return filterResults;
+                        }
+                        if (row.getName().toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(row);
                         }
                     }
 
                     shelterListFiltered = filteredList;
                 }
-
                 FilterResults filterResults = new FilterResults();
                 filterResults.values = shelterListFiltered;
                 return filterResults;
@@ -104,7 +107,6 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
             }
         };
     }
-
 
     public interface ShelterAdapterListener {
         void onShelterSelected(Shelter shelter);

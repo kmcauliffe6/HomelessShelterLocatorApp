@@ -22,6 +22,7 @@
     <string name="title_activity_application">Welcome To Our App</string>
     <string name="title_activity_shelter_list">ShelterListActivity</string>
     <string name="title_shelter_list">Shelters</string>
+    <string name="filterby">Filter By</string>
     <string name="title_shelter_detail">Shelter Detail</string>
     <string name="backtoshelters">back</string>
 

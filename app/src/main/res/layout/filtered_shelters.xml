@@ -11,19 +11,12 @@
 
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/filteredshelters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/contact_name"
         android:textSize="@dimen/contact_name" />
 
-    <TextView
-        android:id="@+id/phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/name"
-        android:textColor="@color/contact_number"
-        android:textSize="@dimen/contact_number" />
 
 </RelativeLayout>

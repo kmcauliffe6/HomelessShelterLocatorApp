@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="edu.gatech.cs2340.thisteamnameapp.MainSearchActivity"
-    tools:showIn="@layout/activity_main">
+    tools:context="edu.gatech.cs2340.thisteamnameapp.ShelterListActivity"
+    tools:showIn="@layout/search_activity_main">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"

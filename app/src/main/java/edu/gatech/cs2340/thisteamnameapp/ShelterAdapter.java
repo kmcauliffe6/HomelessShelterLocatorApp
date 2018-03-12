@@ -7,10 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Filterable;
 import android.widget.Filter;
 import android.content.Context;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +23,12 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
+        public TextView gender;
 
         public MyViewHolder(View view) {
             super(view);
             name = view.findViewById(R.id.name);
+            gender = view.findViewById(R.id.gender);
 
 
             view.setOnClickListener(new View.OnClickListener() {
@@ -42,23 +41,23 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
         }
     }
 
-    public ShelterAdapter(Context context, List<Shelter> contactList, ShelterAdapterListener listener) {
+    public ShelterAdapter(Context context, List<Shelter> shelterList, ShelterAdapterListener listener) {
         this.context = context;
         this.listener = listener;
-        this.shelterList = contactList;
-        this.shelterListFiltered = contactList;
+        this.shelterList = shelterList;
+        this.shelterListFiltered = shelterList;
     }
 
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.filtered_shelters, parent, false);
+                .inflate(R.layout.shelter_row_item, parent, false);
 
         return new MyViewHolder(itemView);
     }
 
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        final Shelter contact = shelterListFiltered.get(position);
-        holder.name.setText(contact.getName());
+        final Shelter shelter = shelterListFiltered.get(position);
+        holder.name.setText(shelter.getName());
     }
 
     @Override

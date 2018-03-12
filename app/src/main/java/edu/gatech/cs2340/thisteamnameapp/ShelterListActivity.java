@@ -54,9 +54,9 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //getSupportActionBar().setTitle(R.string.toolbar_title);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(R.string.toolbar_title);
 
         recyclerView = findViewById(R.id.shelter_list);
         shelterList = new ArrayList<>();
@@ -122,9 +122,9 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        //if (id == R.id) {
-         //   return true;
-        //}
+        if (id == R.id.search) {
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -138,6 +138,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         }
         super.onBackPressed();
     }
+
     private void whiteNotificationBar(View view) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             int flags = view.getSystemUiVisibility();
@@ -146,96 +147,16 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
             getWindow().setStatusBarColor(Color.WHITE);
         }
     }
-
-    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        Model m = Model.getInstance();
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(m.getShelters(), mTwoPane));
-    }
-
-    public static class SimpleItemRecyclerViewAdapter
-            extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
-
-        private final List<Shelter> mValues;
-        private final boolean mTwoPane;
-        private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Shelter item = (Shelter) view.getTag();
-                if (mTwoPane) {
-                    Bundle arguments = new Bundle();
-                    arguments.putString(ShelterDetailFragment.ARG_ITEM_ID, Integer.toString(item.getId()));
-                    ShelterDetailFragment fragment = new ShelterDetailFragment();
-                    fragment.setArguments(arguments);
-                } else {
-                    Context context = view.getContext();
-                    Intent intent = new Intent(context, ShelterDetailActivity.class);
-                    intent.putExtra(ShelterDetailFragment.ARG_ITEM_ID, Integer.toString(item.getId()));
-
-                    context.startActivity(intent);
-                }
-            }
-        };
-
-        SimpleItemRecyclerViewAdapter(List<Shelter> shelters,
-                                      boolean twoPane) {
-            mValues = shelters;
-            mTwoPane = twoPane;
-        }
-
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.shelter_list_content, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mItem = mValues.get(position);
-            //holder.mIdView.setText("" + mValues.get(position).getId());
-            holder.mContentView.setText(mValues.get(position).getName());
-
-            holder.mView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (mTwoPane) {
-                        Bundle arguments = new Bundle();
-                        arguments.putInt(ShelterDetailFragment.ARG_ITEM_ID, holder.mItem.getId());
-                        ShelterDetailFragment fragment = new ShelterDetailFragment();
-                        fragment.setArguments(arguments);
-                        //getSupportFragmentManager().beginTransaction()
-                                //.replace(R.id.dataitem_detail_container, fragment)
-                                //.commit();
-                    } else {
-                        Context context = v.getContext();
-                        Intent intent = new Intent(context, ShelterDetailActivity.class);
-                        intent.putExtra(ShelterDetailFragment.ARG_ITEM_ID, holder.mItem.getId());
-                        context.startActivity(intent);
-                    }
-                }
-            });
-        }
-
-        @Override
-        public int getItemCount() {
-            return mValues.size();
-        }
-
-        class ViewHolder extends RecyclerView.ViewHolder {
-            final TextView mContentView;
-            public final View mView;
-            public Shelter mItem;
-
-            ViewHolder(View view) {
-                super(view);
-                mView = view;
-                mContentView = (TextView) view.findViewById(R.id.content);
-
-            }
-        }
-    }
     @Override
     public void onShelterSelected(Shelter shelter) {
         Toast.makeText(getApplicationContext(), "Selected: " + shelter.getName(), Toast.LENGTH_LONG).show();
+
+    }
+
+    private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
+        Model m = Model.getInstance();
+        recyclerView.setAdapter(new ShelterAdapter(this, shelterList, this));
     }
 }
+
+

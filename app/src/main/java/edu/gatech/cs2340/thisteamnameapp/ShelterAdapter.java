@@ -8,9 +8,10 @@ import android.widget.Filterable;
 import android.widget.Filter;
 import android.content.Context;
 import android.widget.TextView;
-
+import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
+import android.content.Intent;
 /**
  * Created by paigemca on 3/7/18.
  */
@@ -30,12 +31,16 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
             name = view.findViewById(R.id.name);
             gender = view.findViewById(R.id.gender);
 
-
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     // send selected contact in callback
                     listener.onShelterSelected(shelterListFiltered.get(getAdapterPosition()));
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context, ShelterDetailActivity.class);
+                    intent.putExtra(ShelterDetailFragment.ARG_ITEM_ID, shelterListFiltered.get(getAdapterPosition()).getId());
+                    context.startActivity(intent);
+
                 }
             });
         }
@@ -54,7 +59,7 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
 
         return new MyViewHolder(itemView);
     }
-
+    @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         final Shelter shelter = shelterListFiltered.get(position);
         holder.name.setText(shelter.getName());
@@ -64,7 +69,6 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
     public int getItemCount() {
         return shelterListFiltered.size();
     }
-
 
 
     public Filter getFilter() {
@@ -105,4 +109,6 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
     public interface ShelterAdapterListener {
         void onShelterSelected(Shelter shelter);
     }
+
+
 }

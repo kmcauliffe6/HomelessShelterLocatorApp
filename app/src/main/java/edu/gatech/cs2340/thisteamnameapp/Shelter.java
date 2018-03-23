@@ -6,7 +6,7 @@ package edu.gatech.cs2340.thisteamnameapp;
 //need to change capacity to int!!
 public class Shelter {
     private String shelterName;
-    private String  capacity;
+    private String capacity;
     private String gender;
     private String longitude;
     private String latitude;

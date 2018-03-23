@@ -68,7 +68,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         setSupportActionBar(toolbar);
 
         final Spinner filterSpinner = (Spinner) findViewById(R.id.filterspinner);
-        String[] arr = {"Anyone", "Male", "Female", "Children", "Family/Newborn", "Young Adults"};
+        String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn", "Young Adults"};
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         filterSpinner.setAdapter(adapter);

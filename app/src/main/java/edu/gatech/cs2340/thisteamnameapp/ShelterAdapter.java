@@ -78,7 +78,7 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
                 String charString = charSequence.toString();
 
                 boolean filterby = false;
-                String[] arr = {"Anyone", "Male", "Female", "Children", "Family/Newborn", "Young Adults"};
+                String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn", "Young Adults"};
                 for (String p: arr) {
                     if (charString.equals(p)) {
                         List<Shelter> filteredList = new ArrayList<>();

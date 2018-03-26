@@ -83,7 +83,6 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
                     if (charString.equals(p)) {
                         List<Shelter> filteredList = new ArrayList<>();
                         filterby = true;
-                        System.out.println("filterinnnnggggg");
                         System.out.println("charString:" + charString);
                         if (charString.equals("Anyone")) {
                             shelterListFiltered = shelterList;

@@ -64,6 +64,8 @@ public class ShelterDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.shelter_detail, container, false);
 
+
+
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
             ((TextView) rootView.findViewById(R.id.gender)).setText("Gender Restrictions: " + mItem.getGender());
@@ -73,6 +75,10 @@ public class ShelterDetailFragment extends Fragment {
             ((TextView) rootView.findViewById(R.id.latitude)).setText("Latitude: " +mItem.getLatitude());
             ((TextView) rootView.findViewById(R.id.address)).setText("Address: " +mItem.getAddress());
             ((TextView) rootView.findViewById(R.id.phone)).setText("Phone Number: " +mItem.getPhone());
+
+            ((TextView) rootView.findViewById(R.id.vacancies)).setText("Current Vacancies: " +mItem.getVacancy());
+
+
         }
 
         return rootView;

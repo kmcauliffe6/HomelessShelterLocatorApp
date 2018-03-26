@@ -14,6 +14,7 @@ public class Shelter {
     private String phoneNumber;
     private int id;
     private String details;
+    private int bedsCheckedOut;
 
     public Shelter(String shelterName, String capacity, String gender,
             String longitude, String latitude, String address,
@@ -62,6 +63,18 @@ public class Shelter {
     }
     public String getDetails() {
         return details;
+    }
+    public void updateVacancy(int b) {
+        bedsCheckedOut = bedsCheckedOut + b;
+    }
+    public int getBedsCheckedOut() {
+        return bedsCheckedOut;
+    }
+
+    public String getVacancy() {
+        int vacancies = Integer.parseInt(getCapacity()) - getBedsCheckedOut();
+        return Integer.toString(vacancies);
+
     }
 
 }

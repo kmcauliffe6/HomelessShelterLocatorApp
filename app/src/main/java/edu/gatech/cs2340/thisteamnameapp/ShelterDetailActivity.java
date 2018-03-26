@@ -79,4 +79,8 @@ public class ShelterDetailActivity extends AppCompatActivity {
         Intent intent = new Intent (this, ShelterListActivity.class);
         startActivity(intent);
     }
+
+    public void checkOutBed() {
+
+    }
 }

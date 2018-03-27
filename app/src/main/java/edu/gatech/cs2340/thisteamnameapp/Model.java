@@ -20,7 +20,7 @@ import java.util.Map;
  */
 
 public class Model implements Serializable {
-    private static final Model _instance = new Model();
+    private static Model _instance = new Model();
     public static Model getInstance() { return _instance; }
 
     /** holds the list of all users */
@@ -41,8 +41,19 @@ public class Model implements Serializable {
         return shelters;
     }
 
+
     public Map<String, User> getUsers() {
         return (HashMap<String, User>) userMap;
+    }
+    List<User> getUserList() {
+        return users;
+    }
+    Map<String, User> getMap() {
+        return userMap;
+    }
+
+    User getUserByID(String name) {
+        return userMap.get(name);
     }
 
     public void setCurrentUser(User u) {
@@ -57,6 +68,14 @@ public class Model implements Serializable {
         userMap.put(m.getUserid(), m);
         System.out.println(m.getUserid());
         System.out.println(m.getPassword());
+    }
+    void addUser(String name, String password, String id, String actType) {
+        User u = new User(name, password, id, actType);
+        //students.add(student);
+        //studentMap.put(name, student);
+        AddUserCommand cmd = new AddUserCommand(u);
+        CommandManager commandManager = AbstractCommand.manager;
+        commandManager.executeCommand(cmd);
     }
 
     public void addShelter(Shelter s) {
@@ -162,5 +181,7 @@ public class Model implements Serializable {
             userMap.put(s.getName(), s);
         }
     }
+
+
 
 }

@@ -81,7 +81,6 @@ public class User implements Serializable {
         String[] tokens = line.split("\t");
         assert tokens.length == 4;
         User s = new User(tokens[0], tokens[1], tokens[2], tokens[3]);
-
         return s;
     }
 }

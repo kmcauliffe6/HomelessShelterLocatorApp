@@ -1,10 +1,12 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
+import java.io.Serializable;
+
 /**
  * Created by paigemca on 2/26/18.
  */
 //need to change capacity to int!!
-public class Shelter {
+public class Shelter implements Serializable {
     private String shelterName;
     private String capacity;
     private String gender;

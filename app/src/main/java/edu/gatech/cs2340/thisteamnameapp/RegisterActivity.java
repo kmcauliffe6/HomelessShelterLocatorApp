@@ -106,7 +106,9 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
                 String type = actTypeSpinner.getSelectedItem().toString(); //find a way to select type from spinner
                 User u = new User(name, email, password, type);
                 m.addUser(u);
-                System.out.println(m.getUsers().size());
+                System.out.println("USER ADDED");
+                System.out.println(m.getUsers());
+                m.setCurrentUser(u);
                 Intent intent = new Intent (RegisterActivity.this, ApplicationActivity.class);
                 startActivity(intent);
             }

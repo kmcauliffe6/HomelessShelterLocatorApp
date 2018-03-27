@@ -174,7 +174,6 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
     @Override
     public void onShelterSelected(Shelter shelter) {
         Toast.makeText(getApplicationContext(), "Selected: " + shelter.getName(), Toast.LENGTH_LONG).show();
-
     }
 }
 

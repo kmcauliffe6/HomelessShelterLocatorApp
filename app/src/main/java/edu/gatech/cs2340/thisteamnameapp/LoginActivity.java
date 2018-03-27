@@ -32,7 +32,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Map;
+import java.util.HashMap;
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
@@ -219,14 +220,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
     private boolean checkCredentials(String email, String password) {
         Model m = Model.getInstance();
-        for (User u : m.getUsers()) {
-            String userid = u.getUserid();
-            String pass = u.getPassword();
-            if (userid.equals(email)) {
-                // Account exists, return true if the password matches.
-                return pass.equals(password);
-            }
+        Map<String, User> users = m.getUsers();
+        //first lookup the user by their login id
+        User s = users.get(email);
+        //if that user id not there, return null
+        if (s == null) return false;
+        //we have a good user at this point, so check their password
+        if (s.getPassword().equals(password)) {
+            return true;
         }
+        //return false if a bad password
         return false;
     }
     private boolean isEmailValid(String email) {

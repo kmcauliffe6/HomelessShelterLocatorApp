@@ -20,7 +20,9 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_check_out" />
+    <include
+        layout="@layout/content_check_out"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/capacity"
@@ -34,6 +36,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
         android:textAppearance="?attr/textAppearanceListItem" />
+
+    <Spinner
+        android:id="@+id/bedspinner"
+        android:layout_width="match_parent"
+        android:layout_height="158dp"
+        tools:layout_editor_absoluteY="-98dp" />
 
 
 </android.support.design.widget.CoordinatorLayout>

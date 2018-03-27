@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class CheckOutActivity extends AppCompatActivity {
@@ -39,6 +41,12 @@ public class CheckOutActivity extends AppCompatActivity {
         Model m = Model.getInstance();
         User u = m.getCurrentUser();
         String name = u.getUserid();
+
+        final Spinner bedSpinner = (Spinner) findViewById(R.id.bedspinner);
+        String[] arr = {"Claim Beds", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        bedSpinner.setAdapter(adapter);
     }
 
 }

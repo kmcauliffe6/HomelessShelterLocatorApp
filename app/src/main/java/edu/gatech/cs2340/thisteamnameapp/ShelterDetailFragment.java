@@ -75,14 +75,11 @@ public class ShelterDetailFragment extends Fragment {
             ((TextView) rootView.findViewById(R.id.latitude)).setText("Latitude: " +mItem.getLatitude());
             ((TextView) rootView.findViewById(R.id.address)).setText("Address: " +mItem.getAddress());
             ((TextView) rootView.findViewById(R.id.phone)).setText("Phone Number: " +mItem.getPhone());
-
             ((TextView) rootView.findViewById(R.id.vacancies)).setText("Current Vacancies: " +mItem.getVacancy());
-
-
         }
-
         return rootView;
     }
+
 
 
 }

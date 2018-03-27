@@ -80,7 +80,8 @@ public class ShelterDetailActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void checkOutBed() {
-
+    public void goToCheckOutActivity(View view) {
+        Intent intent = new Intent (this, CheckOutActivity.class);
+        startActivity(intent);
     }
 }

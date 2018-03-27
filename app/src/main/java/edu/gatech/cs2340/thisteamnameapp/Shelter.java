@@ -64,8 +64,11 @@ public class Shelter {
     public String getDetails() {
         return details;
     }
+
     public void updateVacancy(int b) {
-        bedsCheckedOut = bedsCheckedOut + b;
+        if (bedsCheckedOut + b <= Integer.parseInt(capacity)) {
+            bedsCheckedOut = bedsCheckedOut + b;
+        }
     }
     public int getBedsCheckedOut() {
         return bedsCheckedOut;

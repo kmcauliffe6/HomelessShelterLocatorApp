@@ -2,6 +2,12 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+    <Button
+        android:id="@+id/checkOutButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goToCheckOutActivity"
+        android:text= "@string/checkout" />
 
 <TextView
     android:id="@+id/gender"
@@ -60,12 +66,7 @@
         android:layout_margin="@dimen/text_margin"
         android:textAppearance="?attr/textAppearanceListItem" />
 
-    <Button
-        android:id="@+id/checkOutButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="checkOutBed"
-        android:text= "@string/checkout" />
+
 
     <Button
         android:id="@+id/button2"

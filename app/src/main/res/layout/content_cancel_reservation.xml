@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="edu.gatech.cs2340.thisteamnameapp.CheckOutActivity"
-    tools:showIn="@layout/activity_check_out">
-
+    tools:context="edu.gatech.cs2340.thisteamnameapp.CancelReservationActivity"
+    tools:showIn="@layout/activity_cancel_reservation">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -39,13 +38,12 @@
             android:layout_marginTop="20dp" />
 
         <Button
-            android:id="@+id/checkout_button"
+            android:id="@+id/cancelreservation_button"
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/reservebed"
+            android:text="@string/cancelres"
             android:textStyle="bold" />
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>

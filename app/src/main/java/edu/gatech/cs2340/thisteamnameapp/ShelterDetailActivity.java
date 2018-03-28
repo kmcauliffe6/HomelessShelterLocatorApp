@@ -82,6 +82,13 @@ public class ShelterDetailActivity extends AppCompatActivity {
 
     public void goToCheckOutActivity(View view) {
         Intent intent = new Intent (this, CheckOutActivity.class);
+        intent.putExtra("id", getIntent().getIntExtra(ShelterDetailFragment.ARG_ITEM_ID, 1000));
         startActivity(intent);
     }
+    public void goToCancelResActivity(View view) {
+        Intent intent = new Intent (this, CancelReservationActivity.class);
+        intent.putExtra("id", getIntent().getIntExtra(ShelterDetailFragment.ARG_ITEM_ID, 1000));
+        startActivity(intent);
+    }
+
 }

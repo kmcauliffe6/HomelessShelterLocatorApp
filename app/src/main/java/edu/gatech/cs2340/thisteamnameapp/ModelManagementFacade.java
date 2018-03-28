@@ -15,9 +15,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,9 +59,23 @@ public class ModelManagementFacade {
             return sm.getMap();
         }
 
-        public User getUserByID(final String name) {
-            return sm.getUserByID(name);
+        public List<Shelter> getShelterList() {return sm.getShelters();}
+
+        public void setUpShelterList(InputStream is) throws IOException {
+            sm.createShelterList(is);
         }
+
+
+
+        public User getUserByID(final String id) {
+            return sm.getUserByID(id);
+        }
+
+        public Shelter getShelterByID(final int id) {
+            return sm.findItemByID(id);
+        }
+
+
 
         public void addUser(final String name, final String password, final String id, final String actType) {
             sm.addUser(name, password, id, actType);
@@ -89,7 +105,7 @@ public class ModelManagementFacade {
             return success;
         }
 
-        public boolean loadText(File file) {
+        /*public boolean loadText(File file) {
             try {
                 //make an input object for reading
                 BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -101,8 +117,8 @@ public class ModelManagementFacade {
             }
 
             return true;
-        }
-
+        } */
+        /*
         public boolean loadJson(File file) {
             try {
                 BufferedReader input = new BufferedReader(new FileReader(file));
@@ -122,7 +138,7 @@ public class ModelManagementFacade {
 
             return true;
 
-        }
+        } */
 
         public boolean saveBinary(File file) {
             boolean success = true;
@@ -201,6 +217,7 @@ public class ModelManagementFacade {
         void addUser(User student) {
             sm.addUser(student);
         }
+
 
         /*void removeStudent(Student student) {
             sm.removeStudent(student);

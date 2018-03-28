@@ -35,6 +35,7 @@ import android.util.Log;
 
 import org.json.JSONArray;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,12 +98,16 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
             }
         });
 
+        File file = new File(this.getFilesDir(), ModelManagementFacade.DEFAULT_BINARY_FILE_NAME);
+        ModelManagementFacade.getInstance().saveBinary(file);
+
     }
 
 
     private void getShelters() {
-        Model m = Model.getInstance();
-        shelterList = m.getShelters();
+        ModelManagementFacade m = ModelManagementFacade.getInstance();
+        System.out.println(m.getShelterList());
+        shelterList = m.getShelterList();
     }
 
     @Override
@@ -150,17 +155,15 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
             return true;
         }
 
+
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
         // close search view on back button pressed
-        if (!searchView.isIconified()) {
-            searchView.setIconified(true);
-            return;
-        }
-        super.onBackPressed();
+        Intent intent = new Intent(this, ApplicationActivity.class);
+        startActivity(intent);
     }
 
     private void whiteNotificationBar(View view) {

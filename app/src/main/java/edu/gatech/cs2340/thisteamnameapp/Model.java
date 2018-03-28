@@ -95,7 +95,7 @@ public class Model implements Serializable {
         br.readLine(); //get rid of header line
         while ((line = br.readLine()) != null) {
             String[] tokens = line.split(",");
-            int id = Integer.parseInt(tokens[0]);
+            String id = tokens[0];
             String name = tokens[1];
             String capacity = tokens[2];
             String gender = tokens[3];
@@ -106,8 +106,8 @@ public class Model implements Serializable {
             String phoneNumber = tokens[8];
             Shelter newShelter = new Shelter(name, capacity, gender,
                     longitude, latitude, address,
-                    phoneNumber, id, details);
-            addShelter(newShelter);
+                    phoneNumber, Integer.parseInt(id), details);
+            //addShelter(newShelter);
         }
         br.close();
     } catch (IOException o) {
@@ -178,7 +178,7 @@ public class Model implements Serializable {
         else
             userMap = new HashMap<>();
         for (User s : users) {
-            userMap.put(s.getName(), s);
+            userMap.put(s.getUserid(), s);
         }
     }
 

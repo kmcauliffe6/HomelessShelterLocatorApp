@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -31,6 +32,8 @@ public class ApplicationActivity extends AppCompatActivity {
 
     public void goToWelcomeActivity (View view){
         Intent intent = new Intent (this, MainActivity.class);
+        File file = new File(this.getFilesDir(), ModelManagementFacade.DEFAULT_BINARY_FILE_NAME);
+        ModelManagementFacade.getInstance().saveBinary(file);
         startActivity(intent);
     }
 
@@ -42,11 +45,11 @@ public class ApplicationActivity extends AppCompatActivity {
     }
 
     private void readSDFFile() throws IOException {
-        Model model = Model.getInstance();
+        ModelManagementFacade model = ModelManagementFacade.getInstance();
         try {
             //Open a stream on the raw file
             InputStream is = getResources().openRawResource(R.raw.shelters);
-            model.createShelterList(is);
+            model.setUpShelterList(is);
             //From here we probably should call a model method and pass the InputStream
             //Wrap it in a BufferedReader so that we get the readLine() method
         }catch (IOException e) {

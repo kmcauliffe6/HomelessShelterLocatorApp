@@ -66,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         setContentView(R.layout.activity_register);
 
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = (AutoCompleteTextView) findViewById(R.id.userid);
         //populateAutoComplete();
         mNameView = (AutoCompleteTextView) findViewById(R.id.name);
         mPasswordView = (EditText) findViewById(R.id.password);

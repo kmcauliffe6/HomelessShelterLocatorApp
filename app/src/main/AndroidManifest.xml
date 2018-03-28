@@ -79,6 +79,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.gatech.cs2340.thisteamnameapp.ShelterDetailActivity" />
         </activity>
+        <activity
+            android:name=".CancelReservationActivity"
+            android:label="@string/title_activity_cancel_reservation"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

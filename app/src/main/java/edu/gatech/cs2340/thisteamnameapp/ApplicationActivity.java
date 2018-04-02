@@ -43,8 +43,8 @@ public class ApplicationActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goToShelterMapActivity (View view) throws IOException {
-        Intent intent = new Intent (this, ShelterMapActivity.class);
+    public void goToShelterMapFilterActivity (View view) throws IOException {
+        Intent intent = new Intent (this, ShelterMapFilterActivity.class);
         startActivity(intent);
     }
 

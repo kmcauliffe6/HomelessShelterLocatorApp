@@ -29,13 +29,13 @@
             android:textStyle="bold"
             />
         <Button
-            android:id="@+id/seeSheltersButton"
+            android:id="@+id/seeMapButton"
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Shelter Map View"
-            android:onClick="goToShelterMapActivity"
+            android:onClick="goToShelterMapFilterActivity"
             android:textStyle="bold"
             />
 

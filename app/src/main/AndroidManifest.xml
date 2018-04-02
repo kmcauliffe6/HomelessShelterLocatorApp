@@ -109,6 +109,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.gatech.cs2340.thisteamnameapp.ApplicationActivity" />
         </activity>
+        <activity android:name=".ShelterMapFilterActivity"></activity>
     </application>
 
 </manifest>

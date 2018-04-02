@@ -93,22 +93,25 @@ public class Model implements Serializable {
 
         String line;
         br.readLine(); //get rid of header line
-        while ((line = br.readLine()) != null) {
-            String[] tokens = line.split(",");
-            String id = tokens[0];
-            String name = tokens[1];
-            String capacity = tokens[2];
-            String gender = tokens[3];
-            String longitude = tokens[4];
-            String latitude = tokens[5];
-            String address = tokens[6];
-            String details = tokens[7];
-            String phoneNumber = tokens[8];
-            Shelter newShelter = new Shelter(name, capacity, gender,
-                    longitude, latitude, address,
-                    phoneNumber, Integer.parseInt(id), details);
-            //addShelter(newShelter);
+        if (shelters.isEmpty() || users.isEmpty()) {
+            while ((line = br.readLine()) != null) {
+                String[] tokens = line.split(",");
+                String id = tokens[0];
+                String name = tokens[1];
+                String capacity = tokens[2];
+                String gender = tokens[3];
+                String longitude = tokens[4];
+                String latitude = tokens[5];
+                String address = tokens[6];
+                String details = tokens[7];
+                String phoneNumber = tokens[8];
+                Shelter newShelter = new Shelter(name, capacity, gender,
+                        longitude, latitude, address,
+                        phoneNumber, Integer.parseInt(id), details);
+                addShelter(newShelter);
+            }
         }
+
         br.close();
     } catch (IOException o) {
     }}

@@ -66,8 +66,14 @@ public class Shelter implements Serializable {
     }
 
     public boolean updateVacancy(int b) {
+        ModelManagementFacade m = ModelManagementFacade.getInstance();
+        User u = m.getCurUser();
+        if (u.isCheckedOut()) {
+            return false;
+        }
         if (bedsCheckedOut + b <= Integer.parseInt(capacity)) {
             bedsCheckedOut = bedsCheckedOut + b;
+            u.setShelterCheckedInto(shelterName);
             return true;
         } else {
             return false;

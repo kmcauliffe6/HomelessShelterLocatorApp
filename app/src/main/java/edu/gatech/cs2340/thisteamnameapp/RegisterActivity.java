@@ -96,14 +96,14 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
                 String password = mPasswordView.getText().toString();
                 String name = mNameView.getText().toString();
                 String type = actTypeSpinner.getSelectedItem().toString();
-
-                umf.addUser(name, email, password, type);
+                User u = new User(name, email, password, type);
+                umf.addUser(u);
                 Toast toast = Toast.makeText(getApplicationContext(), "Added student" , Toast.LENGTH_SHORT);
                 toast.show();
 
                 System.out.println("USER ADDED");
                 System.out.println(umf.getUsersAsList());
-                //m.setCurrentUser(u);
+                umf.setCurrentUser(u);
                 Intent intent = new Intent (RegisterActivity.this, ApplicationActivity.class);
                 startActivity(intent);
             }

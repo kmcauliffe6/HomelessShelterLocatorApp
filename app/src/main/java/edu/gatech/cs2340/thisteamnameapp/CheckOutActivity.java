@@ -73,7 +73,7 @@ public class CheckOutActivity extends AppCompatActivity {
                 int num = Integer.parseInt((String) beds.getSelectedItem());
                 boolean m = mItem.updateVacancy(num);
                 if (!m) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "insufficient space" , Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), "unable to check out this room" , Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "reserved rooms" , Toast.LENGTH_SHORT);

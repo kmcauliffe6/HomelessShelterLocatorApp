@@ -81,6 +81,12 @@ public class ModelManagementFacade {
             sm.addUser(name, password, id, actType);
 
         }
+        public User getCurUser() {
+            return sm.getCurrentUser();
+        }
+        public void setCurrentUser(User u) {
+            sm.setCurrentUser(u);
+        }
 
         public boolean loadBinary(File file) {
             boolean success = true;

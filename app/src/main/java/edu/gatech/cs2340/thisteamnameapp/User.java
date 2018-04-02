@@ -51,6 +51,10 @@ public class User implements Serializable {
         return "User: " + name + " " + userid + " " + password + " " + actType;
     }
 
+    public boolean isCheckedOut() {
+        return (!shelterCheckedInto.equals("Not Checked In"));
+    }
+
     /**
      * Save this class in a custom save format
      * uses tab (\t) to make line splitting easy for loading

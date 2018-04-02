@@ -50,7 +50,7 @@ public class ShelterMapFilterActivity extends AppCompatActivity{
             public void onClick(View view) {
                 String filterBy = filterSpinner.getSelectedItem().toString(); //find a way to select type from spinner
                 Intent intent = new Intent (ShelterMapFilterActivity.this, ShelterMapActivity.class);
-                intent.putExtra("Filter By", getIntent().getStringExtra(filterBy));
+                intent.putExtra("Filter By", filterBy);
                 startActivity(intent);
 
             }

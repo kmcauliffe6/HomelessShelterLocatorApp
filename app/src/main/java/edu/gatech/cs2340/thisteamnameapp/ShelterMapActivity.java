@@ -16,6 +16,7 @@ import java.util.List;
 public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private String filterBy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,8 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        filterBy = getIntent().getStringExtra("Filter By");
+
     }
 
 
@@ -40,13 +43,35 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        ModelManagementFacade umf = ModelManagementFacade.getInstance();
-        List<Shelter> shelters = umf.getShelterList();
+
+        List<Shelter> shelters = getFilteredShelters(filterBy);
         for (Shelter s: shelters) {
             LatLng loc = new LatLng(Double.parseDouble(s.getLatitude()), Double.parseDouble(s.getLongitude()));
             mMap.addMarker(new MarkerOptions().position(loc).title(s.getName()).snippet("Current Vacancies: "+ s.getVacancy()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         }
 
+    }
+
+    private List<Shelter> getFilteredShelters(String filter) {
+        ModelManagementFacade umf = ModelManagementFacade.getInstance();
+        List<Shelter> shelters = umf.getShelterList();
+        List<Shelter> filteredShelters = new ArrayList<>();
+        String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn", "Young Adults"};
+        for (String p: arr) {
+            if (filterBy.equals(p)) {
+                if (filterBy.equals("Anyone")) {
+                    filteredShelters = shelters;
+                } else {
+                    for (Shelter s: shelters) {
+                        if (s.getGender().toLowerCase().contains(filterBy.toLowerCase())) {
+                            filteredShelters.add(s);
+                        }
+                    }
+                }
+
+            }
+        }
+        return filteredShelters;
     }
 }

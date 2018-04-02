@@ -38,9 +38,13 @@ public class ApplicationActivity extends AppCompatActivity {
     }
 
     public void goToShelterListActivity (View view) throws IOException {
-        //see shelters pressed
         readSDFFile();
         Intent intent = new Intent (this, ShelterListActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToShelterMapActivity (View view) throws IOException {
+        Intent intent = new Intent (this, ShelterMapActivity.class);
         startActivity(intent);
     }
 

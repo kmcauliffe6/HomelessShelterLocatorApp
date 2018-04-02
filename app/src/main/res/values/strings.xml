@@ -35,4 +35,5 @@
     <string name="search_hint">Type name…</string>
     <string name="title_activity_check_out">CheckOutActivity</string>
     <string name="title_activity_cancel_reservation">CancelReservationActivity</string>
+    <string name="title_activity_shelter_map">ShelterMap</string>
 </resources>

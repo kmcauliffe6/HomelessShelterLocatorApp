@@ -50,7 +50,7 @@ public class ShelterMapFilterActivity extends AppCompatActivity{
             public void onClick(View view) {
                 String filterBy = filterSpinner.getSelectedItem().toString(); //find a way to select type from spinner
                 Intent intent = new Intent (ShelterMapFilterActivity.this, ShelterMapActivity.class);
-                intent.putExtra("Filter By", getIntent().getStringExtra(filterBy)));
+                intent.putExtra("Filter By", getIntent().getStringExtra(filterBy));
                 startActivity(intent);
 
             }
@@ -63,10 +63,7 @@ public class ShelterMapFilterActivity extends AppCompatActivity{
         System.out.println(m.getShelterList());
         shelterList = m.getShelterList();
     }
-    @Override
-    public void onShelterSelected(Shelter shelter) {
-        Toast.makeText(getApplicationContext(), "Selected: " + shelter.getName(), Toast.LENGTH_LONG).show();
-    }
+
 
     public void goToShelterMapActivity (View view) throws IOException {
         Intent intent = new Intent (this, ShelterMapActivity.class);

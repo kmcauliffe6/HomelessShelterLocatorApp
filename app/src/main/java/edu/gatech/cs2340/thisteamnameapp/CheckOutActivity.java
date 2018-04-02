@@ -44,9 +44,7 @@ public class CheckOutActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //Model m = Model.getInstance();
-        //User u = m.getCurrentUser();
-        //String name = u.getUserid();
+
 
         final Spinner beds = (Spinner) findViewById(R.id.checkOutSpinner);
         String[] arr = {"0", "1", "2", "3", "4", "5", "6"};

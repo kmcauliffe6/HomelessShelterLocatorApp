@@ -39,7 +39,7 @@ dependencies {
     // volley http library
     implementation 'com.android.volley:volley:1.0.0'
     implementation 'com.google.code.gson:gson:2.6.2'
-    
+
 
 
 }

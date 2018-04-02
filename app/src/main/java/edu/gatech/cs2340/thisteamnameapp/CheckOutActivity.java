@@ -38,6 +38,7 @@ public class CheckOutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ModelManagementFacade umf = ModelManagementFacade.getInstance();
         setContentView(R.layout.activity_check_out);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -55,7 +56,7 @@ public class CheckOutActivity extends AppCompatActivity {
 
 
         int id = getIntent().getIntExtra("id", 1000);
-        mItem = ModelManagementFacade.getInstance().getShelterByID(id);
+        mItem = umf.getShelterByID(id);
 
         TextView vacancy = findViewById(R.id.vacancies);
         vacancy.setText("Current Vacancies: " + mItem.getVacancy());
@@ -67,9 +68,6 @@ public class CheckOutActivity extends AppCompatActivity {
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ModelManagementFacade umf = ModelManagementFacade.getInstance();
-
-
                 int num = Integer.parseInt((String) beds.getSelectedItem());
                 boolean m = mItem.updateVacancy(num);
                 if (!m) {

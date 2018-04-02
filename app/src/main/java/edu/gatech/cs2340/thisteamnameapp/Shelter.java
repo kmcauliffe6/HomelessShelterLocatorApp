@@ -61,7 +61,7 @@ public class Shelter implements Serializable {
     public String getAddress() {
         return address;
     }
-    public String getDetails() {
+    public java.lang.CharSequence getDetails() {
         return details;
     }
 

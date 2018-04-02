@@ -19,6 +19,7 @@ public class CancelReservationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ModelManagementFacade umf = ModelManagementFacade.getInstance();
         setContentView(R.layout.activity_cancel_reservation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -30,7 +31,7 @@ public class CancelReservationActivity extends AppCompatActivity {
 
 
         int id = getIntent().getIntExtra("id", 1000);
-        mItem = ModelManagementFacade.getInstance().getShelterByID(id);
+        mItem = umf.getShelterByID(id);
 
         TextView vacancy = findViewById(R.id.vacancies);
         vacancy.setText("Current Vacancies: " + mItem.getVacancy());
@@ -42,7 +43,6 @@ public class CancelReservationActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ModelManagementFacade umf = ModelManagementFacade.getInstance();
                 int num = Integer.parseInt((String) beds.getSelectedItem());
                 boolean m = mItem.decreaseVacancy(num);
                 if (!m) {

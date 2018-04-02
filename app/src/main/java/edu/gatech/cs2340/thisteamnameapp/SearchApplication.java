@@ -37,7 +37,7 @@ public class SearchApplication extends Application {
             return mRequestQueue;
         }
 
-        public <T> void addToRequestQueue(Request<T> req, String tag) {
+        /*public <T> void addToRequestQueue(Request<T> req, String tag) {
             // set the default tag if tag is empty
             req.setTag(TextUtils.isEmpty(tag) ? TAG : tag);
             getRequestQueue().add(req);
@@ -52,5 +52,5 @@ public class SearchApplication extends Application {
             if (mRequestQueue != null) {
                 mRequestQueue.cancelAll(tag);
             }
-        }
+        } */
     }

@@ -66,16 +66,14 @@ public class Model implements Serializable {
     public void addUser(User m) {
         users.add(m);
         userMap.put(m.getUserid(), m);
-        System.out.println(m.getUserid());
-        System.out.println(m.getPassword());
     }
     void addUser(String name, String password, String id, String actType) {
         User u = new User(name, password, id, actType);
         //students.add(student);
         //studentMap.put(name, student);
-        AddUserCommand cmd = new AddUserCommand(u);
-        CommandManager commandManager = AbstractCommand.manager;
-        commandManager.executeCommand(cmd);
+        //AddUserCommand cmd = new AddUserCommand(u);
+        //CommandManager commandManager = AbstractCommand.manager;
+        //commandManager.executeCommand(cmd);
     }
 
     public void addShelter(Shelter s) {

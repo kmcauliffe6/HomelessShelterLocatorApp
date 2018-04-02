@@ -161,7 +161,7 @@ public class ModelManagementFacade {
              */
 
 
-                ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+                java.io.ObjectOutput out = new ObjectOutputStream(new FileOutputStream(file));
                 // We basically can save our entire data model with one write, since this will follow
                 // all the links and pointers to save everything.  Just save the top level object.
                 out.writeObject(sm);

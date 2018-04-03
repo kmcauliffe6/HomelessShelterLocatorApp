@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         ModelManagementFacade.getInstance().loadBinary(file);
     }
 
+    public void goToSplashActivity (View view){
+        Intent intent = new Intent (this, SplashActivity.class);
+        startActivity(intent);
+    }
     public void goToLoginActivity (View view){
         Intent intent = new Intent (this, LoginActivity.class);
         startActivity(intent);

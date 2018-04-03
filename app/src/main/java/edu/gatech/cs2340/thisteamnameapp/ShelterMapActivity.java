@@ -49,6 +49,8 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
             LatLng loc = new LatLng(Double.parseDouble(s.getLatitude()), Double.parseDouble(s.getLongitude()));
             mMap.addMarker(new MarkerOptions().position(loc).title(s.getName()).snippet("Current Vacancies: "+ s.getVacancy()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+                    new LatLng(Double.parseDouble(s.getLatitude()), Double.parseDouble(s.getLongitude())), 11));
         }
 
     }

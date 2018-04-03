@@ -65,8 +65,4 @@ public class ShelterMapFilterActivity extends AppCompatActivity{
     }
 
 
-    public void goToShelterMapActivity (View view) throws IOException {
-        Intent intent = new Intent (this, ShelterMapActivity.class);
-        startActivity(intent);
-    }
 }

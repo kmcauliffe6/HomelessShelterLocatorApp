@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
 import android.app.Activity;
-import android.content.Intent;
+
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -46,11 +46,12 @@ public class ShelterDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            int id = getArguments().getInt(ARG_ITEM_ID);;
-            mItem = Model.getInstance().findItemByID(id);
+            int id = getArguments().getInt(ARG_ITEM_ID);
+            ModelManagementFacade m = ModelManagementFacade.getInstance();
+            mItem = m.getShelterByID(id);
 
             Activity activity = this.getActivity();
-            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
+            CollapsingToolbarLayout appBarLayout = activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mItem.getName());
             }
@@ -77,6 +78,7 @@ public class ShelterDetailFragment extends Fragment {
         }
         return rootView;
     }
+
 
 
 

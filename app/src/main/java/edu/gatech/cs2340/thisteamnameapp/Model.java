@@ -1,12 +1,11 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -43,7 +42,7 @@ public class Model implements Serializable {
 
 
     public Map<String, User> getUsers() {
-        return (HashMap<String, User>) userMap;
+        return userMap;
     }
     List<User> getUserList() {
         return users;
@@ -66,16 +65,14 @@ public class Model implements Serializable {
     public void addUser(User m) {
         users.add(m);
         userMap.put(m.getUserid(), m);
-        System.out.println(m.getUserid());
-        System.out.println(m.getPassword());
     }
     void addUser(String name, String password, String id, String actType) {
         User u = new User(name, password, id, actType);
         //students.add(student);
         //studentMap.put(name, student);
-        AddUserCommand cmd = new AddUserCommand(u);
-        CommandManager commandManager = AbstractCommand.manager;
-        commandManager.executeCommand(cmd);
+        //AddUserCommand cmd = new AddUserCommand(u);
+        //CommandManager commandManager = AbstractCommand.manager;
+        //commandManager.executeCommand(cmd);
     }
 
     public void addShelter(Shelter s) {
@@ -93,22 +90,25 @@ public class Model implements Serializable {
 
         String line;
         br.readLine(); //get rid of header line
-        while ((line = br.readLine()) != null) {
-            String[] tokens = line.split(",");
-            int id = Integer.parseInt(tokens[0]);
-            String name = tokens[1];
-            String capacity = tokens[2];
-            String gender = tokens[3];
-            String longitude = tokens[4];
-            String latitude = tokens[5];
-            String address = tokens[6];
-            String details = tokens[7];
-            String phoneNumber = tokens[8];
-            Shelter newShelter = new Shelter(name, capacity, gender,
-                    longitude, latitude, address,
-                    phoneNumber, id, details);
-            addShelter(newShelter);
+        if (shelters.isEmpty() || users.isEmpty()) {
+            while ((line = br.readLine()) != null) {
+                String[] tokens = line.split(",");
+                String id = tokens[0];
+                String name = tokens[1];
+                String capacity = tokens[2];
+                String gender = tokens[3];
+                String longitude = tokens[4];
+                String latitude = tokens[5];
+                String address = tokens[6];
+                String details = tokens[7];
+                String phoneNumber = tokens[8];
+                Shelter newShelter = new Shelter(name, capacity, gender,
+                        longitude, latitude, address,
+                        phoneNumber, Integer.parseInt(id), details);
+                addShelter(newShelter);
+            }
         }
+
         br.close();
     } catch (IOException o) {
     }}
@@ -120,7 +120,7 @@ public class Model implements Serializable {
      */
     public Shelter findItemByID(int id) {
         for (Shelter d : shelters) {
-            if (d.getId() == id) return d;
+            if (d.getId() == id) {return d;}
         }
         return null;
     }
@@ -130,7 +130,6 @@ public class Model implements Serializable {
      * @param writer
      */
     void saveAsText(PrintWriter writer) {
-        System.out.println("Manager saving: " + users.size() + " users" );
         writer.println(users.size());
         for(User s : users) {
             s.saveAsText(writer);
@@ -143,7 +142,6 @@ public class Model implements Serializable {
      * @param reader  the file to read from
      */
     void loadFromText(BufferedReader reader) {
-        System.out.println("Loading Text File");
         users.clear();
         try {
             String countStr = reader.readLine();
@@ -162,7 +160,6 @@ public class Model implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Done loading text file with " + users.size() + " students");
 
     }
 
@@ -173,12 +170,13 @@ public class Model implements Serializable {
      *
      */
     void regenMap() {
-        if (userMap != null)
+        if (userMap != null) {
             userMap.clear();
-        else
+        } else {
             userMap = new HashMap<>();
+        }
         for (User s : users) {
-            userMap.put(s.getName(), s);
+            userMap.put(s.getUserid(), s);
         }
     }
 

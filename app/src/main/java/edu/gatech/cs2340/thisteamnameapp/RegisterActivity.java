@@ -4,9 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
 
@@ -19,26 +16,17 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
 import android.widget.Toast;
-import edu.gatech.cs2340.thisteamnameapp.AbstractCommand;
-import edu.gatech.cs2340.thisteamnameapp.CommandManager;
-import edu.gatech.cs2340.thisteamnameapp.ModelManagementFacade;
-
-import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
@@ -60,17 +48,19 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
 
 
 
+    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mEmailView = findViewById(R.id.userid);
         //populateAutoComplete();
-        mNameView = (AutoCompleteTextView) findViewById(R.id.name);
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mTypeView = findViewById(R.id.spinner);
+        mNameView = findViewById(R.id.name);
+        mPasswordView = findViewById(R.id.password);
+        //mTypeView = findViewById(R.id.spinner);
         /*mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -81,13 +71,14 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
                 return false;
             }
         }); */
-        final Spinner actTypeSpinner = (Spinner) findViewById(R.id.spinner);
+        final Spinner actTypeSpinner = findViewById(R.id.spinner);
         String[] arr = {"Admin", "User", "Shelter Employee"};
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         actTypeSpinner.setAdapter(adapter);
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = findViewById(R.id.email_sign_in_button);
+        //noinspection FeatureEnvy
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,21 +87,19 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
                 String password = mPasswordView.getText().toString();
                 String name = mNameView.getText().toString();
                 String type = actTypeSpinner.getSelectedItem().toString();
-
-                umf.addUser(name, email, password, type);
+                User u = new User(name, email, password, type);
+                umf.addUser(u);
                 Toast toast = Toast.makeText(getApplicationContext(), "Added student" , Toast.LENGTH_SHORT);
                 toast.show();
-
-                System.out.println("USER ADDED");
-                System.out.println(umf.getUsersAsList());
-                //m.setCurrentUser(u);
+                umf.setCurrentUser(u);
                 Intent intent = new Intent (RegisterActivity.this, ApplicationActivity.class);
                 startActivity(intent);
             }
         });
 
-        Button cancelEmailButton = (Button) findViewById(R.id.cancelLoginButton);
+        Button cancelEmailButton = findViewById(R.id.cancelLoginButton);
         cancelEmailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -135,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
     private void setupActionBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             // Show the Up button in the action bar.
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
 

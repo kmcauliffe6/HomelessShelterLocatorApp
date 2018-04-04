@@ -8,7 +8,6 @@ import android.widget.Filterable;
 import android.widget.Filter;
 import android.content.Context;
 import android.widget.TextView;
-import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.Intent;
@@ -23,8 +22,8 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
     private ShelterAdapterListener listener;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView name;
-        public TextView gender;
+        private TextView name;
+        private TextView gender;
 
         public MyViewHolder(View view) {
             super(view);
@@ -53,6 +52,7 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
         this.shelterListFiltered = shelterList;
     }
 
+    @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.shelter_row_item, parent, false);
@@ -71,6 +71,7 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
     }
 
 
+    @Override
     public Filter getFilter() {
         return new Filter() {
             @Override
@@ -83,12 +84,12 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
                     if (charString.equals(p)) {
                         List<Shelter> filteredList = new ArrayList<>();
                         filterby = true;
-                        System.out.println("charString:" + charString);
-                        if (charString.equals("Anyone")) {
+                        //System.out.println("charString:" + charString);
+                        if ("Anyone".equals(charString)) {
                             shelterListFiltered = shelterList;
                         } else {
                             for (Shelter s: shelterList) {
-                                System.out.println(s.getGender());
+                                //System.out.println(s.getGender());
                                 if (s.getGender().toLowerCase().contains(charString.toLowerCase())) {
                                     filteredList.add(s);
                                 }
@@ -103,7 +104,7 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
                 } else if (!filterby) {
                     List<Shelter> filteredList = new ArrayList<>();
                     for (Shelter row : shelterList) {
-                        System.out.println("ugggghhhhhh");
+                        //System.out.println("ugggghhhhhh");
                         // shelter name match condition
                         if (row.getName().toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(row);

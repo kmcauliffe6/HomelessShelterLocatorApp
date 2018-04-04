@@ -8,6 +8,12 @@
         android:layout_height="wrap_content"
         android:onClick="goToCheckOutActivity"
         android:text= "@string/checkout" />
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="goToCancelResActivity"
+        android:text= "@string/cancelres" />
 
 <TextView
     android:id="@+id/gender"
@@ -74,6 +80,7 @@
         android:layout_height="wrap_content"
         android:onClick="goToShelterActivity"
         android:text= "@string/backtoshelters" />
+
 
 
 </LinearLayout>

@@ -51,6 +51,10 @@ public class User implements Serializable {
         return "User: " + name + " " + userid + " " + password + " " + actType;
     }
 
+    public boolean isCheckedOut() {
+        return (!"Not Checked In".equals(shelterCheckedInto));
+    }
+
     /**
      * Save this class in a custom save format
      * uses tab (\t) to make line splitting easy for loading
@@ -58,7 +62,7 @@ public class User implements Serializable {
      * @param writer the file to write this student to
      */
     public void saveAsText(PrintWriter writer) {
-        System.out.println("User saving user: " + name);
+        //System.out.println("User saving user: " + name);
         writer.println(name + "\t" + userid + "\t" + password + "\t" + actType);
     }
 

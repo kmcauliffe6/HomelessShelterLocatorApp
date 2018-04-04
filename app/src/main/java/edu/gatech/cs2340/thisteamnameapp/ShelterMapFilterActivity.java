@@ -3,17 +3,14 @@ package edu.gatech.cs2340.thisteamnameapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
+
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,13 +26,13 @@ public class ShelterMapFilterActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_map_filter);
 
-        final Spinner filterSpinner = (Spinner) findViewById(R.id.filterspinner);
+        final Spinner filterSpinner = findViewById(R.id.filterspinner);
         String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn", "Young Adults"};
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         filterSpinner.setAdapter(adapter);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.toolbar_title);
 
         shelterList = new ArrayList<>();
@@ -44,7 +41,7 @@ public class ShelterMapFilterActivity extends AppCompatActivity{
         //whiteNotificationBar(recyclerView);
 
 
-        Button filterButton = (Button) findViewById(R.id.filterButton);
+        Button filterButton = findViewById(R.id.filterButton);
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,10 +54,15 @@ public class ShelterMapFilterActivity extends AppCompatActivity{
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, ApplicationActivity.class);
+        startActivity(intent);
+    }
 
     private void getShelters() {
         ModelManagementFacade m = ModelManagementFacade.getInstance();
-        System.out.println(m.getShelterList());
+        //System.out.println(m.getShelterList());
         shelterList = m.getShelterList();
     }
 

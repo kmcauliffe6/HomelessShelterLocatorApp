@@ -2,8 +2,7 @@ package edu.gatech.cs2340.thisteamnameapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +21,7 @@ public class ShelterDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelter_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
+        Toolbar toolbar = findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
 
@@ -88,6 +87,12 @@ public class ShelterDetailActivity extends AppCompatActivity {
     public void goToCancelResActivity(View view) {
         Intent intent = new Intent (this, CancelReservationActivity.class);
         intent.putExtra("id", getIntent().getIntExtra(ShelterDetailFragment.ARG_ITEM_ID, 1000));
+        startActivity(intent);
+    }
+    @Override
+    public void onBackPressed() {
+        // close search view on back button pressed
+        Intent intent = new Intent(this, ApplicationActivity.class);
         startActivity(intent);
     }
 

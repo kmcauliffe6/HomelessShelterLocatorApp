@@ -1,12 +1,11 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -43,7 +42,7 @@ public class Model implements Serializable {
 
 
     public Map<String, User> getUsers() {
-        return (HashMap<String, User>) userMap;
+        return userMap;
     }
     List<User> getUserList() {
         return users;
@@ -121,7 +120,7 @@ public class Model implements Serializable {
      */
     public Shelter findItemByID(int id) {
         for (Shelter d : shelters) {
-            if (d.getId() == id) return d;
+            if (d.getId() == id) {return d;}
         }
         return null;
     }
@@ -131,7 +130,6 @@ public class Model implements Serializable {
      * @param writer
      */
     void saveAsText(PrintWriter writer) {
-        System.out.println("Manager saving: " + users.size() + " users" );
         writer.println(users.size());
         for(User s : users) {
             s.saveAsText(writer);
@@ -144,7 +142,6 @@ public class Model implements Serializable {
      * @param reader  the file to read from
      */
     void loadFromText(BufferedReader reader) {
-        System.out.println("Loading Text File");
         users.clear();
         try {
             String countStr = reader.readLine();
@@ -163,7 +160,6 @@ public class Model implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Done loading text file with " + users.size() + " students");
 
     }
 
@@ -174,10 +170,11 @@ public class Model implements Serializable {
      *
      */
     void regenMap() {
-        if (userMap != null)
+        if (userMap != null) {
             userMap.clear();
-        else
+        } else {
             userMap = new HashMap<>();
+        }
         for (User s : users) {
             userMap.put(s.getUserid(), s);
         }

@@ -2,8 +2,6 @@ package edu.gatech.cs2340.thisteamnameapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -21,11 +19,12 @@ public class CancelReservationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ModelManagementFacade umf = ModelManagementFacade.getInstance();
         setContentView(R.layout.activity_cancel_reservation);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        final Spinner beds = (Spinner) findViewById(R.id.checkOutSpinner);
+        final Spinner beds = findViewById(R.id.checkOutSpinner);
         String[] arr = {"0", "1", "2", "3", "4", "5", "6"};
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         beds.setAdapter(adapter);
 
@@ -46,18 +45,27 @@ public class CancelReservationActivity extends AppCompatActivity {
                 int num = Integer.parseInt((String) beds.getSelectedItem());
                 boolean m = mItem.decreaseVacancy(num);
                 if (!m) {
-                    Toast toast = Toast.makeText(getApplicationContext(), "beds not returned" , Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "beds not returned" , Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "reservation canceled" , Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(),
+                            "reservation canceled" , Toast.LENGTH_SHORT);
                     toast.show();
-                    Intent intent = new Intent (CancelReservationActivity.this, ShelterListActivity.class);
+                    Intent intent = new Intent (CancelReservationActivity.this,
+                            ShelterListActivity.class);
                     startActivity(intent);
                 }
 
 
             }
         });
+    }
+    @Override
+    public void onBackPressed() {
+        // close search view on back button pressed
+        Intent intent = new Intent(this, ShelterListActivity.class);
+        startActivity(intent);
     }
 
 }

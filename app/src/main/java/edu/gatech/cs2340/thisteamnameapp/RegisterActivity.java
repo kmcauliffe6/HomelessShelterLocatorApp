@@ -48,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
 
 
 
+    @SuppressWarnings("FeatureEnvy")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,11 +56,11 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
 
 
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.userid);
+        mEmailView = findViewById(R.id.userid);
         //populateAutoComplete();
-        mNameView = (AutoCompleteTextView) findViewById(R.id.name);
-        mPasswordView = (EditText) findViewById(R.id.password);
-        mTypeView = findViewById(R.id.spinner);
+        mNameView = findViewById(R.id.name);
+        mPasswordView = findViewById(R.id.password);
+        //mTypeView = findViewById(R.id.spinner);
         /*mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -70,13 +71,14 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
                 return false;
             }
         }); */
-        final Spinner actTypeSpinner = (Spinner) findViewById(R.id.spinner);
+        final Spinner actTypeSpinner = findViewById(R.id.spinner);
         String[] arr = {"Admin", "User", "Shelter Employee"};
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         actTypeSpinner.setAdapter(adapter);
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = findViewById(R.id.email_sign_in_button);
+        //noinspection FeatureEnvy
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,8 +97,9 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
             }
         });
 
-        Button cancelEmailButton = (Button) findViewById(R.id.cancelLoginButton);
+        Button cancelEmailButton = findViewById(R.id.cancelLoginButton);
         cancelEmailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
                 Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -121,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
     private void setupActionBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             // Show the Up button in the action bar.
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
 

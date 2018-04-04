@@ -52,7 +52,7 @@ public class User implements Serializable {
     }
 
     public boolean isCheckedOut() {
-        return (!shelterCheckedInto.equals("Not Checked In"));
+        return (!"Not Checked In".equals(shelterCheckedInto));
     }
 
     /**
@@ -62,7 +62,7 @@ public class User implements Serializable {
      * @param writer the file to write this student to
      */
     public void saveAsText(PrintWriter writer) {
-        System.out.println("User saving user: " + name);
+        //System.out.println("User saving user: " + name);
         writer.println(name + "\t" + userid + "\t" + password + "\t" + actType);
     }
 

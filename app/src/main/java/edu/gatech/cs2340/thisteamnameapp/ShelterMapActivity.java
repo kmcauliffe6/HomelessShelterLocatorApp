@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -62,7 +63,7 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
         String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn", "Young Adults"};
         for (String p: arr) {
             if (filterBy.equals(p)) {
-                if (filterBy.equals("Anyone")) {
+                if ("Anyone".equals(filterBy)) {
                     filteredShelters = shelters;
                 } else {
                     for (Shelter s: shelters) {
@@ -75,5 +76,11 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
             }
         }
         return filteredShelters;
+    }
+    @Override
+    public void onBackPressed() {
+        // close search view on back button pressed
+        Intent intent = new Intent(this, ShelterMapFilterActivity.class);
+        startActivity(intent);
     }
 }

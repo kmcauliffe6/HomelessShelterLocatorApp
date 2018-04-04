@@ -4,36 +4,27 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.LayoutInflater;
+
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Filter;
+
 import android.widget.Spinner;
-import android.widget.TextView;
+
 import android.widget.Toast;
 import android.os.Build;
 import android.graphics.Color;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import android.util.Log;
 
-import org.json.JSONArray;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -68,13 +59,13 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final Spinner filterSpinner = (Spinner) findViewById(R.id.filterspinner);
+        final Spinner filterSpinner = findViewById(R.id.filterspinner);
         String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn", "Young Adults"};
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         filterSpinner.setAdapter(adapter);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.toolbar_title);
 
         recyclerView = findViewById(R.id.shelter_list);
@@ -89,7 +80,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
-        Button filterButton = (Button) findViewById(R.id.filterButton);
+        Button filterButton = findViewById(R.id.filterButton);
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,7 +97,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
 
     private void getShelters() {
         ModelManagementFacade m = ModelManagementFacade.getInstance();
-        System.out.println(m.getShelterList());
+        //System.out.println(m.getShelterList());
         shelterList = m.getShelterList();
     }
 
@@ -154,7 +145,8 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         if (id == R.id.search) {
             return true;
         }
-
+        Intent intent = new Intent(this, ApplicationActivity.class);
+        startActivity(intent);
 
         return super.onOptionsItemSelected(item);
     }

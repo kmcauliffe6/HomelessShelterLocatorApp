@@ -33,7 +33,6 @@ public class CheckOutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         ModelManagementFacade umf = ModelManagementFacade.getInstance();
         setContentView(R.layout.activity_check_out);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -41,9 +40,8 @@ public class CheckOutActivity extends AppCompatActivity {
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         final Spinner beds = findViewById(R.id.checkOutSpinner);
-        String[] arr = {"0", "1", "2", "3", "4", "5", "6"};
+        String[] arr = {"1", "2", "3", "4", "5", "6"};
         ArrayAdapter<String> adapter = new ArrayAdapter(this,
                 android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

@@ -91,8 +91,9 @@ public class Shelter implements Serializable {
     public boolean decreaseVacancy(int b) {
         ModelManagementFacade m = ModelManagementFacade.getInstance();
         User u = m.getCurUser();
+        int curVacancies = Integer.parseInt(capacity) - bedsCheckedOut;
         if ((u.isCheckedOut())
-                && ((Integer.parseInt(capacity) - bedsCheckedOut +  b) <= Integer.parseInt(capacity))) {
+                && (curVacancies +  b) <= Integer.parseInt(capacity)) {
             bedsCheckedOut = bedsCheckedOut - b;
             u.setShelterCheckedInto("Not Checked In");
             return true;
@@ -113,6 +114,7 @@ public class Shelter implements Serializable {
      *
      * @param writer the file to write this student to
      */
+    /*
     public void saveAsText(PrintWriter writer) {
         //System.out.println("Shelter saving shelter: " + shelterName);
         writer.println(shelterName + "\t" + capacity + "\t" + gender + "\t" + longitude + "\t" + latitude
@@ -134,6 +136,7 @@ public class Shelter implements Serializable {
      * @param line  the text line containing the data
      * @return the student object
      */
+    /*
     public static Shelter parseEntry(String line) {
         assert line != null;
         String[] tokens = line.split("\t");
@@ -141,7 +144,7 @@ public class Shelter implements Serializable {
         Shelter s = new Shelter(tokens[0], tokens[1], tokens[2], tokens[3], tokens[5], tokens[6], tokens[7],Integer.parseInt(tokens[8]),
                 tokens[9]);
         return s;
-    }
+    } */
 
 
 }

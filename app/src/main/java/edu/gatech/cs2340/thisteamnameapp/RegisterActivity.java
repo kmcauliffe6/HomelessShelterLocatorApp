@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-    private View mTypeView;
+    //private View mTypeView;
 
 
 
@@ -89,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
                 String type = actTypeSpinner.getSelectedItem().toString();
                 User u = new User(name, email, password, type);
                 umf.addUser(u);
-                Toast toast = Toast.makeText(getApplicationContext(), "Added student" , Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "Added user" , Toast.LENGTH_SHORT);
                 toast.show();
                 umf.setCurrentUser(u);
                 Intent intent = new Intent (RegisterActivity.this, ApplicationActivity.class);
@@ -109,90 +109,11 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
-        setupActionBar();
+        //setupActionBar();
 
 
     }
 
-
-
-
-    /**
-     * Set up the {@link android.app.ActionBar}, if the API is available.
-     */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    private void setupActionBar() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            // Show the Up button in the action bar.
-            //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-    }
-
-    /**
-     * Attempts to sign in or register the account specified by the login form.
-     * If there are form errors (invalid email, missing fields, etc.), the
-     * errors are presented and no actual login attempt is made.
-     */
-
-    private void attemptLogin() {
-
-
-        Intent intent = new Intent (this, ApplicationActivity.class);
-        startActivity(intent);
-    }/*
-        if (mAuthTask != null) {
-            return;
-        }
-
-        // Reset errors.
-        mEmailView.setError(null);
-        mPasswordView.setError(null);
-
-        // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
-        String password = mPasswordView.getText().toString();
-
-        boolean cancel = false;
-        View focusView = null;
-
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
-
-        // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
-            cancel = true;
-        }
-
-        if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
-            focusView.requestFocus();
-        } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            Intent intent = new Intent (this, ApplicationActivity.class);
-            startActivity(intent);
-            //mAuthTask.execute((Void) null);
-        }
-    } */
-    /*
-    private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.equals("user");
-    }
-
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.equals("pass");
-    } */
 
     /**
      * Shows the progress UI and hides the login form.
@@ -301,21 +222,6 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-            /*
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
-
-            for (String credential : Model.getUsers()) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            } */
 
             // TODO: register the new account here.
             return true;

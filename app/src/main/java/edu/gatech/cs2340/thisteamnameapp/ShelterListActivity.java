@@ -84,7 +84,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String type = filterSpinner.getSelectedItem().toString(); //find a way to select type from spinner
+                String type = filterSpinner.getSelectedItem().toString(); //type from spinner
                 mAdapter.getFilter().filter(type);
             }
         });
@@ -97,7 +97,6 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
 
     private void getShelters() {
         ModelManagementFacade m = ModelManagementFacade.getInstance();
-        //System.out.println(m.getShelterList());
         shelterList = m.getShelterList();
     }
 
@@ -128,10 +127,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
                 return false;
             }
         });
-
-
         return true;
-
     }
 
     @Override

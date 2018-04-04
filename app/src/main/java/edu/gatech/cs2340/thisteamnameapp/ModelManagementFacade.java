@@ -76,10 +76,7 @@ public class ModelManagementFacade {
 
 
 
-        public void addUser(final String name, final String password, final String id, final String actType) {
-            sm.addUser(name, password, id, actType);
-
-        }
+    
         public User getCurUser() {
             return sm.getCurrentUser();
         }

@@ -62,7 +62,7 @@ public class User implements Serializable {
      * @param writer the file to write this student to
      */
     public void saveAsText(PrintWriter writer) {
-        //System.out.println("User saving user: " + name);
+        //System.out.println("User saving user: " + name); add as toast
         writer.println(name + "\t" + userid + "\t" + password + "\t" + actType);
     }
 
@@ -80,11 +80,12 @@ public class User implements Serializable {
      * @param line  the text line containing the data
      * @return the student object
      */
+    /*
     public static User parseEntry(String line) {
         assert line != null;
         String[] tokens = line.split("\t");
         assert tokens.length == 4;
         User s = new User(tokens[0], tokens[1], tokens[2], tokens[3]);
         return s;
-    }
+    } */
 }

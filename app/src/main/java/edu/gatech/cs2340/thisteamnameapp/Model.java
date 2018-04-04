@@ -20,12 +20,19 @@ import java.util.Map;
 
 public class Model implements Serializable {
     private static Model _instance = new Model();
-    public static Model getInstance() { return _instance; }
 
-    /** holds the list of all users */
+    public static Model getInstance() {
+        return _instance;
+    }
+
+    /**
+     * holds the list of all users
+     */
     private final List<User> users;
     private transient Map<String, User> userMap = new HashMap<>();
-    /** holds the list of all users */
+    /**
+     * holds the list of all users
+     */
     //private List<Admin> admins;
     private final List<Shelter> shelters;
     private User currentUser;
@@ -44,9 +51,11 @@ public class Model implements Serializable {
     public Map<String, User> getUsers() {
         return userMap;
     }
+
     List<User> getUserList() {
         return users;
     }
+
     Map<String, User> getMap() {
         return userMap;
     }
@@ -58,6 +67,7 @@ public class Model implements Serializable {
     public void setCurrentUser(User u) {
         currentUser = u;
     }
+
     public User getCurrentUser() {
         return currentUser;
     }
@@ -66,18 +76,10 @@ public class Model implements Serializable {
         users.add(m);
         userMap.put(m.getUserid(), m);
     }
-    void addUser(String name, String password, String id, String actType) {
-        User u = new User(name, password, id, actType);
-        //students.add(student);
-        //studentMap.put(name, student);
-        //AddUserCommand cmd = new AddUserCommand(u);
-        //CommandManager commandManager = AbstractCommand.manager;
-        //commandManager.executeCommand(cmd);
-    }
 
     public void addShelter(Shelter s) {
-            shelters.add(s);}
-
+        shelters.add(s);
+    }
     /**
      * parses CSV file and adds Shelters to shelters list
      * @param is the input from the CSV file
@@ -141,6 +143,7 @@ public class Model implements Serializable {
      *
      * @param reader  the file to read from
      */
+    /*
     void loadFromText(BufferedReader reader) {
         users.clear();
         try {
@@ -161,7 +164,7 @@ public class Model implements Serializable {
             e.printStackTrace();
         }
 
-    }
+    } */
 
     /**
      * This should only be called during serialization (reading in).

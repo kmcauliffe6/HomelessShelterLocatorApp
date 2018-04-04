@@ -219,8 +219,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
     private boolean checkCredentials(String email, String password) {
-        Model m = Model.getInstance();
-        Map<String, User> users = m.getUsers();
+        ModelManagementFacade m = ModelManagementFacade.getInstance();
+        Map<String, User> users = m.getUsersAsList();
         //first lookup the user by their login id
         User s = users.get(email);
         //if that user id not there, return null

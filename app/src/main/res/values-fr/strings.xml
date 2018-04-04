@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Application de Refuge pour les Sans-Abris</string>
+    <string name="title_activity_login">Se connecter</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email" tools:ignore="StringEscaping">Nom d\'\utilisateur</string>
+    <string name="cancel">Annuler</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="prompt_name">Prénom</string>
+    <string name="prompt_type">Type de compte</string>
+    <string name="action_register">Inscrivez-vous</string>
+    <string name="action_sign_in_short">Se connecter</string>
+    <string name="error_invalid_email" tools:ignore="StringEscaping">Le nom d\'\utilisateur est invalide</string>
+    <string name="error_invalid_credentials" tools:ignore="StringEscaping">Le nom d\'\utilisateur ou mot de passe est incorrect</string>
+    <string name="error_invalid_password">Ce mot de passe est invalide</string>
+    <string name="error_incorrect_password">Ce mot de passe est incorrect</string>
+    <string name="error_field_required">Ce domaine est requis</string>
+    <string name="permission_rationale">"Les autorisations de contacts sont nécessaires pour fournir des complétions de courrier électronique."
+    </string>
+    <string name="cancelres">Annule une réservation</string>
+    <string name="title_activity_register">Enregistrer Une Nouveau Compte</string>
+    <string name="reservebed">Réservez Un Lit</string>
+    <string name="title_activity_application">Bienvenue à Notre Application</string>
+    <string name="title_activity_shelter_list">ShelterListActivity</string>
+    <string name="title_shelter_list">Les Abris</string>
+    <string name="filterby">Filtrer Par</string>
+    <string name="title_shelter_detail">Détail de l\'\Abri</string>
+    <string name="backtoshelters">en arrière</string>
+    <string name="checkout">Réclamer Un Lit</string>
+    <!-- Strings from search tutorial -->
+    <string name="action_settings">Paramètres</string>
+    <string name="toolbar_title">Les Abris</string>
+    <string name="action_search">Rechercher</string>
+    <string name="search_hint">Écrivez un nom…</string>
+    <string name="title_activity_check_out">CheckOutActivity</string>
+    <string name="title_activity_cancel_reservation">CancelReservationActivity</string>
+    <string name="title_activity_shelter_map">ShelterMap</string>
+</>

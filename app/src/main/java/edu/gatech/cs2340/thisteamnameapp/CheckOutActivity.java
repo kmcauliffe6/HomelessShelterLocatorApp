@@ -81,6 +81,7 @@ public class CheckOutActivity extends AppCompatActivity {
         });
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

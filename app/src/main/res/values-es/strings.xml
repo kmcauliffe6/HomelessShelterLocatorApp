@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Aplicación de Refugio</string>
+    <string name="title_activity_login">Iniciar Sesión</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Número de Usuario</string>
+    <string name="cancel">Cancelar</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="prompt_name">Nombre</string>
+    <string name="prompt_type">Typo de Cuenta</string>
+    <string name="action_register">Regístrate</string>
+    <string name="action_sign_in_short">Iniciar Sesión</string>
+    <string name="error_invalid_email">El número de usuario es inválido.</string>
+    <string name="error_invalid_credentials">El número de usuario o contraseña es incorrecto.</string>
+    <string name="error_invalid_password">La contraseña es inválida.</string>
+    <string name="error_incorrect_password">La contraseña es incorrecta.</string>
+    <string name="error_field_required">Este campo es requerido.</string>
+    <string name="permission_rationale">"Se necesitan permisos de contacto para proporcionar correo electrónico terminaciones."
+    </string>
+    <string name="cancelres">Cancelar Réservation</string>
+    <string name="title_activity_register">Registrar Una Nueva Cuenta</string>
+    <string name="reservebed">Reservar Una Cama</string>
+    <string name="title_activity_application">Bienvenido A Nuestra Applicación</string>
+    <string name="title_activity_shelter_list">ShelterListActivity</string>
+    <string name="title_shelter_list">Refugios</string>
+    <string name="filterby">Filtrar por</string>
+    <string name="title_shelter_detail">Detaille del Refugio</string>
+    <string name="backtoshelters">atrás</string>
+    <string name="checkout">Elejir Una Cama</string>
+    <!-- Strings from search tutorial -->
+    <string name="action_settings">Configuración</string>
+    <string name="toolbar_title">Refugios</string>
+    <string name="action_search">Buscar</string>
+    <string name="search_hint">Escribir nombre…</string>
+    <string name="title_activity_check_out">CheckOutActivity</string>
+    <string name="title_activity_cancel_reservation">CancelReservationActivity</string>
+    <string name="title_activity_shelter_map">ShelterMap</string>
+</resources>

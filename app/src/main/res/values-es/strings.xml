@@ -36,4 +36,7 @@
     <string name="title_activity_check_out">CheckOutActivity</string>
     <string name="title_activity_cancel_reservation">CancelReservationActivity</string>
     <string name="title_activity_shelter_map">ShelterMap</string>
+
+    <!-- Adding new hardcoded Strings -->
+    <string name="filterlist">Filtrar Lista</string>
 </resources>

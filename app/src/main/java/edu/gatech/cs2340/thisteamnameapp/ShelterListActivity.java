@@ -50,17 +50,21 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
     private List<Shelter> shelterList;
     private ShelterAdapter mAdapter;
     private SearchView searchView;
+    private static Context mContext;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mContext = getApplicationContext();
         setContentView(R.layout.activity_shelter_list);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         final Spinner filterSpinner = findViewById(R.id.filterspinner);
-        String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn", "Young Adults"};
+        String[] arr = {mContext.getString(R.string.anyonefilter), " Male", mContext.getString(R.string.femalefilter), "Children", "Family/Newborn", "Young Adults"};
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         filterSpinner.setAdapter(adapter);
@@ -128,6 +132,10 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
             }
         });
         return true;
+    }
+
+    public static Context getContext(){
+        return mContext;
     }
 
     @Override

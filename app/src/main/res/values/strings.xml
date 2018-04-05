@@ -38,5 +38,13 @@
     <string name="title_activity_shelter_map">ShelterMap</string>
 
     <!-- Adding new hardcoded Strings -->
+    <!-- ShelterListActivity -->
     <string name="filterlist">Filter List</string>
+    <string name="anyonefilter">Anyone</string>
+    <string name="femalefilter">Female</string>
+    <!--<string name="filterlist">Filter List</string>-->
+    <!--<string name="filterlist">Filter List</string>-->
+    <!--<string name="filterlist">Filter List</string>-->
+    <!--<string name="filterlist">Filter List</string>-->
+    <!--<string name="filterlist">Filter List</string>-->
 </resources>

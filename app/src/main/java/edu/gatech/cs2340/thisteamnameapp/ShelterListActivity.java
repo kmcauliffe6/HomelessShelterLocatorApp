@@ -64,7 +64,8 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         setSupportActionBar(toolbar);
 
         final Spinner filterSpinner = findViewById(R.id.filterspinner);
-        String[] arr = {mContext.getString(R.string.anyonefilter), " Male", mContext.getString(R.string.femalefilter), "Children", "Family/Newborn", "Young Adults"};
+        String[] arr = {mContext.getString(R.string.anyonefilter), mContext.getString(R.string.malefilter), mContext.getString(R.string.femalefilter),
+                mContext.getString(R.string.childrenfilter), mContext.getString(R.string.familyfilter), mContext.getString(R.string.youngadultfilter)};
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         filterSpinner.setAdapter(adapter);
@@ -172,7 +173,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
     }
     @Override
     public void onShelterSelected(Shelter shelter) {
-        Toast.makeText(getApplicationContext(), "Selected: " + shelter.getName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), mContext.getString(R.string.selected) + shelter.getName(), Toast.LENGTH_LONG).show();
     }
 }
 

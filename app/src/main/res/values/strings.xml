@@ -41,10 +41,11 @@
     <!-- ShelterListActivity -->
     <string name="filterlist">Filter List</string>
     <string name="anyonefilter">Anyone</string>
+    <string name="malefilter">\u0020Male</string>
     <string name="femalefilter">Female</string>
-    <!--<string name="filterlist">Filter List</string>-->
-    <!--<string name="filterlist">Filter List</string>-->
-    <!--<string name="filterlist">Filter List</string>-->
-    <!--<string name="filterlist">Filter List</string>-->
+    <string name="childrenfilter">Children</string>
+    <string name="familyfilter">Family/Newborn</string>
+    <string name="youngadultfilter">Young Adults</string>
+    <string name="selected">Selected:\u0020</string>
     <!--<string name="filterlist">Filter List</string>-->
 </resources>

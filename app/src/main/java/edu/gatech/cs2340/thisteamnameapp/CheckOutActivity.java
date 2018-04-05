@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -27,11 +28,15 @@ public class CheckOutActivity extends AppCompatActivity {
      * The dummy content this fragment is presenting.
      */
     private Shelter mItem;
+    private static Context mContext;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mContext = getApplicationContext();
 
         ModelManagementFacade umf = ModelManagementFacade.getInstance();
         setContentView(R.layout.activity_check_out);
@@ -99,6 +104,10 @@ public class CheckOutActivity extends AppCompatActivity {
         // close search view on back button pressed
         Intent intent = new Intent(this, ApplicationActivity.class);
         startActivity(intent);
+    }
+
+    public static Context getContext(){
+        return mContext;
     }
 
 }

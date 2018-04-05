@@ -57,10 +57,10 @@ public class CheckOutActivity extends AppCompatActivity {
         mItem = umf.getShelterByID(id);
 
         TextView vacancy = findViewById(R.id.vacancies);
-        vacancy.setText("Current Vacancies: " + mItem.getVacancy());
+        vacancy.setText(mContext.getString(R.string.currentvacancies) + mItem.getVacancy());
 
         TextView prompt = findViewById(R.id.prompt);
-        prompt.setText("How many beds would you like to reserve?");
+        prompt.setText(mContext.getString(R.string.prompttextreserve));
 
         Button myButton = findViewById(R.id.checkout_button);
         myButton.setOnClickListener(new View.OnClickListener() {
@@ -70,11 +70,11 @@ public class CheckOutActivity extends AppCompatActivity {
                 boolean m = mItem.updateVacancy(num);
                 if (!m) {
                     Toast toast = Toast.makeText(getApplicationContext(),
-                            "unable to check out this room" , Toast.LENGTH_SHORT);
+                            mContext.getString(R.string.unabletocheckout) , Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(),
-                            "reserved rooms" , Toast.LENGTH_SHORT);
+                            mContext.getString(R.string.reservedrooms) , Toast.LENGTH_SHORT);
                     toast.show();
                     Intent intent = new Intent (CheckOutActivity.this,
                             ShelterListActivity.class);

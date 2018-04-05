@@ -41,7 +41,7 @@ public class CancelReservationActivity extends AppCompatActivity {
         vacancy.setText(mContext.getString(R.string.currentvacancies) + mItem.getVacancy());
 
         TextView prompt = findViewById(R.id.prompt);
-        prompt.setText(mContext.getString(R.string.prompttextbeds));
+        prompt.setText(mContext.getString(R.string.prompttextreturn));
 
         Button cancelButton = findViewById(R.id.cancelreservation_button);
         cancelButton.setOnClickListener(new View.OnClickListener() {

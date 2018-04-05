@@ -81,7 +81,6 @@ public class CheckOutActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
 
-
             }
         });
 

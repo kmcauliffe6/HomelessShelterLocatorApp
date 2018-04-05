@@ -2,6 +2,7 @@ package edu.gatech.cs2340.thisteamnameapp;
 
 import android.app.Activity;
 
+import android.content.Context;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -23,6 +24,8 @@ public class ShelterDetailFragment extends Fragment {
      * represents.
      */
     public static final String ARG_ITEM_ID = "id";
+    private static Context mContext;
+
 
     /**
      * The dummy content this fragment is presenting.
@@ -41,6 +44,7 @@ public class ShelterDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = getContext();
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             // Load the dummy content specified by the fragment
@@ -67,19 +71,17 @@ public class ShelterDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.gender)).setText("Gender Restrictions: " + mItem.getGender());
+            ((TextView) rootView.findViewById(R.id.gender)).setText(mContext.getString(R.string.genderrestrictions) + mItem.getGender());
             ((TextView) rootView.findViewById(R.id.details)).setText(mItem.getDetails());
-            ((TextView) rootView.findViewById(R.id.capacity)).setText("Capacity: " + mItem.getCapacity());
-            ((TextView) rootView.findViewById(R.id.longitude)).setText("Longitude: " + mItem.getLongitude());
-            ((TextView) rootView.findViewById(R.id.latitude)).setText("Latitude: " +mItem.getLatitude());
-            ((TextView) rootView.findViewById(R.id.address)).setText("Address: " +mItem.getAddress());
-            ((TextView) rootView.findViewById(R.id.phone)).setText("Phone Number: " +mItem.getPhone());
-            ((TextView) rootView.findViewById(R.id.vacancies)).setText("Current Vacancies: " +mItem.getVacancy());
+            ((TextView) rootView.findViewById(R.id.capacity)).setText(mContext.getString(R.string.capacity) + mItem.getCapacity());
+            ((TextView) rootView.findViewById(R.id.longitude)).setText(mContext.getString(R.string.longitude) + mItem.getLongitude());
+            ((TextView) rootView.findViewById(R.id.latitude)).setText(mContext.getString(R.string.latitude) +mItem.getLatitude());
+            ((TextView) rootView.findViewById(R.id.address)).setText(mContext.getString(R.string.address) +mItem.getAddress());
+            ((TextView) rootView.findViewById(R.id.phone)).setText(mContext.getString(R.string.phonenumber) +mItem.getPhone());
+            ((TextView) rootView.findViewById(R.id.vacancies)).setText(mContext.getString(R.string.currentvacancies) +mItem.getVacancy());
         }
         return rootView;
     }
-
-
 
 
 }

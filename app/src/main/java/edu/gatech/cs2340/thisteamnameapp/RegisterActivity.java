@@ -3,6 +3,7 @@ package edu.gatech.cs2340.thisteamnameapp;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
@@ -45,6 +46,8 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
     private View mProgressView;
     private View mLoginFormView;
     //private View mTypeView;
+    private static Context mContext;
+
 
 
 
@@ -53,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
+        mContext = getApplicationContext();
 
         // Set up the login form.
         mEmailView = findViewById(R.id.userid);
@@ -72,7 +75,8 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
             }
         }); */
         final Spinner actTypeSpinner = findViewById(R.id.spinner);
-        String[] arr = {"Admin", "User", "Shelter Employee"};
+        String[] arr = {mContext.getString(R.string.admin), mContext.getString(R.string.user),
+                mContext.getString(R.string.shelteremployee)};
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         actTypeSpinner.setAdapter(adapter);
@@ -89,7 +93,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
                 String type = actTypeSpinner.getSelectedItem().toString();
                 User u = new User(name, email, password, type);
                 umf.addUser(u);
-                Toast toast = Toast.makeText(getApplicationContext(), "Added user" , Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), mContext.getString(R.string.addeduser) , Toast.LENGTH_SHORT);
                 toast.show();
                 umf.setCurrentUser(u);
                 Intent intent = new Intent (RegisterActivity.this, ApplicationActivity.class);
@@ -108,9 +112,6 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
-
-        //setupActionBar();
-
 
     }
 
@@ -235,7 +236,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
             if (success) {
                 finish();
             } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
+                mPasswordView.setError(mContext.getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
             }
         }
@@ -245,6 +246,10 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
             mAuthTask = null;
             showProgress(false);
         }
+    }
+
+    public static Context getContext(){
+        return mContext;
     }
 }
 

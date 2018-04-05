@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
+import android.content.Context;
 import android.widget.Toast;
 
 import java.io.Serializable;
@@ -21,6 +22,7 @@ public class Shelter implements Serializable {
     private int id;
     private String details;
     private int bedsCheckedOut;
+
 
     public Shelter(String shelterName, String capacity, String gender,
             String longitude, String latitude, String address,

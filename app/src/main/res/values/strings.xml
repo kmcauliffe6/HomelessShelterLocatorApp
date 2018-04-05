@@ -61,8 +61,22 @@
 
     <!-- LoginActivity -->
     <string name="pass">pass</string>
-    <!--<string name="prompttexreturn">How many beds would you like to reserve?</string>-->
-    <!--<string name="unabletocheckout">unable to check out this room</string>-->
-    <!--<string name="reservedrooms">reserved rooms</string>-->
+
+    <!-- RegisterActivity -->
+    <string name="admin">Admin</string>
+    <string name="user">User</string>
+    <string name="shelteremployee">Shelter Employee</string>
+    <string name="addeduser">Added User</string>
+
+    <!-- Shelter.java -->
+    <string name="shelter">Shelter:\u0020</string>
+
+    <!-- ShelterDetailFragment.java -->
+    <string name="genderrestrictions">Gender Restrictions:\u0020</string>
+    <string name="capacity">Capacity:\u0020</string>
+    <string name="longitude">Longitude:\u0020</string>
+    <string name="latitude">Latitude:\u0020</string>
+    <string name="address">Address:\u0020</string>
+    <string name="phonenumber">Phone Number:\u0020</string>
 
 </resources>

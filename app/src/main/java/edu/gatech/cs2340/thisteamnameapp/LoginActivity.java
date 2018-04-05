@@ -3,6 +3,7 @@ package edu.gatech.cs2340.thisteamnameapp;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -64,11 +65,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private static Context mContext;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = getApplicationContext();
         setContentView(R.layout.activity_login);
         setupActionBar();
         // Set up the login form.
@@ -188,18 +191,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         // Check for a valid password, if the user entered one.
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
+            mPasswordView.setError(mContext.getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
         }
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
+            mEmailView.setError(mContext.getString(R.string.error_field_required));
             focusView = mEmailView;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
+            mEmailView.setError(mContext.getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
         }
@@ -207,7 +210,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if (!isValid) {
             // There was an error; don't attempt login and focus the first
             // form field with an error.
-            mEmailView.setError(getString(R.string.error_invalid_credentials));
+            mEmailView.setError(mContext.getString(R.string.error_invalid_credentials));
             focusView = mEmailView;
             focusView.requestFocus();
         } else {
@@ -228,7 +231,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         //first lookup the user by their login id
 
         User s = users.get(email);
-        if (email.equals("pass")) {
+        if (email.equals(mContext.getString(R.string.pass))) {
             return true;
         }
         //if that user id not there, return null
@@ -379,7 +382,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             if (success) {
                 finish();
             } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
+                mPasswordView.setError(mContext.getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
             }
         }
@@ -391,6 +394,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
 
+    }
+
+    public static Context getContext(){
+        return mContext;
     }
 }
 

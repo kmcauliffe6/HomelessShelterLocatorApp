@@ -61,8 +61,6 @@ public class CancelReservationActivity extends AppCompatActivity {
                             ShelterListActivity.class);
                     startActivity(intent);
                 }
-
-
             }
         });
     }

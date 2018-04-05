@@ -54,12 +54,13 @@
     <string name="bedsreturned">beds not returned</string>
     <string name="reservationcanceled">reservation canceled</string>
 
-    <!-- CheckOutActivity -->
+    <!-- CheckoutActivity -->
     <string name="prompttextreserve">How many beds would you like to reserve?</string>
     <string name="unabletocheckout">unable to check out this room</string>
     <string name="reservedrooms">reserved rooms</string>
 
-    <!-- CheckOutActivity -->
+    <!-- LoginActivity -->
+    <string name="pass">pass</string>
     <!--<string name="prompttexreturn">How many beds would you like to reserve?</string>-->
     <!--<string name="unabletocheckout">unable to check out this room</string>-->
     <!--<string name="reservedrooms">reserved rooms</string>-->

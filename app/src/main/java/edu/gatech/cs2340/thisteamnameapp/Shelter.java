@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 
 /**
+ * Information Holder class for Shelter objects
  * Created by paigemca on 2/26/18.
  */
 //need to change capacity to int!!
@@ -21,6 +22,18 @@ public class Shelter implements Serializable {
     private final int id;
     private final String details;
     private int bedsCheckedOut;
+    /**
+     * Constructor for Shelter class
+     * @param shelterName the name of this shelter
+     * @param capacity the number of available beds
+     * @param gender the gender restrictions
+     * @param longitude of location
+     * @param latitude of location
+     *  @param address the shelter's address
+     * @param phoneNumber the shelter's phone #
+     *  @param id the shelter id number
+     *  @param details details about the shelter
+     */
 
     public Shelter(String shelterName, String capacity, String gender,
             String longitude, String latitude, String address,
@@ -36,35 +49,68 @@ public class Shelter implements Serializable {
         this.details = details;
     }
 
-
+    /**
+     * getter for shelter name
+     * @return shelter name
+     */
     public String getName() {
         return shelterName;
     }
+    /**
+     * @return shelter id
+     */
     public int getId() {
         return id;
     }
+    /**
+     * @return shelter capacity
+     */
     public String getCapacity() {
         return capacity;
     }
+    /**
+     * @return gender
+     */
     public String getGender() {
         return gender;
     }
+    /**
+     * @return longitude
+     */
     public String getLongitude() {
         return longitude;
     }
+    /**
+     * @return latitude
+     */
     public String getLatitude() {
         return latitude;
     }
+    /**
+     * @return shelter phone number
+     */
     public String getPhone() {
         return phoneNumber;
     }
+    /**
+     * @return shelter address
+     */
     public String getAddress() {
         return address;
     }
+    /**
+     * @return shelter details
+     */
     public java.lang.CharSequence getDetails() {
         return details;
     }
-
+    /**
+     * method that takes in a number of beds (b), checks if current
+     * user has checked out a bed and if there is space available,
+     * updates vacancy count
+     * @param b the number of beds to be checked out
+     * @return boolean whether or not the beds could be removed
+     */
     public boolean updateVacancy(int b) {
         ModelManagementFacade m = ModelManagementFacade.getInstance();
         User u = m.getCurUser();
@@ -79,15 +125,29 @@ public class Shelter implements Serializable {
             return false;
         }
     }
+    /**
+     * @return number of beds checked out
+     */
     private int getBedsCheckedOut() {
         return bedsCheckedOut;
     }
-
+    /**
+     * calculates the current number of vacancies from capacity and
+     * beds checked out
+     * @return number of vacancies
+     */
     public String getVacancy() {
         int vacancies = Integer.parseInt(getCapacity()) - getBedsCheckedOut();
         return Integer.toString(vacancies);
 
     }
+    /**
+     * method that takes in a number of beds (b), checks if current
+     * user has checked out a bed and if there is space available,
+     * updates vacancy count
+     * @param b the number of beds to be returned
+     * @return boolean whether or not the beds could be returned
+     */
     public boolean decreaseVacancy(int b) {
         ModelManagementFacade m = ModelManagementFacade.getInstance();
         User u = m.getCurUser();

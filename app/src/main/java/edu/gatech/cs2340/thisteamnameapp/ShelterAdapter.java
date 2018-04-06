@@ -131,8 +131,14 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
             }
         };
     }
-
+    /**
+     * interface for ShelterAdapter
+     */
     public interface ShelterAdapterListener {
+        /**
+         * required interface method
+         * @param shelter the shelter being selected
+         */
         void onShelterSelected(Shelter shelter);
     }
 

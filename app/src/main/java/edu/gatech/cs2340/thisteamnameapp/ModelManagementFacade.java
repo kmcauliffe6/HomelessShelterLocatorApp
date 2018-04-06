@@ -68,6 +68,8 @@ public class ModelManagementFacade {
         public List<Shelter> getShelterList() {return sm.getShelters();}
     /**
      * creates the list of shelters from csv file
+     * @param is the csv file input stream
+     *           @throws IOException if exception happens
      */
         public void setUpShelterList(InputStream is) throws IOException {
             sm.createShelterList(is);
@@ -98,12 +100,14 @@ public class ModelManagementFacade {
         }
     /**
      * sets the current User to @param u
+     * @param u the User being set as currentUser
      */
         public void setCurrentUser(User u) {
             sm.setCurrentUser(u);
         }
     /**
-     * saves the state of the @param file to binary
+     * loads the state of the @param file to binary
+     * @param file the CSV file with all the shelters
      */
         public void loadBinary(File file) {
             boolean success = true;
@@ -161,9 +165,12 @@ public class ModelManagementFacade {
             return true;
 
         } */
-
+    /**
+     * saves the state of the @param file to binary
+     * @param file the CSV file with all the shelters
+     */
         public void saveBinary(File file) {
-            boolean success = true;
+            //boolean success = true;
             try {
             /*
                For binary, we use Serialization, so everything we write has to implement
@@ -185,7 +192,7 @@ public class ModelManagementFacade {
 
             } catch (IOException e) {
                 Log.e("UserManagerFacade", "Error writing an entry from binary file", e);
-                success = false;
+                //success = false;
             }
         }
         /*

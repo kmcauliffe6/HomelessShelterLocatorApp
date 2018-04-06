@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.io.PrintWriter;
 
 /**
- * Created by paigemca on 2/20/18.
+ * Information Holder class for User objects
+ * Created by Paige McAuliffe on 2/20/18.
  */
 
 public class User implements Serializable {
@@ -14,7 +15,13 @@ public class User implements Serializable {
     private final String actType;
     private String shelterCheckedInto;
 
-
+    /**
+     * Constructor for User class
+     * @param name the User's name
+     * @param userid the user's log in id
+     * @param password used for log in
+     * @param type the user's account type (admin, shelter employee, etc)
+     */
     public User(String name, String userid, String password, String type) {
         this.name = name;
         this.userid = userid;
@@ -23,25 +30,34 @@ public class User implements Serializable {
         shelterCheckedInto = "Not Checked In";
     }
 
-    /** getters and setters */
+    /** setter for name instance variable
+     * @param name the user's name  */
     public void setName(String name) {
         this.name = name;
     }
-    public void setUserid(String id) {
+    /*public void setUserid(String id) {
         userid = id;
-    }
+    } */
+    /** getter for name instance variable
+     * @return name the user's name  */
     public String getName() {
         return name;
     }
+    /** getter for userid instance variable
+     * @return userid the user's id  */
     public String getUserid() {
         return userid;
     }
+    /** getter for password instance variable
+     * @return the user's name  */
     public String getPassword() {
         return password;
     }
-    public String getShelterCheckedInto() {
+    /*public String getShelterCheckedInto() {
         return shelterCheckedInto;
-    }
+    } */
+    /** setter for shelter checked into
+     * @param shelterName the shelter name   */
     public void setShelterCheckedInto(String shelterName) {
         shelterCheckedInto = shelterName;
     }
@@ -50,7 +66,8 @@ public class User implements Serializable {
     public String toString() {
         return "User: " + name + " " + userid + " " + password + " " + actType;
     }
-
+    /** method checks whether this User is checked into a shelter
+     * @return boolean for "is checked out?"  */
     public boolean isCheckedOut() {
         return (!"Not Checked In".equals(shelterCheckedInto));
     }

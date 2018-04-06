@@ -70,6 +70,7 @@ public class ApplicationActivity extends AppCompatActivity {
     /**
      * reads in Shelter csv file and goes to ShelterListActivity
      * @param view the current view
+     * @throws IOException if exception happens
      */
     public void goToShelterListActivity (View view) throws IOException {
         readSDFFile();

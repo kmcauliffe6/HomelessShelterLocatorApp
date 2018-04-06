@@ -49,6 +49,19 @@ public class Shelter implements Serializable {
         this.details = details;
     }
 
+    // for testing purposes
+    public Shelter() {
+        this.shelterName = null;
+        this.capacity = null;
+        this.gender = null;
+        this.longitude = null;
+        this.latitude = null;
+        this.address = null;
+        this.phoneNumber = null;
+        this.id = 0;
+        this.details = null;
+    }
+
     /**
      * getter for shelter name
      * @return shelter name

@@ -30,6 +30,14 @@ public class User implements Serializable {
         shelterCheckedInto = "Not Checked In";
     }
 
+    public User() {
+        this.name = null;
+        this.userid = null;
+        this.password = null;
+        actType = null;
+        shelterCheckedInto = "Not Checked In";
+    }
+
     /** setter for name instance variable
      * @param name the user's name  */
     public void setName(String name) {

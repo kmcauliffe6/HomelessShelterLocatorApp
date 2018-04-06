@@ -22,7 +22,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import android.widget.Toast;
-import android.os.Build;
+
 import android.graphics.Color;
 
 
@@ -46,10 +46,8 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
      */
     private boolean mTwoPane;
     private static final String TAG = MainActivity.class.getSimpleName();
-    private RecyclerView recyclerView;
     private List<Shelter> shelterList;
     private ShelterAdapter mAdapter;
-    private SearchView searchView;
     private static Context mContext;
 
 
@@ -73,7 +71,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.toolbar_title);
 
-        recyclerView = findViewById(R.id.shelter_list);
+        RecyclerView recyclerView = findViewById(R.id.shelter_list);
         shelterList = new ArrayList<>();
         getShelters();
         mAdapter = new ShelterAdapter(this, shelterList, this);
@@ -111,7 +109,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
 
         // Associate searchable configuration with the SearchView
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView = (SearchView) menu.findItem(R.id.search)
+        SearchView searchView = (SearchView) menu.findItem(R.id.search)
                 .getActionView();
         searchView.setSearchableInfo(searchManager
                 .getSearchableInfo(getComponentName()));
@@ -134,7 +132,9 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         });
         return true;
     }
-
+    /**
+     * @return current context of app
+     */
     public static Context getContext(){
         return mContext;
     }
@@ -164,12 +164,10 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
     }
 
     private void whiteNotificationBar(View view) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            int flags = view.getSystemUiVisibility();
-            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-            view.setSystemUiVisibility(flags);
-            getWindow().setStatusBarColor(Color.WHITE);
-        }
+        int flags = view.getSystemUiVisibility();
+        flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+        view.setSystemUiVisibility(flags);
+        getWindow().setStatusBarColor(Color.WHITE);
     }
     @Override
     public void onShelterSelected(Shelter shelter) {

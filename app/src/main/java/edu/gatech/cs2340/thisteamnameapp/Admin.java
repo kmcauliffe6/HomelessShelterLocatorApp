@@ -9,27 +9,19 @@ package edu.gatech.cs2340.thisteamnameapp;
 public class Admin {
     private String name;
     private String userid;
-    private String password;
 
-    /** constuctor */
-    public Admin(String name, String userid, String password) {
+    /** constuctor
+     * @param name for admin's name
+     * @param userid for admin's id*/
+    public Admin(String name, String userid) {
         this.name = name;
         this.userid = userid;
-        this.password = password;
     }
 
-    /** getters and setters */
+    /** getters and setters
+     * @param name the admin's name */
     public void setName(String name) {
         this.name = name;
     }
-    public void setUserid(String id) {
-        userid = id;
-    }
 
-    public void editUser(int userid) {
-
-    }
-    public void editShelter(int shelterid) {
-
-    }
 }

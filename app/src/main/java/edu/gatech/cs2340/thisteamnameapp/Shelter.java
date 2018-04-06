@@ -1,9 +1,9 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
-import android.widget.Toast;
+
 
 import java.io.Serializable;
-import java.io.PrintWriter;
+
 
 
 /**
@@ -11,15 +11,15 @@ import java.io.PrintWriter;
  */
 //need to change capacity to int!!
 public class Shelter implements Serializable {
-    private String shelterName;
-    private String capacity;
-    private String gender;
-    private String longitude;
+    private final String shelterName;
+    private final String capacity;
+    private final String gender;
+    private final String longitude;
     private String latitude;
     private String address;
-    private String phoneNumber;
-    private int id;
-    private String details;
+    private final String phoneNumber;
+    private final int id;
+    private final String details;
     private int bedsCheckedOut;
 
     public Shelter(String shelterName, String capacity, String gender,
@@ -79,7 +79,7 @@ public class Shelter implements Serializable {
             return false;
         }
     }
-    public int getBedsCheckedOut() {
+    private int getBedsCheckedOut() {
         return bedsCheckedOut;
     }
 
@@ -107,13 +107,7 @@ public class Shelter implements Serializable {
         return "Shelter: " + shelterName + " " + id + " ";
     }
 
-    /**
-     * Save this class in a custom save format
-     * I chose to use tab (\t) to make line splitting easy for loading
-     * If your data had tabs, you would need something else as a delimiter
-     *
-     * @param writer the file to write this student to
-     */
+
     /*
     public void saveAsText(PrintWriter writer) {
         //System.out.println("Shelter saving shelter: " + shelterName);

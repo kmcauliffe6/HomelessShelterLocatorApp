@@ -15,12 +15,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by paigemca on 2/20/18.
+ * Created by Paige McAuliffe on 2/20/18.
  */
 
 public class Model implements Serializable {
-    private static Model _instance = new Model();
-
+    private static final Model _instance = new Model();
+    /**
+     * returns an instance of the model
+     * @return instance of model
+     */
     public static Model getInstance() {
         return _instance;
     }
@@ -42,48 +45,57 @@ public class Model implements Serializable {
         shelters = new ArrayList<>();
         //admins = new ArrayList<>();
     }
-
+    /**
+     * @return the list of shelters
+     */
     public List<Shelter> getShelters() {
         return shelters;
     }
-
-
-    public Map<String, User> getUsers() {
-        return userMap;
-    }
-
-    List<User> getUserList() {
-        return users;
-    }
-
+    /**
+     * @return the map of users
+     */
     Map<String, User> getMap() {
         return userMap;
     }
-
-    User getUserByID(String name) {
-        return userMap.get(name);
+    /**
+     * @return the list of shelters
+     * @param id the id of user being searched for
+     */
+    User getUserByID(String id) {
+        return userMap.get(id);
     }
-
+    /**
+     * sets the current user when a user logs in
+     * @param u the User logging in
+     */
     public void setCurrentUser(User u) {
         currentUser = u;
     }
-
+    /**
+     * @return the current User
+     */
     public User getCurrentUser() {
         return currentUser;
     }
-
+    /**
+     * adds a user to the user list and map
+     * @param m the User being added
+     */
     public void addUser(User m) {
         users.add(m);
         userMap.put(m.getUserid(), m);
     }
-
-    public void addShelter(Shelter s) {
+    /**
+     * adds a shelters to the list of shelters
+     * @param s the shelter being added
+     */
+    private void addShelter(Shelter s) {
         shelters.add(s);
     }
     /**
      * parses CSV file and adds Shelters to shelters list
      * @param is the input from the CSV file
-     * @throws IOException
+     * @throws IOException if happens
      */
     public void createShelterList(InputStream is) throws IOException {
         try {
@@ -129,7 +141,7 @@ public class Model implements Serializable {
 
     /**
      *
-     * @param writer
+     * @param writer the writer
      */
     void saveAsText(PrintWriter writer) {
         writer.println(users.size());
@@ -138,6 +150,8 @@ public class Model implements Serializable {
         }
     }
 
+
+    /*
     /**
      * load the model from a custom text file
      *

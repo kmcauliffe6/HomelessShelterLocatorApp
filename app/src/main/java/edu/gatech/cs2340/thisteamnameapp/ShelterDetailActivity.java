@@ -72,23 +72,31 @@ public class ShelterDetailActivity extends AppCompatActivity {
 
     /**
      * creates intent to go to the list of shelters
-     * @param view
+     * @param view current view
      */
     public void goToShelterActivity (View view){
         Intent intent = new Intent (this, ShelterListActivity.class);
         startActivity(intent);
     }
-
+    /**
+     * goes to checkout activity
+     * @param view current view
+     */
     public void goToCheckOutActivity(View view) {
         Intent intent = new Intent (this, CheckOutActivity.class);
         intent.putExtra("id", getIntent().getIntExtra(ShelterDetailFragment.ARG_ITEM_ID, 1000));
         startActivity(intent);
     }
+    /**
+     * goes to cancel reservation activity
+     * @param view current view
+     */
     public void goToCancelResActivity(View view) {
         Intent intent = new Intent (this, CancelReservationActivity.class);
         intent.putExtra("id", getIntent().getIntExtra(ShelterDetailFragment.ARG_ITEM_ID, 1000));
         startActivity(intent);
     }
+
     @Override
     public void onBackPressed() {
         // close search view on back button pressed

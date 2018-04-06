@@ -14,7 +14,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+/**
+ * Created by Paige McAuliffe on 3/7/18.
+ */
 public class CheckOutActivity extends AppCompatActivity {
 
     /**

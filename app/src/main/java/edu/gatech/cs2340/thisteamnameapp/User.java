@@ -10,8 +10,8 @@ import java.io.PrintWriter;
 public class User implements Serializable {
     private String name;
     private String userid;
-    private String password;
-    private String actType;
+    private final String password;
+    private final String actType;
     private String shelterCheckedInto;
 
 
@@ -66,20 +66,7 @@ public class User implements Serializable {
         writer.println(name + "\t" + userid + "\t" + password + "\t" + actType);
     }
 
-    /**
-     * static factory method that constructs a student given a text line in the correct format.
-     * It assumes that a student is in a single string with each attribute separated by a tab character
-     * The order of the data is assumed to be:
-     *
-     * 0 - name
-     * 1 - user id
-     * 2 - password
-     * 3 - actType
-     *
-     *
-     * @param line  the text line containing the data
-     * @return the student object
-     */
+
     /*
     public static User parseEntry(String line) {
         assert line != null;

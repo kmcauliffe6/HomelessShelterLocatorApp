@@ -13,10 +13,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * activity that displays shelters on a map using Google Maps API
+ */
 public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
     private String filterBy;
 
     @Override
@@ -43,7 +44,9 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        GoogleMap mMap = googleMap;
+        //noinspection MagicNumber, desired zoom for map
+        int zoom = 11;
 
         List<Shelter> shelters = getFilteredShelters(filterBy);
         for (Shelter s: shelters) {
@@ -51,7 +54,7 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
             mMap.addMarker(new MarkerOptions().position(loc).title(s.getName()).snippet("Current Vacancies: "+ s.getVacancy()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                    new LatLng(Double.parseDouble(s.getLatitude()), Double.parseDouble(s.getLongitude())), 11));
+                    new LatLng(Double.parseDouble(s.getLatitude()), Double.parseDouble(s.getLongitude())), zoom));
         }
 
     }

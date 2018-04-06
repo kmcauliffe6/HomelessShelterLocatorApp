@@ -1,8 +1,6 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
-/**
- * Created by paigemca on 3/27/18.
- */
+
 
 import android.util.Log;
 
@@ -22,6 +20,11 @@ import java.io.PrintWriter;
 
 import java.util.List;
 import java.util.Map;
+
+/**
+ * Created by Paige McAuliffe on 3/27/18.
+ */
+
 public class ModelManagementFacade {
     public final static String DEFAULT_BINARY_FILE_NAME = "data.bin";
     public final static String DEFAULT_TEXT_FILE_NAME = "data.txt";
@@ -35,7 +38,7 @@ public class ModelManagementFacade {
         /**
          * Singleton pattern
          */
-        private static ModelManagementFacade instance = new ModelManagementFacade();
+        private static final ModelManagementFacade instance = new ModelManagementFacade();
 
 
         /**
@@ -53,38 +56,56 @@ public class ModelManagementFacade {
         public static ModelManagementFacade getInstance() {
             return instance;
         }
-
+        /**
+         * @return the map of users from Model
+        */
         public Map<String, User> getUsersAsList() {
             return sm.getMap();
         }
-
+    /**
+     * @return the list of shelters
+     */
         public List<Shelter> getShelterList() {return sm.getShelters();}
-
+    /**
+     * creates the list of shelters from csv file
+     */
         public void setUpShelterList(InputStream is) throws IOException {
             sm.createShelterList(is);
         }
 
 
-
+    /**
+     * @param id the User id
+     *           @return the User with that id
+     */
         public User getUserByID(final String id) {
             return sm.getUserByID(id);
         }
-
+    /** @param id the Shelter id
+     *           @return the Shelter with that id private constructor for facade pattern
+     */
         public Shelter getShelterByID(final int id) {
             return sm.findItemByID(id);
         }
 
 
 
-    
+    /**
+     * @return the current user
+     */
         public User getCurUser() {
             return sm.getCurrentUser();
         }
+    /**
+     * sets the current User to @param u
+     */
         public void setCurrentUser(User u) {
             sm.setCurrentUser(u);
         }
-
-        public boolean loadBinary(File file) {
+    /**
+     * saves the state of the @param file to binary
+     */
+        public void loadBinary(File file) {
             boolean success = true;
             try {
             /*
@@ -104,7 +125,6 @@ public class ModelManagementFacade {
                 success = false;
             }
 
-            return success;
         }
 
         /*public boolean loadText(File file) {
@@ -142,7 +162,7 @@ public class ModelManagementFacade {
 
         } */
 
-        public boolean saveBinary(File file) {
+        public void saveBinary(File file) {
             boolean success = true;
             try {
             /*
@@ -167,9 +187,8 @@ public class ModelManagementFacade {
                 Log.e("UserManagerFacade", "Error writing an entry from binary file", e);
                 success = false;
             }
-            return success;
         }
-
+        /*
         public boolean saveText(File file) {
             //System.out.println("Saving as a text file");
             try {
@@ -199,7 +218,7 @@ public class ModelManagementFacade {
                 top-level reference.
 
 
-             */
+             */ /*
                 Gson gson = new Gson();
                 // convert our objects to a string for output
                 String outString = gson.toJson(sm);
@@ -213,16 +232,12 @@ public class ModelManagementFacade {
             }
 
             return true;
-        }
+        } */
 
 
         void addUser(User student) {
             sm.addUser(student);
         }
 
-
-        /*void removeStudent(Student student) {
-            sm.removeStudent(student);
-        }*/
     }
 

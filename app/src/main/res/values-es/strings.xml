@@ -28,6 +28,7 @@
     <string name="title_shelter_detail">Detaille del Refugio</string>
     <string name="backtoshelters">atrás</string>
     <string name="checkout">Elejir Una Cama</string>
+
     <!-- Strings from search tutorial -->
     <string name="action_settings">Configuración</string>
     <string name="toolbar_title">Refugios</string>
@@ -38,5 +39,44 @@
     <string name="title_activity_shelter_map">ShelterMap</string>
 
     <!-- Adding new hardcoded Strings -->
+    <!-- ShelterListActivity -->
     <string name="filterlist">Filtrar Lista</string>
+    <string name="anyonefilter">Cualquiera</string>
+    <string name="malefilter">\u0020Hombre</string>
+    <string name="femalefilter">Dama</string>
+    <string name="childrenfilter">Niños</string>
+    <string name="familyfilter">Familia/Recién Nacido</string>
+    <string name="youngadultfilter">Adolescentes</string>
+    <string name="selected">Selectionado:\u0020</string>
+
+    <!-- CancelReservationActivity -->
+    <string name="currentvacancies">Vacantes Actuales:\u0020</string>
+    <string name="prompttextreturn">Cuantas camas quieres regresar?</string>
+    <string name="bedsreturned">camas no reservadas</string>
+    <string name="reservationcanceled">reservación cancelada</string>
+
+    <!-- CheckoutActivity -->
+    <string name="prompttextreserve">Cuantas camas quieres reservar?</string>
+    <string name="unabletocheckout">incapaz de sacar este habitación</string>
+    <string name="reservedrooms">reservar habitación</string>
+
+    <!-- LoginActivity -->
+    <string name="pass">pasar</string>
+
+    <!-- RegisterActivity -->
+    <string name="admin">Administrador</string>
+    <string name="user">Usuario</string>
+    <string name="shelteremployee">Empleado de Refugio</string>
+    <string name="addeduser">Usuario agregado</string>
+
+    <!-- Shelter.java -->
+    <string name="shelter">Refugio:\u0020</string>
+
+    <!-- ShelterDetailFragment.java -->
+    <string name="genderrestrictions">Restrictiones de género:\u0020</string>
+    <string name="capacity">Capacidad:\u0020</string>
+    <string name="longitude">Longitud:\u0020</string>
+    <string name="latitude">Latitud:\u0020</string>
+    <string name="address">Domicilio:\u0020</string>
+    <string name="phonenumber">Número de Teléfono:\u0020</string>
 </resources>

@@ -28,6 +28,7 @@
     <string name="title_shelter_detail">Détail de l\'\Abri</string>
     <string name="backtoshelters">en arrière</string>
     <string name="checkout">Réclamer Un Lit</string>
+
     <!-- Strings from search tutorial -->
     <string name="action_settings">Paramètres</string>
     <string name="toolbar_title">Les Abris</string>
@@ -39,5 +40,44 @@
 
 
     <!-- Adding new hardcoded Strings -->
+    <!-- ShelterListActivity -->
     <string name="filterlist">Filtrer Liste</string>
+    <string name="anyonefilter">N\'\importe qui</string>
+    <string name="malefilter">\u0020Homme</string>
+    <string name="femalefilter">Femme</string>
+    <string name="childrenfilter">Enfants</string>
+    <string name="familyfilter">Famille/Nouveau-Né</string>
+    <string name="youngadultfilter">Adolescents</string>
+    <string name="selected">Sélectionné:\u0020</string>
+
+    <!-- CancelReservationActivity -->
+    <string name="currentvacancies">Vacants Actuels:\u0020</string>
+    <string name="prompttextreturn">Combien de lits voulez-vous retourner?</string>
+    <string name="bedsreturned">lits ne pas retournés</string>
+    <string name="reservationcanceled">reservacions annulés</string>
+
+    <!-- CheckoutActivity -->
+    <string name="prompttextreserve">Combien de lits voulez-vous reserver?</string>
+    <string name="unabletocheckout">incapable de vérifier cette pièce</string>
+    <string name="reservedrooms">chambres reservés</string>
+
+    <!-- LoginActivity -->
+    <string name="pass">pass</string>
+
+    <!-- RegisterActivity -->
+    <string name="admin">Administrateur</string>
+    <string name="user">Utilisateur</string>
+    <string name="shelteremployee">Employé de l\'\Abri</string>
+    <string name="addeduser">Utilisateur Ajouté</string>
+
+    <!-- Shelter.java -->
+    <string name="shelter">Abri:\u0020</string>
+
+    <!-- ShelterDetailFragment.java -->
+    <string name="genderrestrictions">Restrictions de genre:\u0020</string>
+    <string name="capacity">Capacité:\u0020</string>
+    <string name="longitude">Longitude:\u0020</string>
+    <string name="latitude">Latitude:\u0020</string>
+    <string name="address">Addresse:\u0020</string>
+    <string name="phonenumber">Numero de Téléphone:\u0020</string>
 </resources>

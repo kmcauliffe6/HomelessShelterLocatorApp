@@ -43,8 +43,8 @@ public class ApplicationActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerctrl.setAdapter(adapter);
 
-        Button filterButton = findViewById(R.id.languagebutton);
-        filterButton.setOnClickListener(new View.OnClickListener() {
+        Button languagebutton = findViewById(R.id.languagebutton);
+        languagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String type = spinnerctrl.getSelectedItem().toString(); //type from spinner
@@ -99,8 +99,8 @@ public class ApplicationActivity extends AppCompatActivity {
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
-        Intent refresh = new Intent(this, AndroidLocalize.class);
-        startActivity(refresh);
+//        Intent refresh = new Intent(this, LoginActivity.class);
+//        startActivity(refresh);
     }
 
 }

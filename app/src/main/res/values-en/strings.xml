@@ -39,6 +39,45 @@
     <string name="title_activity_shelter_map">ShelterMap</string>
 
     <!-- Adding new hardcoded Strings -->
+    <!-- ShelterListActivity -->
     <string name="filterlist">Filter List</string>
+    <string name="anyonefilter">Anyone</string>
+    <string name="malefilter">\u0020Male</string>
+    <string name="femalefilter">Female</string>
+    <string name="childrenfilter">Children</string>
+    <string name="familyfilter">Family/Newborn</string>
+    <string name="youngadultfilter">Young Adults</string>
+    <string name="selected">Selected:\u0020</string>
+
+    <!-- CancelReservationActivity -->
+    <string name="currentvacancies">Current Vacancies:\u0020</string>
+    <string name="prompttextreturn">How many beds would you like to return?</string>
+    <string name="bedsreturned">beds not returned</string>
+    <string name="reservationcanceled">reservation canceled</string>
+
+    <!-- CheckoutActivity -->
+    <string name="prompttextreserve">How many beds would you like to reserve?</string>
+    <string name="unabletocheckout">unable to check out this room</string>
+    <string name="reservedrooms">reserved rooms</string>
+
+    <!-- LoginActivity -->
+    <string name="pass">pass</string>
+
+    <!-- RegisterActivity -->
+    <string name="admin">Admin</string>
+    <string name="user">User</string>
+    <string name="shelteremployee">Shelter Employee</string>
+    <string name="addeduser">Added User</string>
+
+    <!-- Shelter.java -->
+    <string name="shelter">Shelter:\u0020</string>
+
+    <!-- ShelterDetailFragment.java -->
+    <string name="genderrestrictions">Gender Restrictions:\u0020</string>
+    <string name="capacity">Capacity:\u0020</string>
+    <string name="longitude">Longitude:\u0020</string>
+    <string name="latitude">Latitude:\u0020</string>
+    <string name="address">Address:\u0020</string>
+    <string name="phonenumber">Phone Number:\u0020</string>
 
 </resources>

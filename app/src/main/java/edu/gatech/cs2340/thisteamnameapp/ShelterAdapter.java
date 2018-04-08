@@ -12,19 +12,21 @@ import java.util.ArrayList;
 import java.util.List;
 import android.content.Intent;
 /**
- * Created by paigemca on 3/7/18.
+ * Created by Paige McAuliffe on 3/7/18.
  */
 
 public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHolder> implements Filterable {
-    private Context context;
-    private List<Shelter> shelterList;
+    private final List<Shelter> shelterList;
     private List<Shelter> shelterListFiltered;
-    private ShelterAdapterListener listener;
+    private final ShelterAdapterListener listener;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView name;
-        private TextView gender;
-
+        private final TextView name;
+        private final TextView gender;
+        /**
+         * @param view the current view
+         *
+         */
         public MyViewHolder(View view) {
             super(view);
             name = view.findViewById(R.id.name);
@@ -44,9 +46,13 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
             });
         }
     }
-
+    /**
+     * @param context the current context
+     * @param shelterList the list of shelters to be filtered
+     * @param listener the listesner
+     */
     public ShelterAdapter(Context context, List<Shelter> shelterList, ShelterAdapterListener listener) {
-        this.context = context;
+        Context context1 = context;
         this.listener = listener;
         this.shelterList = shelterList;
         this.shelterListFiltered = shelterList;
@@ -125,8 +131,14 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
             }
         };
     }
-
+    /**
+     * interface for ShelterAdapter
+     */
     public interface ShelterAdapterListener {
+        /**
+         * required interface method
+         * @param shelter the shelter being selected
+         */
         void onShelterSelected(Shelter shelter);
     }
 

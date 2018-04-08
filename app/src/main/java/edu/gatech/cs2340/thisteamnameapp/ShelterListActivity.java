@@ -22,7 +22,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import android.widget.Toast;
-import android.os.Build;
+
 import android.graphics.Color;
 
 
@@ -46,21 +46,24 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
      */
     private boolean mTwoPane;
     private static final String TAG = MainActivity.class.getSimpleName();
-    private RecyclerView recyclerView;
     private List<Shelter> shelterList;
     private ShelterAdapter mAdapter;
-    private SearchView searchView;
+    private static Context mContext;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mContext = getApplicationContext();
         setContentView(R.layout.activity_shelter_list);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         final Spinner filterSpinner = findViewById(R.id.filterspinner);
-        String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn", "Young Adults"};
+        String[] arr = {mContext.getString(R.string.anyonefilter), mContext.getString(R.string.malefilter), mContext.getString(R.string.femalefilter),
+                mContext.getString(R.string.childrenfilter), mContext.getString(R.string.familyfilter), mContext.getString(R.string.youngadultfilter)};
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         filterSpinner.setAdapter(adapter);
@@ -68,7 +71,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(R.string.toolbar_title);
 
-        recyclerView = findViewById(R.id.shelter_list);
+        RecyclerView recyclerView = findViewById(R.id.shelter_list);
         shelterList = new ArrayList<>();
         getShelters();
         mAdapter = new ShelterAdapter(this, shelterList, this);
@@ -84,7 +87,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String type = filterSpinner.getSelectedItem().toString(); //find a way to select type from spinner
+                String type = filterSpinner.getSelectedItem().toString(); //type from spinner
                 mAdapter.getFilter().filter(type);
             }
         });
@@ -97,7 +100,6 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
 
     private void getShelters() {
         ModelManagementFacade m = ModelManagementFacade.getInstance();
-        //System.out.println(m.getShelterList());
         shelterList = m.getShelterList();
     }
 
@@ -107,7 +109,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
 
         // Associate searchable configuration with the SearchView
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView = (SearchView) menu.findItem(R.id.search)
+        SearchView searchView = (SearchView) menu.findItem(R.id.search)
                 .getActionView();
         searchView.setSearchableInfo(searchManager
                 .getSearchableInfo(getComponentName()));
@@ -128,10 +130,13 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
                 return false;
             }
         });
-
-
         return true;
-
+    }
+    /**
+     * @return current context of app
+     */
+    public static Context getContext(){
+        return mContext;
     }
 
     @Override
@@ -159,16 +164,14 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
     }
 
     private void whiteNotificationBar(View view) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            int flags = view.getSystemUiVisibility();
-            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-            view.setSystemUiVisibility(flags);
-            getWindow().setStatusBarColor(Color.WHITE);
-        }
+        int flags = view.getSystemUiVisibility();
+        flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+        view.setSystemUiVisibility(flags);
+        getWindow().setStatusBarColor(Color.WHITE);
     }
     @Override
     public void onShelterSelected(Shelter shelter) {
-        Toast.makeText(getApplicationContext(), "Selected: " + shelter.getName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), mContext.getString(R.string.selected) + shelter.getName(), Toast.LENGTH_LONG).show();
     }
 }
 

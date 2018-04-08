@@ -8,7 +8,7 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="580dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -24,20 +24,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Shelter List View"
             android:onClick="goToShelterListActivity"
-            android:textStyle="bold"
-            />
+            android:text="Shelter List View"
+            android:textStyle="bold" />
+
         <Button
             android:id="@+id/seeMapButton"
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Shelter Map View"
             android:onClick="goToShelterMapFilterActivity"
-            android:textStyle="bold"
-            />
+            android:text="Shelter Map View"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/logoutButton"
@@ -45,13 +44,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Log Out"
             android:onClick="goToWelcomeActivity"
-            android:textStyle="bold"
-            />
+            android:text="Log Out"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Spinner
+                android:id="@+id/languagespinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/languagebutton"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Set Language"
+                />
+        </LinearLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_application" />
+    <!--<include-->
+        <!--layout="@layout/content_application"-->
+        <!--android:layout_height="165dp"-->
+        <!--tools:layout_editor_absoluteY="402dp" />-->
 
 </android.support.design.widget.CoordinatorLayout>

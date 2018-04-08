@@ -36,4 +36,16 @@
     <string name="title_activity_check_out">CheckOutActivity</string>
     <string name="title_activity_cancel_reservation">CancelReservationActivity</string>
     <string name="title_activity_shelter_map">ShelterMap</string>
+
+    <!-- Adding new hardcoded Strings -->
+    <!-- ShelterListActivity -->
+    <string name="filterlist">Filter List</string>
+    <string name="anyonefilter">Anyone</string>
+    <string name="malefilter">\u0020Male</string>
+    <string name="femalefilter">Female</string>
+    <string name="childrenfilter">Children</string>
+    <string name="familyfilter">Family/Newborn</string>
+    <string name="youngadultfilter">Young Adults</string>
+    <string name="selected">Selected:\u0020</string>
+    <!--<string name="filterlist">Filter List</string>-->
 </resources>

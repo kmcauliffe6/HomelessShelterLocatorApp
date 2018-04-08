@@ -25,20 +25,29 @@ public class MainActivity extends AppCompatActivity {
         File file = new File(this.getFilesDir(), ModelManagementFacade.DEFAULT_BINARY_FILE_NAME);
         ModelManagementFacade.getInstance().loadBinary(file);
     }
-
+    /**
+     * goes to SplashActivity
+     * @param view the current view
+     */
     public void goToSplashActivity (View view){
         Intent intent = new Intent (this, SplashActivity.class);
         startActivity(intent);
     }
+    /**
+     * goes to LoginActivity
+     * @param view the current view
+     */
     public void goToLoginActivity (View view){
         Intent intent = new Intent (this, LoginActivity.class);
         startActivity(intent);
     }
+    /**
+     * goes to RegisterActivity
+     * @param view the current view
+     */
     public void goToRegisterActivity (View view){
         Intent intent = new Intent (this, RegisterActivity.class);
         startActivity(intent);
     }
-
-
 
 }

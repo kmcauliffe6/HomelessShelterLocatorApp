@@ -13,7 +13,9 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * class that filters results to be shown in ShelterMapActivity
+ */
 public class ShelterMapFilterActivity extends AppCompatActivity{
     private static final String TAG = MainActivity.class.getSimpleName();
     private List<Shelter> shelterList;

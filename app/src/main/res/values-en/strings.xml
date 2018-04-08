@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Homeless Shelter App</string>
+    <string name="title_activity_login">Log in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">User ID</string>
+    <string name="cancel">Cancel</string>
+    <string name="prompt_password">Password</string>
+    <string name="prompt_name">Name</string>
+    <string name="prompt_type">Account Type</string>
+    <string name="action_register">Register</string>
+    <string name="action_sign_in_short">Log in</string>
+    <string name="error_invalid_email">This User ID is invalid</string>
+    <string name="error_invalid_credentials">User ID or password is incorrect</string>
+    <string name="error_invalid_password">This password is invalid</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="cancelres">Cancel Reservation</string>
+    <string name="title_activity_register">Register A New Account</string>
+    <string name="reservebed">Reserve Bed</string>
+    <string name="title_activity_application">Welcome To Our App</string>
+    <string name="title_activity_shelter_list">ShelterListActivity</string>
+    <string name="title_shelter_list">Shelters</string>
+    <string name="filterby">Filter By</string>
+    <string name="title_shelter_detail">Shelter Detail</string>
+    <string name="backtoshelters">back</string>
+    <string name="checkout">Claim A Bed</string>
+    <!-- Strings from search tutorial -->
+    <string name="action_settings">Settings</string>
+    <string name="toolbar_title">Shelters</string>
+    <string name="action_search">Search</string>
+    <string name="search_hint">Type name…</string>
+    <string name="title_activity_check_out">CheckOutActivity</string>
+    <string name="title_activity_cancel_reservation">CancelReservationActivity</string>
+    <string name="title_activity_shelter_map">ShelterMap</string>
+
+    <!-- Adding new hardcoded Strings -->
+    <string name="filterlist">Filter List</string>
+
+</resources>

@@ -10,7 +10,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+/**
+ * Created by Paige McAuliffe on 3/7/18.
+ */
 public class CancelReservationActivity extends AppCompatActivity {
     private Shelter mItem;
 

@@ -1,8 +1,6 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
-/**
- * Created by marianamatias on 4/4/18.
- */
+//Created by Mariana Matias on 2/20/18.
 
         import java.util.Locale;
         import android.os.Bundle;

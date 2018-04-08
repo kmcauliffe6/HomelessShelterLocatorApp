@@ -21,9 +21,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Paige McAuliffe on 3/27/18.
- */
+//Created by Paige McAuliffe on 2/20/18.
 
 public class ModelManagementFacade {
     public final static String DEFAULT_BINARY_FILE_NAME = "data.bin";
@@ -110,7 +108,7 @@ public class ModelManagementFacade {
      * @param file the CSV file with all the shelters
      */
         public void loadBinary(File file) {
-            boolean success = true;
+            //boolean success = true;
             try {
             /*
               To read, we must use the ObjectInputStream since we want to read our model in with
@@ -123,10 +121,10 @@ public class ModelManagementFacade {
                 in.close();
             } catch (IOException e) {
                 Log.e("UserManagementFacade", "Error reading an entry from binary file", e);
-                success = false;
+                //success = false;
             } catch (ClassNotFoundException e) {
                 Log.e("UserManagementFacade", "Error casting a class from the binary file", e);
-                success = false;
+                //success = false;
             }
 
         }

@@ -8,14 +8,13 @@ package edu.gatech.cs2340.thisteamnameapp;
 
 public class Admin {
     private String name;
-    private String userid;
 
     /** constuctor
      * @param name for admin's name
      * @param userid for admin's id*/
     public Admin(String name, String userid) {
         this.name = name;
-        this.userid = userid;
+        String userid1 = userid;
     }
 
     /** getters and setters

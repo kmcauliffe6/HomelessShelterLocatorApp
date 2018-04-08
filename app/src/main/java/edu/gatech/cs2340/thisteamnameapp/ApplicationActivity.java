@@ -23,7 +23,6 @@ public class ApplicationActivity extends AppCompatActivity {
 
     private Spinner spinnerctrl;
     Button btn;
-    private Locale myLocale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,8 @@ public class ApplicationActivity extends AppCompatActivity {
 
         spinnerctrl = (Spinner) findViewById(R.id.languagespinner);
         String[] arr = {"English", "Spanish", "French"};
-        final ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, arr);
+        final ArrayAdapter<String> adapter =
+                new ArrayAdapter(this, android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerctrl.setAdapter(adapter);
 
@@ -100,7 +100,7 @@ public class ApplicationActivity extends AppCompatActivity {
     }
 
     private void setLocale(String lang) {
-        myLocale = new Locale(lang);
+        Locale myLocale = new Locale(lang);
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();

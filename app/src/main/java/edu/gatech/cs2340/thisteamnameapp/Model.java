@@ -14,9 +14,9 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Paige McAuliffe on 2/20/18.
- */
+
+ //Created by Paige McAuliffe on 2/20/18.
+
 
 public class Model implements Serializable {
     private static final Model _instance = new Model();

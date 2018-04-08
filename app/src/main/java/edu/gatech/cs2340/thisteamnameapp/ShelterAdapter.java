@@ -11,9 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.Intent;
-/**
- * Created by Paige McAuliffe on 3/7/18.
- */
+//Created by Paige McAuliffe on 2/20/18.
 
 public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHolder> implements Filterable {
     private final List<Shelter> shelterList;

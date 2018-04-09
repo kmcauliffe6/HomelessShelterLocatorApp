@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-import static org.junit.Assert.assertNull;
+//import static org.junit.Assert.assertNull;
 //import static org.mockito.Mockito.*;
 
 /**

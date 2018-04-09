@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
 
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 
 import android.content.Intent;
 

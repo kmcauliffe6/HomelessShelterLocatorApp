@@ -2,20 +2,20 @@ package edu.gatech.cs2340.thisteamnameapp;
 
 //Created by Mariana Matias on 2/20/18.
 
-        import java.util.Locale;
-        import android.os.Bundle;
+//        import java.util.Locale;
+//        import android.os.Bundle;
         import android.app.Activity;
-        import android.content.Intent;
-        import android.content.res.Configuration;
-        import android.content.res.Resources;
-        import android.util.DisplayMetrics;
-        import android.view.View;
-        import android.widget.AdapterView;
-        import android.widget.ArrayAdapter;
-        import android.widget.Button;
-        import android.widget.Spinner;
-        import android.widget.Toast;
-        import android.widget.AdapterView.OnItemSelectedListener;
+//        import android.content.Intent;
+//        import android.content.res.Configuration;
+//        import android.content.res.Resources;
+//        import android.util.DisplayMetrics;
+//        import android.view.View;
+//        import android.widget.AdapterView;
+//        import android.widget.ArrayAdapter;
+//        import android.widget.Button;
+//        import android.widget.Spinner;
+//        import android.widget.Toast;
+//        import android.widget.AdapterView.OnItemSelectedListener;
 
 public class AndroidLocalize extends Activity {
 //    Spinner spinnerctrl;

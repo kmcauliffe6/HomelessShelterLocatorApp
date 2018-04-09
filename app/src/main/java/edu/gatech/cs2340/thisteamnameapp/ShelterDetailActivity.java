@@ -54,6 +54,11 @@ public class ShelterDetailActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * handles item selected
+     * @param item item selected
+     * @return boolean of optionItemsSelected
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -97,6 +102,10 @@ public class ShelterDetailActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * close search view on back button pressed
+     *
+     */
     @Override
     public void onBackPressed() {
         // close search view on back button pressed

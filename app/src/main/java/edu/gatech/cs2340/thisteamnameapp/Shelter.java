@@ -49,7 +49,10 @@ public class Shelter implements Serializable {
         this.details = details;
     }
 
-    // for testing purposes
+    /**
+     * no argument constructor for testing purposes
+     *
+     */
     public Shelter() {
         this.shelterName = null;
         this.capacity = null;
@@ -132,7 +135,7 @@ public class Shelter implements Serializable {
         }
         if ((bedsCheckedOut + b) <= Integer.parseInt(capacity)) {
             bedsCheckedOut = bedsCheckedOut + b;
-            u.setShelterCheckedInto(shelterName);
+            u.setShelterCheckedInto(shelterName); //method in user
             return true;
         } else {
             return false;

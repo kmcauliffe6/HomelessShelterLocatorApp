@@ -21,8 +21,11 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.Map;
 
-//Created by Paige McAuliffe on 2/20/18.
 
+/**
+ * Handles data from json file into lists
+ * Created by paigemca on 2/20/18.
+ */
 public class ModelManagementFacade {
     public final static String DEFAULT_BINARY_FILE_NAME = "data.bin";
     public final static String DEFAULT_TEXT_FILE_NAME = "data.txt";

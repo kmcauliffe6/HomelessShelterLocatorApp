@@ -11,8 +11,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.Intent;
-//Created by Paige McAuliffe on 2/20/18.
 
+
+/**
+ * Shelter adapter class
+ * Created by Paige McAuliffe on 2/20/18.
+ */
 public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHolder> implements Filterable {
     private final List<Shelter> shelterList;
     private List<Shelter> shelterListFiltered;
@@ -47,7 +51,7 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
     /**
      * @param context the current context
      * @param shelterList the list of shelters to be filtered
-     * @param listener the listesner
+     * @param listener the listener
      */
     public ShelterAdapter(Context context, List<Shelter> shelterList, ShelterAdapterListener listener) {
         Context context1 = context;
@@ -56,6 +60,12 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
         this.shelterListFiltered = shelterList;
     }
 
+    /**
+     * created view holder
+     * @param parent parent viewGroup
+     * @param viewType the viewType
+     * @return MyViewHolder
+     */
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -63,18 +73,31 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
 
         return new MyViewHolder(itemView);
     }
+
+    /**
+     * changes name of viewholder to name of shelter at position
+     * @param holder viewholder
+     * @param position position of where shelter is
+     */
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         final Shelter shelter = shelterListFiltered.get(position);
         holder.name.setText(shelter.getName());
     }
 
+    /**
+     * gets size of filtered list
+     * @return size of filtered list
+     */
     @Override
     public int getItemCount() {
         return shelterListFiltered.size();
     }
 
-
+    /**
+     * returns filter results
+     * @return filter trying to get
+     */
     @Override
     public Filter getFilter() {
         return new Filter() {

@@ -41,6 +41,7 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
+     * @param googleMap map in use
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -80,6 +81,11 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
         }
         return filteredShelters;
     }
+
+    /**
+     * close search view on back button pressed
+     *
+     */
     @Override
     public void onBackPressed() {
         // close search view on back button pressed

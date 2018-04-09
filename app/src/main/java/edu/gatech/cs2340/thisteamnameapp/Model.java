@@ -15,8 +15,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 
- //Created by Paige McAuliffe on 2/20/18.
 
+/**
+ * Model class that holds lists of objects
+ * Created by paigemca on 2/20/18.
+ */
 
 public class Model implements Serializable {
     private static final Model _instance = new Model();

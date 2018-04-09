@@ -37,7 +37,7 @@ public class HomelessAppTest {
         public ActivityTestRule<MainActivity> mActivityRule =
                 new ActivityTestRule<>(MainActivity.class);
 
-
+         /** testing decreasing vacancy */
         @Test
         public void testDecreaseVacancy() {
             //click register

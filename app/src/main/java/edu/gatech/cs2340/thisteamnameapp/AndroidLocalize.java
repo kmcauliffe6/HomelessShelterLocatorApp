@@ -17,6 +17,11 @@ package edu.gatech.cs2340.thisteamnameapp;
 //        import android.widget.Toast;
 //        import android.widget.AdapterView.OnItemSelectedListener;
 
+
+/**
+ * Localization class for Internationalization
+ * Created by Mariana
+ */
 public class AndroidLocalize extends Activity {
 //    Spinner spinnerctrl;
 //    Button btn;

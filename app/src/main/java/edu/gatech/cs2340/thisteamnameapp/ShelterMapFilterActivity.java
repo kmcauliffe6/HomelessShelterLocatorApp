@@ -56,6 +56,11 @@ public class ShelterMapFilterActivity extends AppCompatActivity{
         });
 
     }
+
+    /**
+     * closes search view on back button pressed.
+     *
+     */
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, ApplicationActivity.class);

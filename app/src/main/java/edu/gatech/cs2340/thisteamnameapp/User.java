@@ -30,6 +30,9 @@ public class User implements Serializable {
         shelterCheckedInto = "Not Checked In";
     }
 
+    /**
+     * No argument constructor
+     */
     public User() {
         this.name = null;
         this.userid = null;

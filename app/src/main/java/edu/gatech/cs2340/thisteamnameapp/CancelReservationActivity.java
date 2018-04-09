@@ -11,6 +11,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * Cancel Reservation Activity class for User objects using shelters
+ *
+ */
+
 public class CancelReservationActivity extends AppCompatActivity {
     private Shelter mItem;
 
@@ -61,6 +66,10 @@ public class CancelReservationActivity extends AppCompatActivity {
             }
         });
     }
+    /**
+     * On Back Pressed to close search view on back button pressed.
+     *
+     */
     @Override
     public void onBackPressed() {
         // close search view on back button pressed

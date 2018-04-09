@@ -103,6 +103,11 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         shelterList = m.getShelterList();
     }
 
+    /**
+     * creates options for menu
+     * @param menu the menu getting options
+     * @return boolean successful filter recycler
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -139,6 +144,11 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         return mContext;
     }
 
+    /**
+     * handles action bar item clicks here
+     * @param item menu item clicked
+     * @return boolean if item matches one in recyclerview
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -156,6 +166,10 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * close search view on back button pressed
+     *
+     */
     @Override
     public void onBackPressed() {
         // close search view on back button pressed

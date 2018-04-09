@@ -17,6 +17,9 @@ public class HomelessAppTest {
     private Shelter testShelter;
     private User u;
 
+    /**
+     * set up of test
+    */
     @Before
     public void setUp() {
         testShelter = new Shelter();
@@ -30,6 +33,10 @@ public class HomelessAppTest {
     //String name, String userid, String password, String type
 
     // Shelter.java
+
+    /**
+     * testing decreasing vacancy
+    */
     @Test
     public void testDecreaseVacancy() {
         // assertEquals("Simple Add result incorrect",56, testModel.execute(16, 40, "+"));

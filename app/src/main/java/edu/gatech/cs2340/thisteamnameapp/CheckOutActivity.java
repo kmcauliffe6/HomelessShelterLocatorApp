@@ -14,7 +14,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//Created by Paige McAuliffe on 3/7/18.
+/**
+ * Check out Activity class for User objects uses shelter class
+ *
+ */
+
 public class CheckOutActivity extends AppCompatActivity {
 
     /**
@@ -82,6 +86,11 @@ public class CheckOutActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * handles clicks in parent activity in AndroidManifest.xml
+     * @param item item selected from menu
+     * @return boolean of onOptionsItemSelected
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -94,6 +103,10 @@ public class CheckOutActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * closes search view on back button pressed.
+     *
+     */
     @Override
     public void onBackPressed() {
         // close search view on back button pressed

@@ -57,6 +57,7 @@ public class HomelessAppTest {
             onView(withId(R.id.seeSheltersButton)).perform(click());
 
 //          click on first shelter
+            //HELP
             onView(withId(R.id.frameLayout)).perform(click());
 
 

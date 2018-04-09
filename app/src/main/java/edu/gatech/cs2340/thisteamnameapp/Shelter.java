@@ -121,22 +121,46 @@ public class Shelter implements Serializable {
      * method that takes in a number of beds (b), checks if current
      * user has checked out a bed and if there is space available,
      * updates vacancy count
+     * CHECKS OUT BED
+     * RENAME to INCREASE VACANCY, as you return a bed, you add to vacancies,
+     * but you decrease beds checked out
+     *
      * @param b the number of beds to be checked out
-     * @return boolean whether or not the beds could be removed
+     * @return boolean whether or not the beds could be REMOVED
      */
     public boolean updateVacancy(int b) {
         ModelManagementFacade m = ModelManagementFacade.getInstance();
         User u = m.getCurUser();
-        if (u.isCheckedOut()) {
+
+        int curVacancies = Integer.parseInt(capacity) - bedsCheckedOut;
+
+//        if (u.isCheckedOut()) {
+//            return false;
+//        }
+
+        if (bedsCheckedOut + b > Integer.parseInt(capacity)) {
+            //if checking out 'b' amount of beds goes over the capacity
             return false;
-        }
-        if ((bedsCheckedOut + b) <= Integer.parseInt(capacity)) {
+        } else if (b < 1) {
+            //making sure the amount of beds checked out is valid
+            return false;
+        } else if (b > 6) {
+            return false;
+        } else if ((bedsCheckedOut + b) <= Integer.parseInt(capacity)) {
             bedsCheckedOut = bedsCheckedOut + b;
-            u.setShelterCheckedInto(shelterName);
+//            u.setShelterCheckedInto(shelterName);
             return true;
-        } else {
-            return false;
         }
+
+//        if ((bedsCheckedOut + b) <= Integer.parseInt(capacity)) {
+//            bedsCheckedOut = bedsCheckedOut + b;
+//            u.setShelterCheckedInto(shelterName);
+//            return true;
+//        } else {
+//            return false;
+//        }
+
+        return false;
     }
     /**
      * @return number of beds checked out
@@ -152,27 +176,50 @@ public class Shelter implements Serializable {
     public String getVacancy() {
         int vacancies = Integer.parseInt(getCapacity()) - getBedsCheckedOut();
         return Integer.toString(vacancies);
-
     }
+
     /**
      * method that takes in a number of beds (b), checks if current
      * user has checked out a bed and if there is space available,
      * updates vacancy count
+     * RETURNS A BED
+     * RENAME to INCREASE VACANCY, as you return a bed, you add to vacancies,
+     * but you decrease beds checked out
+     *
      * @param b the number of beds to be returned
-     * @return boolean whether or not the beds could be returned
+     * @return boolean whether or not the beds could be RETURNED
      */
     public boolean decreaseVacancy(int b) {
         ModelManagementFacade m = ModelManagementFacade.getInstance();
         User u = m.getCurUser();
         int curVacancies = Integer.parseInt(capacity) - bedsCheckedOut;
-        if ((u.isCheckedOut())
-                && (curVacancies +  b) <= Integer.parseInt(capacity)) {
-            bedsCheckedOut = bedsCheckedOut - b;
-            u.setShelterCheckedInto("Not Checked In");
+        //add branches
+        //check current vacancies
+
+        if (curVacancies + b > Integer.parseInt(capacity)) {
+            //if you return more beds than the capacity
+            return false;
+        } else if (b < 1) {
+            //if you try to return less than 1 bed
+            return false;
+        } else if (b > 6) {
+            //if you try to return more than 6 beds
+            return false;
+        } else if ((bedsCheckedOut + b) <= Integer.parseInt(capacity)) {
+            bedsCheckedOut -= b;
+//            u.setShelterCheckedInto("Not Checked In");
             return true;
         } else {
             return false;
         }
+//        if ((u.isCheckedOut())
+//                && (curVacancies +  b) <= Integer.parseInt(capacity)) {
+//            bedsCheckedOut = bedsCheckedOut - b;
+//            u.setShelterCheckedInto("Not Checked In");
+//            return true;
+//        } else {
+//            return false;
+//        }
     }
 
     @Override

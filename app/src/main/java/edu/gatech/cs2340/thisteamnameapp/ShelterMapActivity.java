@@ -1,15 +1,15 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
-//import android.content.Intent;
-//import android.support.v4.app.FragmentActivity;
+import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
-//import com.google.android.gms.maps.CameraUpdateFactory;
-//import com.google.android.gms.maps.GoogleMap;
-//import com.google.android.gms.maps.OnMapReadyCallback;
-//import com.google.android.gms.maps.SupportMapFragment;
-//import com.google.android.gms.maps.model.LatLng;
-//import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,12 +80,10 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
         }
         return filteredShelters;
     }
-// --Commented out by Inspection START (4/8/18, 8:49 PM):
-//    @Override
-//    public void onBackPressed() {
-//        // close search view on back button pressed
-//        Intent intent = new Intent(this, ShelterMapFilterActivity.class);
-//        startActivity(intent);
-//    }
-// --Commented out by Inspection STOP (4/8/18, 8:49 PM)
+    @Override
+    public void onBackPressed() {
+        // close search view on back button pressed
+        Intent intent = new Intent(this, ShelterMapFilterActivity.class);
+        startActivity(intent);
+    }
 }

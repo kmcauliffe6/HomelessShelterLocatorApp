@@ -16,7 +16,7 @@ import java.io.File;
 /**
  * welcome screen with buttons for log-in and register activity
  */
-public class MainActivity extends AppCompatActivity {
+class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

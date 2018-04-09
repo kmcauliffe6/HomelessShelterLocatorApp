@@ -1,6 +1,6 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
-import android.content.Intent;
+//import android.content.Intent;
 //import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -48,7 +48,7 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
         //noinspection MagicNumber, desired zoom for map
         int zoom = 11;
 
-        List<Shelter> shelters = getFilteredShelters(filterBy);
+        List<Shelter> shelters = getFilteredShelters();
         for (Shelter s: shelters) {
             LatLng loc = new LatLng(Double.parseDouble(s.getLatitude()), Double.parseDouble(s.getLongitude()));
             mMap.addMarker(new MarkerOptions().position(loc).title(s.getName()).snippet("Current Vacancies: "+ s.getVacancy()));
@@ -59,7 +59,7 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
 
     }
 
-    private List<Shelter> getFilteredShelters(String filter) {
+    private List<Shelter> getFilteredShelters() {
         ModelManagementFacade umf = ModelManagementFacade.getInstance();
         List<Shelter> shelters = umf.getShelterList();
         List<Shelter> filteredShelters = new ArrayList<>();
@@ -80,10 +80,12 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
         }
         return filteredShelters;
     }
-    @Override
-    public void onBackPressed() {
-        // close search view on back button pressed
-        Intent intent = new Intent(this, ShelterMapFilterActivity.class);
-        startActivity(intent);
-    }
+// --Commented out by Inspection START (4/8/18, 8:49 PM):
+//    @Override
+//    public void onBackPressed() {
+//        // close search view on back button pressed
+//        Intent intent = new Intent(this, ShelterMapFilterActivity.class);
+//        startActivity(intent);
+//    }
+// --Commented out by Inspection STOP (4/8/18, 8:49 PM)
 }

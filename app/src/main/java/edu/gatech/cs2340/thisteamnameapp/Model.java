@@ -125,6 +125,7 @@ public class Model implements Serializable {
 
         br.close();
     } catch (IOException o) {
+            throw new IOException("exception");
     }}
 
     /**

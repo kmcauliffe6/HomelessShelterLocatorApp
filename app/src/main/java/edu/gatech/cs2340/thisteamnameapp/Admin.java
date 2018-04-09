@@ -6,7 +6,7 @@ package edu.gatech.cs2340.thisteamnameapp;
  * we aren't using this yet, all users are instantiated as User but may be useful later
  */
 
-public class Admin {
+class Admin {
     private String name;
 
     /** constuctor

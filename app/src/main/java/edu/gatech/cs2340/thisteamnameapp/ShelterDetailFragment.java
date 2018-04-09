@@ -17,7 +17,7 @@ import android.widget.TextView;
  * in two-pane mode (on tablets) or a {@link ShelterDetailActivity}
  * on handsets.
  */
-public class ShelterDetailFragment extends Fragment {
+class ShelterDetailFragment extends Fragment {
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.

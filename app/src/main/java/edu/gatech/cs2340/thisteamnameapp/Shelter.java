@@ -16,8 +16,8 @@ public class Shelter implements Serializable {
     private final String capacity;
     private final String gender;
     private final String longitude;
-    private String latitude;
-    private String address;
+    private final String latitude;
+    private final String address;
     private final String phoneNumber;
     private final int id;
     private final String details;

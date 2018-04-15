@@ -106,7 +106,7 @@ public class ApplicationActivity extends AppCompatActivity {
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
-//        Intent refresh = new Intent(this, AndroidLocalize.class);
+//        Intent refresh = new Intent(this, ApplicationActivity.class);
 //        startActivity(refresh);
     }
 

@@ -38,21 +38,74 @@ public class HomelessAppTest {
      * testing decreasing vacancy
     */
     @Test
+    public void testUpdateVacancy() {
+        // assertEquals("Simple Add result incorrect",56, testModel.execute(16, 40, "+"));
+        testShelter = new Shelter("Mari's", "50", "Female", "1", "1", "301 10th St", "4445556678", 123, "the best shelter!");
+        u = new User("nish","1", "pass", "admin");
+        // check vacancy update, checkout 5 beds
+        testShelter.updateVacancy(5);
+        assertEquals("vacancy decreased properly", 45, Integer.parseInt(testShelter.getVacancy()));
+
+        // check vacancy update, try to checkout -1 beds
+        testShelter.updateVacancy(-1);
+        assertEquals("Can't checkout a negative amount of beds", 45, Integer.parseInt(testShelter.getVacancy()));
+
+        // check vacancy update, try to checkout 0 beds
+        testShelter.updateVacancy(0);
+        assertEquals("Can't checkout 0 beds", 45, Integer.parseInt(testShelter.getVacancy()));
+
+        // check vacancy update, try to checkout 7 beds
+        testShelter.updateVacancy(7);
+        assertEquals("Can't checkout 7 beds", 45, Integer.parseInt(testShelter.getVacancy()));
+
+        // check vacancy update, try to checkout 1 bed
+        testShelter.updateVacancy(1);
+        assertEquals("Checked out 1 bed", 44, Integer.parseInt(testShelter.getVacancy()));
+
+        // check vacancy update, try to checkout 6 beds
+        testShelter.updateVacancy(6);
+        assertEquals("Checked out 6 beds", 38, Integer.parseInt(testShelter.getVacancy()));
+    }
+
+    @Test
     public void testDecreaseVacancy() {
         // assertEquals("Simple Add result incorrect",56, testModel.execute(16, 40, "+"));
         testShelter = new Shelter("Mari's", "50", "Female", "1", "1", "301 10th St", "4445556678", 123, "the best shelter!");
         u = new User("nish","1", "pass", "admin");
-        // check vacancy update
-        testShelter.decreaseVacancy(5);
-        assertEquals("vacancy not decreased properly", 45, testShelter.getVacancy());
-        // check boolean in if statement if user is checked out -> should return true
-        assertEquals("boolean works not", true, testShelter.decreaseVacancy(0));
-        // user is now not checked in
 
+        // return more beds than the capacity
+        assertEquals("More beds returned than allowed", false, testShelter.decreaseVacancy(5));
 
+        //return the right amount of beds
+        //checkout 5 beds
+        testShelter.updateVacancy(5);
+        testShelter.decreaseVacancy(2);
+        testShelter.decreaseVacancy(3);
+        assertEquals("Returned beds correctly", 50, Integer.parseInt(testShelter.getVacancy()));
+
+        //checkout 20 beds -- vacancy = 30
+        testShelter.updateVacancy(5);
+        testShelter.updateVacancy(5);
+        testShelter.updateVacancy(5);
+        testShelter.updateVacancy(5);
+        assertEquals("Correctly checked out 20 beds", 30, Integer.parseInt(testShelter.getVacancy()));
+
+        // check vacancy update, try to checkout 0 beds
+        testShelter.decreaseVacancy(0);
+        assertEquals("Can't return 0 beds", 30, Integer.parseInt(testShelter.getVacancy()));
+
+        // check vacancy update, try to checkout 7 beds
+        testShelter.decreaseVacancy(1);
+        assertEquals("Returned 1 bed",31, Integer.parseInt(testShelter.getVacancy()));
+
+        // check vacancy update, try to checkout 1 bed
+        testShelter.decreaseVacancy(6);
+        assertEquals("Returned 6 beds", 37, Integer.parseInt(testShelter.getVacancy()));
+
+        // check vacancy update, try to checkout 6 beds
+        testShelter.decreaseVacancy(7);
+        assertEquals("Can't return 7 beds", 37, Integer.parseInt(testShelter.getVacancy()));
     }
-
-
 
 
 }

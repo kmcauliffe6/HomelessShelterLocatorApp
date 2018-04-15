@@ -12,11 +12,13 @@
     <string name="action_register">Regístrate</string>
     <string name="action_sign_in_short">Iniciar Sesión</string>
     <string name="error_invalid_email">El número de usuario es inválido.</string>
-    <string name="error_invalid_credentials">El número de usuario o contraseña es incorrecto.</string>
+    <string name="error_invalid_credentials">El número de usuario o contraseña es
+        incorrecto.</string>
     <string name="error_invalid_password">La contraseña es inválida.</string>
     <string name="error_incorrect_password">La contraseña es incorrecta.</string>
     <string name="error_field_required">Este campo es requerido.</string>
-    <string name="permission_rationale">"Se necesitan permisos de contacto para proporcionar correo electrónico terminaciones."
+    <string name="permission_rationale">"Se necesitan permisos de contacto para proporcionar
+        correo electrónico terminaciones."
     </string>
     <string name="cancelres">Cancelar Réservation</string>
     <string name="title_activity_register">Registrar Una Nueva Cuenta</string>

@@ -187,14 +187,17 @@ public class Shelter implements Serializable {
     /*
     public void saveAsText(PrintWriter writer) {
         //System.out.println("Shelter saving shelter: " + shelterName);
-        writer.println(shelterName + "\t" + capacity + "\t" + gender + "\t" + longitude + "\t" + latitude
+        writer.println(shelterName + "\t" + capacity + "\t" + gender + "\t" + longitude + "\t" +
+        latitude
         + "\t" + address + "\t" + phoneNumber + "\t" + id + "\t" + details);
     }
 
 
     /**
-     * This is a static factory method that constructs a student given a text line in the correct format.
-     * It assumes that a student is in a single string with each attribute separated by a tab character
+     * This is a static factory method that constructs a student given a text line in the correct
+     * format.
+     * It assumes that a student is in a single string with each attribute separated by a tab
+     * character
      * The order of the data is assumed to be:
      *
      * 0 - name
@@ -211,7 +214,8 @@ public class Shelter implements Serializable {
         assert line != null;
         String[] tokens = line.split("\t");
         assert tokens.length == 9;
-        Shelter s = new Shelter(tokens[0], tokens[1], tokens[2], tokens[3], tokens[5], tokens[6], tokens[7],Integer.parseInt(tokens[8]),
+        Shelter s = new Shelter(tokens[0], tokens[1], tokens[2], tokens[3],
+         tokens[5], tokens[6], tokens[7],Integer.parseInt(tokens[8]),
                 tokens[9]);
         return s;
     } */

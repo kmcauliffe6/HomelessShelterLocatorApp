@@ -73,7 +73,8 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         }); */
         final Spinner actTypeSpinner = findViewById(R.id.spinner);
         String[] arr = {"Admin", "User", "Shelter Employee"};
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         actTypeSpinner.setAdapter(adapter);
 
@@ -89,7 +90,8 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
                 String type = actTypeSpinner.getSelectedItem().toString();
                 User u = new User(name, email, password, type);
                 umf.addUser(u);
-                Toast toast = Toast.makeText(getApplicationContext(), "Added user" , Toast.LENGTH_SHORT);
+                Toast toast =
+                        Toast.makeText(getApplicationContext(), "Added user" , Toast.LENGTH_SHORT);
                 toast.show();
                 umf.setCurrentUser(u);
                 Intent intent = new Intent (RegisterActivity.this, ApplicationActivity.class);

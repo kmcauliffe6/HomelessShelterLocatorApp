@@ -152,7 +152,8 @@ public class ModelManagementFacade {
                 //Since we saved the json as a string, we just read in the string normally
                 String inString = input.readLine();
                 Log.d("DEBUG", "JSON: " + inString);
-                //Then we use the Gson library to recreate the object references and links automagically
+                //Then we use the Gson library to recreate the object references and links
+                automagically
                 Gson gson = new Gson();
 
                 sm = gson.fromJson(inString, Model.class);
@@ -186,7 +187,8 @@ public class ModelManagementFacade {
 
 
                 java.io.ObjectOutput out = new ObjectOutputStream(new FileOutputStream(file));
-                // We basically can save our entire data model with one write, since this will follow
+                // We basically can save our entire data model with one write, since this will
+                // follow
                 // all the links and pointers to save everything.  Just save the top level object.
                 out.writeObject(sm);
                 out.close();

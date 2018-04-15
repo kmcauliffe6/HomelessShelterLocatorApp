@@ -35,7 +35,7 @@ public class HomelessAppTest {
     // Shelter.java
 
     /**
-     * testing decreasing vacancy
+     * testing updating vacancy
     */
     @Test
     public void testUpdateVacancy() {
@@ -67,6 +67,9 @@ public class HomelessAppTest {
         assertEquals("Checked out 6 beds", 38, Integer.parseInt(testShelter.getVacancy()));
     }
 
+    /**
+     * testing decreasing vacancy
+     */
     @Test
     public void testDecreaseVacancy() {
         // assertEquals("Simple Add result incorrect",56, testModel.execute(16, 40, "+"));

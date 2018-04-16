@@ -123,9 +123,9 @@ public class ShelterAdapter extends
                         } else {
                             for (Shelter s: shelterList) {
                                 //System.out.println(s.getGender());
-                                if (s.getGender() != null
-                                        && s.getGender().toLowerCase()
-                                        .contains(charString.toLowerCase())){
+                                if ((s.getGender() != null)
+                                        && (s.getGender().toLowerCase()
+                                        .contains(charString.toLowerCase()))){
                                     filteredList.add(s);
                                 }
                             }

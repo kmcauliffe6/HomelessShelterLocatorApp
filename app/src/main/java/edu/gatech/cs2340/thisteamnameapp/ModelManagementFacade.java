@@ -26,7 +26,8 @@ import java.util.Map;
  * Handles data from json file into lists
  * Created by paigemca on 2/20/18.
  */
-@SuppressWarnings({"ClassWithOnlyPrivateConstructors", "CyclicClassDependency", "ClassWithTooManyDependents"})
+@SuppressWarnings({"ClassWithOnlyPrivateConstructors",
+        "CyclicClassDependency", "ClassWithTooManyDependents"})
 public class ModelManagementFacade {
     public static final String DEFAULT_BINARY_FILE_NAME = "data.bin";
     public static final String DEFAULT_TEXT_FILE_NAME = "data.txt";

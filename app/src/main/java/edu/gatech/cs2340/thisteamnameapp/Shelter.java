@@ -190,7 +190,7 @@ public class Shelter implements Serializable {
         User u = m.getCurUser();
         int curVacancies = Integer.parseInt(capacity) - bedsCheckedOut;
         if ((u.isCheckedOut())
-                && (curVacancies +  b) <= Integer.parseInt(capacity)) {
+                && ((curVacancies +  b) <= Integer.parseInt(capacity))) {
             bedsCheckedOut = bedsCheckedOut - b;
             u.setShelterCheckedInto("Not Checked In");
             return true;

@@ -74,8 +74,8 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
                     filteredShelters = shelters;
                 } else {
                     for (Shelter s: shelters) {
-                        if (s.getGender() != null
-                                && s.getGender().toLowerCase().contains(filterBy.toLowerCase())) {
+                        if ((s.getGender() != null)
+                                && (s.getGender().toLowerCase().contains(filterBy.toLowerCase()))) {
                             filteredShelters.add(s);
                         }
                     }

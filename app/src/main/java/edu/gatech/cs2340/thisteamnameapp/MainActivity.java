@@ -24,7 +24,8 @@ class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         File file = new File(this.getFilesDir(), ModelManagementFacade.DEFAULT_BINARY_FILE_NAME);
-        ModelManagementFacade.getInstance().loadBinary(file);
+        ModelManagementFacade inst = ModelManagementFacade.getInstance();
+        inst.loadBinary(file);
     }
     /**
      * goes to SplashActivity

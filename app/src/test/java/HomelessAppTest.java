@@ -35,6 +35,40 @@ public class HomelessAppTest {
     // Shelter.java
 
     /**
+     * testing getting vacancy
+     */
+    public void getVacancy() {
+        testShelter = new Shelter("Bura's", "10", "Female",
+                "1", "1", "301 10th St", "4445556678",
+                123, "the best shelter!");
+        u = new User("Bura","5", "pass", "admin");
+
+        //original vacancy
+        assertEquals("accurate when vacancy > 0", 10,
+                Integer.parseInt(testShelter.getVacancy()));
+
+        //vacancy > 0
+        testShelter.updateVacancy(5);
+        assertEquals("vacancy decreased properly", 5,
+                Integer.parseInt(testShelter.getVacancy()));
+
+        //bringing vacancy back up
+        testShelter.decreaseVacancy(2);
+        assertEquals("vacancy decreased properly", 7,
+                Integer.parseInt(testShelter.getVacancy()));
+
+        //vacancy = 0
+        testShelter.updateVacancy(7);
+        assertEquals("accurate when vacancy = 0", 0,
+                Integer.parseInt(testShelter.getVacancy()));
+
+        //vacancy < 0
+        testShelter.updateVacancy(2);
+        assertEquals("accurate when vacancy < 0", 0,
+                Integer.parseInt(testShelter.getVacancy()));
+    }
+
+    /**
      * testing updating vacancy
     */
     @Test
@@ -126,6 +160,5 @@ public class HomelessAppTest {
         assertEquals("Can't return 7 beds", 37,
                 Integer.parseInt(testShelter.getVacancy()));
     }
-
 
 }

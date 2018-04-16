@@ -17,7 +17,8 @@ import android.content.Intent;
  * Shelter adapter class
  * Created by Paige McAuliffe on 2/20/18.
  */
-public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHolder> implements Filterable {
+public class ShelterAdapter extends
+        RecyclerView.Adapter<ShelterAdapter.MyViewHolder> implements Filterable {
     private final List<Shelter> shelterList;
     private List<Shelter> shelterListFiltered;
     private final ShelterAdapterListener listener;
@@ -41,7 +42,8 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
                     listener.onShelterSelected(shelterListFiltered.get(getAdapterPosition()));
                     Context context = view.getContext();
                     Intent intent = new Intent(context, ShelterDetailActivity.class);
-                    intent.putExtra(ShelterDetailFragment.ARG_ITEM_ID, shelterListFiltered.get(getAdapterPosition()).getId());
+                    intent.putExtra(ShelterDetailFragment.ARG_ITEM_ID,
+                            shelterListFiltered.get(getAdapterPosition()).getId());
                     context.startActivity(intent);
 
                 }
@@ -53,7 +55,8 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
      * @param shelterList the list of shelters to be filtered
      * @param listener the listener
      */
-    public ShelterAdapter(Context context, List<Shelter> shelterList, ShelterAdapterListener listener) {
+    public ShelterAdapter(Context context, List<Shelter>
+            shelterList, ShelterAdapterListener listener) {
         Context context1 = context;
         this.listener = listener;
         this.shelterList = shelterList;
@@ -106,7 +109,8 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
                 String charString = charSequence.toString();
 
                 boolean filterby = false;
-                String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn", "Young Adults"};
+                String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn",
+                        "Young Adults"};
                 for (String p: arr) {
                     if (charString.equals(p)) {
                         List<Shelter> filteredList = new ArrayList<>();
@@ -117,7 +121,7 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
                         } else {
                             for (Shelter s: shelterList) {
                                 //System.out.println(s.getGender());
-                                if (s.getGender().toLowerCase().contains(charString.toLowerCase())) {
+                                if (s.getGender().toLowerCase().contains(charString.toLowerCase())){
                                     filteredList.add(s);
                                 }
                             }

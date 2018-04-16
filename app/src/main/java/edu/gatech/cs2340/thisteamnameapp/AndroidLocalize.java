@@ -34,7 +34,8 @@ public class AndroidLocalize extends Activity {
 //
 //        spinnerctrl = (Spinner) findViewById(R.id.spinner2);
 //        String[] arr = {"English", "Spanish", "French"};
-//        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, arr);
+//        ArrayAdapter<String> adapter =
+//              new ArrayAdapter(this, android.R.layout.simple_spinner_item, arr);
 //        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        spinnerctrl.setAdapter(adapter);
 //

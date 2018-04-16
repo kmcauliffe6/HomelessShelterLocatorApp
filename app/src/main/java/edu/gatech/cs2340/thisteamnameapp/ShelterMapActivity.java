@@ -51,11 +51,14 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
 
         List<Shelter> shelters = getFilteredShelters();
         for (Shelter s: shelters) {
-            LatLng loc = new LatLng(Double.parseDouble(s.getLatitude()), Double.parseDouble(s.getLongitude()));
-            mMap.addMarker(new MarkerOptions().position(loc).title(s.getName()).snippet("Current Vacancies: "+ s.getVacancy()));
+            LatLng loc = new LatLng(Double.parseDouble(s.getLatitude()),
+                    Double.parseDouble(s.getLongitude()));
+            mMap.addMarker(new MarkerOptions().position(loc).title(s.getName()).snippet(
+                    "Current Vacancies: "+ s.getVacancy()));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                    new LatLng(Double.parseDouble(s.getLatitude()), Double.parseDouble(s.getLongitude())), zoom));
+                    new LatLng(Double.parseDouble(s.getLatitude()),
+                            Double.parseDouble(s.getLongitude())), zoom));
         }
 
     }

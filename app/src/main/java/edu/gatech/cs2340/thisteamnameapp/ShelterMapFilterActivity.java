@@ -30,7 +30,8 @@ public class ShelterMapFilterActivity extends AppCompatActivity{
 
         final Spinner filterSpinner = findViewById(R.id.filterspinner);
         String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn", "Young Adults"};
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
+        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,
+                arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         filterSpinner.setAdapter(adapter);
 
@@ -47,8 +48,10 @@ public class ShelterMapFilterActivity extends AppCompatActivity{
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String filterBy = filterSpinner.getSelectedItem().toString(); //find a way to select type from spinner
-                Intent intent = new Intent (ShelterMapFilterActivity.this, ShelterMapActivity.class);
+                String filterBy = filterSpinner.getSelectedItem().toString();
+                //find a way to select type from spinner
+                Intent intent =
+                        new Intent (ShelterMapFilterActivity.this, ShelterMapActivity.class);
                 intent.putExtra("Filter By", filterBy);
                 startActivity(intent);
 

@@ -38,7 +38,8 @@ import java.util.List;
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  */
-public class ShelterListActivity extends AppCompatActivity implements ShelterAdapter.ShelterAdapterListener {
+public class ShelterListActivity
+        extends AppCompatActivity implements ShelterAdapter.ShelterAdapterListener {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -62,9 +63,13 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         setSupportActionBar(toolbar);
 
         final Spinner filterSpinner = findViewById(R.id.filterspinner);
-        String[] arr = {mContext.getString(R.string.anyonefilter), mContext.getString(R.string.malefilter), mContext.getString(R.string.femalefilter),
-                mContext.getString(R.string.childrenfilter), mContext.getString(R.string.familyfilter), mContext.getString(R.string.youngadultfilter)};
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
+        String[] arr = {mContext.getString(R.string.anyonefilter),
+                mContext.getString(R.string.malefilter), mContext.getString(R.string.femalefilter),
+                mContext.getString(R.string.childrenfilter),
+                mContext.getString(R.string.familyfilter),
+                mContext.getString(R.string.youngadultfilter)};
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         filterSpinner.setAdapter(adapter);
 
@@ -78,7 +83,8 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
 
         whiteNotificationBar(recyclerView);
 
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager mLayoutManager =
+                new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
@@ -185,7 +191,9 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
     }
     @Override
     public void onShelterSelected(Shelter shelter) {
-        Toast.makeText(getApplicationContext(), mContext.getString(R.string.selected) + shelter.getName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),
+                mContext.getString(R.string.selected) + shelter.getName(),
+                Toast.LENGTH_LONG).show();
     }
 }
 

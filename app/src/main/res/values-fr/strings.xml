@@ -11,12 +11,15 @@
     <string name="prompt_type">Type de compte</string>
     <string name="action_register">Inscrivez-vous</string>
     <string name="action_sign_in_short">Se connecter</string>
-    <string name="error_invalid_email" tools:ignore="StringEscaping">Le nom d\'\utilisateur est invalide</string>
-    <string name="error_invalid_credentials" tools:ignore="StringEscaping">Le nom d\'\utilisateur ou mot de passe est incorrect</string>
+    <string name="error_invalid_email"
+        tools:ignore="StringEscaping">Le nom d\'\utilisateur est invalide</string>
+    <string name="error_invalid_credentials"
+        tools:ignore="StringEscaping">Le nom d\'\utilisateur ou mot de passe est incorrect</string>
     <string name="error_invalid_password">Ce mot de passe est invalide</string>
     <string name="error_incorrect_password">Ce mot de passe est incorrect</string>
     <string name="error_field_required">Ce domaine est requis</string>
-    <string name="permission_rationale">"Les autorisations de contacts sont nécessaires pour fournir des complétions de courrier électronique."
+    <string name="permission_rationale">"Les autorisations de contacts sont nécessaires pour fournir
+        des complétions de courrier électronique."
     </string>
     <string name="cancelres">Annule une réservation</string>
     <string name="title_activity_register">Enregistrer Une Nouveau Compte</string>

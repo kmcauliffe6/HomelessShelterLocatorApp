@@ -77,13 +77,36 @@ public class User implements Serializable {
     public String getPassword() {
         return password;
     }
-    /*public String getShelterCheckedInto() {
+
+    /** getter for shelter checked into
+     * @return shelter that is being checked into*/
+    public String getShelterCheckedInto() {
         return shelterCheckedInto;
-    } */
+    }
+
     /** setter for shelter checked into
      * @param shelterName the shelter name   */
     public void setShelterCheckedInto(String shelterName) {
         shelterCheckedInto = shelterName;
+        checkIn(shelterName);
+    }
+
+    /** check into a shelter
+     * @param shelterName the shelter name
+     * @return true if the user was able to check into a new shelter
+     */
+    public boolean checkIn(String shelterName) {
+        if (shelterName.equals("")) {
+            return false;
+        } else if (shelterCheckedInto == null) {
+            shelterCheckedInto = shelterName;
+            return true;
+        } else if (shelterName.equals(shelterCheckedInto)) {
+            return false;
+        } else {
+            shelterCheckedInto = shelterName;
+            return true;
+        }
     }
 
     @Override

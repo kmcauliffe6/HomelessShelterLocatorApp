@@ -145,13 +145,10 @@ public class Shelter implements Serializable {
      */
     public boolean updateVacancy(int b) {
         ModelManagementFacade m = ModelManagementFacade.getInstance();
-        User u = m.getCurUser();
-        if (u.isCheckedOut()) {
+        if (b <= 0 || b > 6) {
             return false;
-        }
-        if ((bedsCheckedOut + b) <= Integer.parseInt(capacity)) {
-            bedsCheckedOut = bedsCheckedOut + b;
-            u.setShelterCheckedInto(shelterName); //method in user
+        } else if ((bedsCheckedOut + b) <= Integer.parseInt(capacity)) {
+            bedsCheckedOut += b;
             return true;
         } else {
             return false;
@@ -187,12 +184,11 @@ public class Shelter implements Serializable {
      */
     public boolean decreaseVacancy(int b) {
         ModelManagementFacade m = ModelManagementFacade.getInstance();
-        User u = m.getCurUser();
         int curVacancies = Integer.parseInt(capacity) - bedsCheckedOut;
-        if ((u.isCheckedOut())
-                && ((curVacancies +  b) <= Integer.parseInt(capacity))) {
-            bedsCheckedOut = bedsCheckedOut - b;
-            u.setShelterCheckedInto("Not Checked In");
+        if (b <= 0 || b > 6) {
+            return false;
+        } else if ((curVacancies + b) <= Integer.parseInt(capacity)) {
+            bedsCheckedOut -= b;
             return true;
         } else {
             return false;

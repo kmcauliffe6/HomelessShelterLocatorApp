@@ -14,10 +14,14 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
 /**
- * Created by Paige McAuliffe on 2/20/18.
+ * Model class that holds lists of objects
+ * Created by paigemca on 2/20/18.
  */
 
+@SuppressWarnings({"ClassWithOnlyPrivateConstructors", "CyclicClassDependency"})
 public class Model implements Serializable {
     private static final Model _instance = new Model();
     /**
@@ -105,7 +109,8 @@ public class Model implements Serializable {
         String line;
         br.readLine(); //get rid of header line
         if (shelters.isEmpty() || users.isEmpty()) {
-            while ((line = br.readLine()) != null) {
+            line = br.readLine();
+            while (line != null) {
                 String[] tokens = line.split(",");
                 String id = tokens[0];
                 String name = tokens[1];
@@ -120,11 +125,13 @@ public class Model implements Serializable {
                         longitude, latitude, address,
                         phoneNumber, Integer.parseInt(id), details);
                 addShelter(newShelter);
+                line = br.readLine();
             }
         }
 
         br.close();
     } catch (IOException o) {
+            throw new IOException("exception");
     }}
 
     /**

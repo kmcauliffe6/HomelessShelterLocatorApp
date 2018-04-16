@@ -16,14 +16,16 @@ import java.io.File;
 /**
  * welcome screen with buttons for log-in and register activity
  */
-public class MainActivity extends AppCompatActivity {
+@SuppressWarnings("CyclicClassDependency")
+class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         File file = new File(this.getFilesDir(), ModelManagementFacade.DEFAULT_BINARY_FILE_NAME);
-        ModelManagementFacade.getInstance().loadBinary(file);
+        ModelManagementFacade inst = ModelManagementFacade.getInstance();
+        inst.loadBinary(file);
     }
     /**
      * goes to SplashActivity

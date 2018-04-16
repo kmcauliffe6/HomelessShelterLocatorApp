@@ -4,31 +4,34 @@ package edu.gatech.cs2340.thisteamnameapp;
 
 import android.util.Log;
 
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+//import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
+//import java.io.PrintWriter;
 
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Paige McAuliffe on 3/27/18.
- */
 
+/**
+ * Handles data from json file into lists
+ * Created by paigemca on 2/20/18.
+ */
+@SuppressWarnings({"ClassWithOnlyPrivateConstructors",
+        "CyclicClassDependency", "ClassWithTooManyDependents"})
 public class ModelManagementFacade {
-    public final static String DEFAULT_BINARY_FILE_NAME = "data.bin";
-    public final static String DEFAULT_TEXT_FILE_NAME = "data.txt";
-    public final static String DEFAULT_JSON_FILE_NAME = "data.json";
+    public static final String DEFAULT_BINARY_FILE_NAME = "data.bin";
+    public static final String DEFAULT_TEXT_FILE_NAME = "data.txt";
+    public static final String DEFAULT_JSON_FILE_NAME = "data.json";
 
         /**
          * the facade maintains references to any required model classes
@@ -110,7 +113,7 @@ public class ModelManagementFacade {
      * @param file the CSV file with all the shelters
      */
         public void loadBinary(File file) {
-            boolean success = true;
+            //boolean success = true;
             try {
             /*
               To read, we must use the ObjectInputStream since we want to read our model in with
@@ -123,10 +126,10 @@ public class ModelManagementFacade {
                 in.close();
             } catch (IOException e) {
                 Log.e("UserManagementFacade", "Error reading an entry from binary file", e);
-                success = false;
+                //success = false;
             } catch (ClassNotFoundException e) {
                 Log.e("UserManagementFacade", "Error casting a class from the binary file", e);
-                success = false;
+                //success = false;
             }
 
         }
@@ -151,7 +154,8 @@ public class ModelManagementFacade {
                 //Since we saved the json as a string, we just read in the string normally
                 String inString = input.readLine();
                 Log.d("DEBUG", "JSON: " + inString);
-                //Then we use the Gson library to recreate the object references and links automagically
+                //Then we use the Gson library to recreate the object references and links
+                automagically
                 Gson gson = new Gson();
 
                 sm = gson.fromJson(inString, Model.class);
@@ -185,7 +189,8 @@ public class ModelManagementFacade {
 
 
                 java.io.ObjectOutput out = new ObjectOutputStream(new FileOutputStream(file));
-                // We basically can save our entire data model with one write, since this will follow
+                // We basically can save our entire data model with one write, since this will
+                // follow
                 // all the links and pointers to save everything.  Just save the top level object.
                 out.writeObject(sm);
                 out.close();

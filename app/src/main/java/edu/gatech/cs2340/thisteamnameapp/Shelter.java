@@ -2,6 +2,8 @@ package edu.gatech.cs2340.thisteamnameapp;
 
 
 
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 
 
@@ -11,15 +13,24 @@ import java.io.Serializable;
  * Created by paigemca on 2/26/18.
  */
 //need to change capacity to int!!
+@SuppressWarnings({"ClassWithTooManyDependents", "CyclicClassDependency"})
 public class Shelter implements Serializable {
+    @Nullable
     private final String shelterName;
+    @Nullable
     private final String capacity;
+    @Nullable
     private final String gender;
+    @Nullable
     private final String longitude;
-    private String latitude;
-    private String address;
+    @Nullable
+    private final String latitude;
+    @Nullable
+    private final String address;
+    @Nullable
     private final String phoneNumber;
     private final int id;
+    @Nullable
     private final String details;
     private int bedsCheckedOut;
     /**
@@ -35,9 +46,9 @@ public class Shelter implements Serializable {
      *  @param details details about the shelter
      */
 
-    public Shelter(String shelterName, String capacity, String gender,
-            String longitude, String latitude, String address,
-            String phoneNumber, int id, String details) {
+    public Shelter(@Nullable String shelterName, @Nullable String capacity, @Nullable String gender,
+                   @Nullable String longitude, @Nullable String latitude, @Nullable String address,
+                   @Nullable String phoneNumber, int id, @Nullable String details) {
         this.shelterName = shelterName;
         this.capacity = capacity;
         this.gender = gender;
@@ -49,7 +60,10 @@ public class Shelter implements Serializable {
         this.details = details;
     }
 
-    // for testing purposes
+    /**
+     * no argument constructor for testing purposes
+     *
+     */
     public Shelter() {
         this.shelterName = null;
         this.capacity = null;
@@ -78,24 +92,28 @@ public class Shelter implements Serializable {
     /**
      * @return shelter capacity
      */
+    @Nullable
     public String getCapacity() {
         return capacity;
     }
     /**
      * @return gender
      */
+    @Nullable
     public String getGender() {
         return gender;
     }
     /**
      * @return longitude
      */
+    @Nullable
     public String getLongitude() {
         return longitude;
     }
     /**
      * @return latitude
      */
+    @Nullable
     public String getLatitude() {
         return latitude;
     }
@@ -108,6 +126,7 @@ public class Shelter implements Serializable {
     /**
      * @return shelter address
      */
+    @Nullable
     public String getAddress() {
         return address;
     }
@@ -132,7 +151,7 @@ public class Shelter implements Serializable {
         }
         if ((bedsCheckedOut + b) <= Integer.parseInt(capacity)) {
             bedsCheckedOut = bedsCheckedOut + b;
-            u.setShelterCheckedInto(shelterName);
+            u.setShelterCheckedInto(shelterName); //method in user
             return true;
         } else {
             return false;
@@ -150,9 +169,14 @@ public class Shelter implements Serializable {
      * @return number of vacancies
      */
     public String getVacancy() {
-        int vacancies = Integer.parseInt(getCapacity()) - getBedsCheckedOut();
-        return Integer.toString(vacancies);
-
+        int cap = Integer.parseInt(getCapacity());
+        int out = getBedsCheckedOut();
+        int vacancies = cap - out;
+            if (vacancies >= 0) {
+                return Integer.toString(vacancies);
+            } else {
+                return Integer.toString(0);
+            }
     }
     /**
      * method that takes in a number of beds (b), checks if current
@@ -166,7 +190,7 @@ public class Shelter implements Serializable {
         User u = m.getCurUser();
         int curVacancies = Integer.parseInt(capacity) - bedsCheckedOut;
         if ((u.isCheckedOut())
-                && (curVacancies +  b) <= Integer.parseInt(capacity)) {
+                && ((curVacancies +  b) <= Integer.parseInt(capacity))) {
             bedsCheckedOut = bedsCheckedOut - b;
             u.setShelterCheckedInto("Not Checked In");
             return true;
@@ -184,14 +208,17 @@ public class Shelter implements Serializable {
     /*
     public void saveAsText(PrintWriter writer) {
         //System.out.println("Shelter saving shelter: " + shelterName);
-        writer.println(shelterName + "\t" + capacity + "\t" + gender + "\t" + longitude + "\t" + latitude
+        writer.println(shelterName + "\t" + capacity + "\t" + gender + "\t" + longitude + "\t" +
+        latitude
         + "\t" + address + "\t" + phoneNumber + "\t" + id + "\t" + details);
     }
 
 
     /**
-     * This is a static factory method that constructs a student given a text line in the correct format.
-     * It assumes that a student is in a single string with each attribute separated by a tab character
+     * This is a static factory method that constructs a student given a text line in the correct
+     * format.
+     * It assumes that a student is in a single string with each attribute separated by a tab
+     * character
      * The order of the data is assumed to be:
      *
      * 0 - name
@@ -208,7 +235,8 @@ public class Shelter implements Serializable {
         assert line != null;
         String[] tokens = line.split("\t");
         assert tokens.length == 9;
-        Shelter s = new Shelter(tokens[0], tokens[1], tokens[2], tokens[3], tokens[5], tokens[6], tokens[7],Integer.parseInt(tokens[8]),
+        Shelter s = new Shelter(tokens[0], tokens[1], tokens[2], tokens[3],
+         tokens[5], tokens[6], tokens[7],Integer.parseInt(tokens[8]),
                 tokens[9]);
         return s;
     } */

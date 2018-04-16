@@ -15,8 +15,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by Paige McAuliffe on 3/7/18.
+ * Check out Activity class for User objects uses shelter class
+ *
  */
+
+@SuppressWarnings("CyclicClassDependency")
 public class CheckOutActivity extends AppCompatActivity {
 
     /**
@@ -44,13 +47,13 @@ public class CheckOutActivity extends AppCompatActivity {
 
         final Spinner beds = findViewById(R.id.checkOutSpinner);
         String[] arr = {"1", "2", "3", "4", "5", "6"};
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         beds.setAdapter(adapter);
 
-
-        int id = getIntent().getIntExtra("id", 1000);
+        Intent it = getIntent();
+        int id = it.getIntExtra("id", 1000);
         mItem = umf.getShelterByID(id);
 
         TextView vacancy = findViewById(R.id.vacancies);
@@ -84,6 +87,11 @@ public class CheckOutActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * handles clicks in parent activity in AndroidManifest.xml
+     * @param item item selected from menu
+     * @return boolean of onOptionsItemSelected
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -96,6 +104,10 @@ public class CheckOutActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * closes search view on back button pressed.
+     *
+     */
     @Override
     public void onBackPressed() {
         // close search view on back button pressed

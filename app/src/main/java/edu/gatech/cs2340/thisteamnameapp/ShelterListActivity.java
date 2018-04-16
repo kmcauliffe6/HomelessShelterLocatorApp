@@ -38,7 +38,9 @@ import java.util.List;
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  */
-public class ShelterListActivity extends AppCompatActivity implements ShelterAdapter.ShelterAdapterListener {
+@SuppressWarnings("CyclicClassDependency")
+public class ShelterListActivity
+        extends AppCompatActivity implements ShelterAdapter.ShelterAdapterListener {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -48,7 +50,7 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
     private static final String TAG = MainActivity.class.getSimpleName();
     private List<Shelter> shelterList;
     private ShelterAdapter mAdapter;
-    private static Context mContext;
+    private Context mContext;
 
 
     @Override
@@ -62,9 +64,13 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         setSupportActionBar(toolbar);
 
         final Spinner filterSpinner = findViewById(R.id.filterspinner);
-        String[] arr = {mContext.getString(R.string.anyonefilter), mContext.getString(R.string.malefilter), mContext.getString(R.string.femalefilter),
-                mContext.getString(R.string.childrenfilter), mContext.getString(R.string.familyfilter), mContext.getString(R.string.youngadultfilter)};
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
+        String[] arr = {mContext.getString(R.string.anyonefilter),
+                mContext.getString(R.string.malefilter), mContext.getString(R.string.femalefilter),
+                mContext.getString(R.string.childrenfilter),
+                mContext.getString(R.string.familyfilter),
+                mContext.getString(R.string.youngadultfilter)};
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         filterSpinner.setAdapter(adapter);
 
@@ -78,7 +84,8 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
 
         whiteNotificationBar(recyclerView);
 
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager mLayoutManager =
+                new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
@@ -103,6 +110,11 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         shelterList = m.getShelterList();
     }
 
+    /**
+     * creates options for menu
+     * @param menu the menu getting options
+     * @return boolean successful filter recycler
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -115,6 +127,9 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
                 .getSearchableInfo(getComponentName()));
         searchView.setMaxWidth(Integer.MAX_VALUE);
         // listening to search query text change
+        //noinspection SameReturnValue,SameReturnValue,
+        // SameReturnValue,SameReturnValue,SameReturnValue,
+        // SameReturnValue,SameReturnValue,SameReturnValue
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -135,10 +150,15 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
     /**
      * @return current context of app
      */
-    public static Context getContext(){
+    public Context getContext(){
         return mContext;
     }
 
+    /**
+     * handles action bar item clicks here
+     * @param item menu item clicked
+     * @return boolean if item matches one in recyclerview
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -156,6 +176,10 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * close search view on back button pressed
+     *
+     */
     @Override
     public void onBackPressed() {
         // close search view on back button pressed
@@ -171,7 +195,9 @@ public class ShelterListActivity extends AppCompatActivity implements ShelterAda
     }
     @Override
     public void onShelterSelected(Shelter shelter) {
-        Toast.makeText(getApplicationContext(), mContext.getString(R.string.selected) + shelter.getName(), Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),
+                mContext.getString(R.string.selected) + shelter.getName(),
+                Toast.LENGTH_LONG).show();
     }
 }
 

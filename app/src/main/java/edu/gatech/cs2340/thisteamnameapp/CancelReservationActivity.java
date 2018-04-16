@@ -10,9 +10,13 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 /**
- * Created by Paige McAuliffe on 3/7/18.
+ * Cancel Reservation Activity class for User objects using shelters
+ *
  */
+
+@SuppressWarnings("CyclicClassDependency")
 public class CancelReservationActivity extends AppCompatActivity {
     private Shelter mItem;
 
@@ -26,12 +30,12 @@ public class CancelReservationActivity extends AppCompatActivity {
         final Spinner beds = findViewById(R.id.checkOutSpinner);
         String[] arr = {"0", "1", "2", "3", "4", "5", "6"};
         ArrayAdapter<String> adapter =
-                new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
+                new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         beds.setAdapter(adapter);
 
-
-        int id = getIntent().getIntExtra("id", 1000);
+        Intent it = getIntent();
+        int id = it.getIntExtra("id", 1000);
         mItem = umf.getShelterByID(id);
 
         TextView vacancy = findViewById(R.id.vacancies);
@@ -63,6 +67,10 @@ public class CancelReservationActivity extends AppCompatActivity {
             }
         });
     }
+    /**
+     * On Back Pressed to close search view on back button pressed.
+     *
+     */
     @Override
     public void onBackPressed() {
         // close search view on back button pressed

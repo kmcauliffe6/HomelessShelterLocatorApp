@@ -16,6 +16,7 @@ import java.util.List;
 /**
  * activity that displays shelters on a map using Google Maps API
  */
+@SuppressWarnings("CyclicClassDependency")
 public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private String filterBy;
@@ -41,25 +42,28 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
+     * @param googleMap map in use
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        GoogleMap mMap = googleMap;
         //noinspection MagicNumber, desired zoom for map
         int zoom = 11;
 
-        List<Shelter> shelters = getFilteredShelters(filterBy);
+        List<Shelter> shelters = getFilteredShelters();
         for (Shelter s: shelters) {
-            LatLng loc = new LatLng(Double.parseDouble(s.getLatitude()), Double.parseDouble(s.getLongitude()));
-            mMap.addMarker(new MarkerOptions().position(loc).title(s.getName()).snippet("Current Vacancies: "+ s.getVacancy()));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
-                    new LatLng(Double.parseDouble(s.getLatitude()), Double.parseDouble(s.getLongitude())), zoom));
+            LatLng loc = new LatLng(Double.parseDouble(s.getLatitude()),
+                    Double.parseDouble(s.getLongitude()));
+            googleMap.addMarker(new MarkerOptions().position(loc).title(s.getName()).snippet(
+                    "Current Vacancies: "+ s.getVacancy()));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+                    new LatLng(Double.parseDouble(s.getLatitude()),
+                            Double.parseDouble(s.getLongitude())), zoom));
         }
 
     }
 
-    private List<Shelter> getFilteredShelters(String filter) {
+    private List<Shelter> getFilteredShelters() {
         ModelManagementFacade umf = ModelManagementFacade.getInstance();
         List<Shelter> shelters = umf.getShelterList();
         List<Shelter> filteredShelters = new ArrayList<>();
@@ -70,7 +74,8 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
                     filteredShelters = shelters;
                 } else {
                     for (Shelter s: shelters) {
-                        if (s.getGender().toLowerCase().contains(filterBy.toLowerCase())) {
+                        if ((s.getGender() != null)
+                                && (s.getGender().toLowerCase().contains(filterBy.toLowerCase()))) {
                             filteredShelters.add(s);
                         }
                     }
@@ -80,6 +85,11 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
         }
         return filteredShelters;
     }
+
+    /**
+     * close search view on back button pressed
+     *
+     */
     @Override
     public void onBackPressed() {
         // close search view on back button pressed

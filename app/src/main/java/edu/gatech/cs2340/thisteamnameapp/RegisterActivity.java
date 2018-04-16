@@ -31,12 +31,13 @@ import android.widget.Toast;
 /**
  * A login screen that offers login via email/password.
  */
+@SuppressWarnings("CyclicClassDependency")
 public class RegisterActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
-    private UserLoginTask mAuthTask = null;
+//    private UserLoginTask mAuthTask = null;
 
     // UI references.
     private AutoCompleteTextView mEmailView;
@@ -73,7 +74,8 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         }); */
         final Spinner actTypeSpinner = findViewById(R.id.spinner);
         String[] arr = {"Admin", "User", "Shelter Employee"};
-        ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         actTypeSpinner.setAdapter(adapter);
 
@@ -89,7 +91,8 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
                 String type = actTypeSpinner.getSelectedItem().toString();
                 User u = new User(name, email, password, type);
                 umf.addUser(u);
-                Toast toast = Toast.makeText(getApplicationContext(), "Added user" , Toast.LENGTH_SHORT);
+                Toast toast =
+                        Toast.makeText(getApplicationContext(), "Added user" , Toast.LENGTH_SHORT);
                 toast.show();
                 umf.setCurrentUser(u);
                 Intent intent = new Intent (RegisterActivity.this, ApplicationActivity.class);
@@ -198,44 +201,48 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         int IS_PRIMARY = 1;
     }
 
-    /**
-     * Represents an asynchronous login/registration task used to authenticate
-     * the user.
-     */
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
-        private final String mEmail;
-        private final String mPassword;
-
-        UserLoginTask(String email, String password) {
-            mEmail = email;
-            mPassword = password;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-
-            // TODO: register the new account here.
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-            showProgress(false);
-
-            if (success) {
-                finish();
-            } else {
-                mPasswordView.setError(getString(R.string.error_incorrect_password));
-                mPasswordView.requestFocus();
-            }
-        }
-
-        @Override
-        protected void onCancelled() {
-            showProgress(false);
-        }
-    }
+// --Commented out by Inspection START (4/8/18, 8:50 PM):
+//    /**
+//     * Represents an asynchronous login/registration task used to authenticate
+//     * the user.
+//     */
+//    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+//
+//        private final String mEmail;
+//        // --Commented out by Inspection (4/8/18, 8:50 PM):private final String mPassword;
+//
+//// --Commented out by Inspection START (4/8/18, 8:50 PM):
+////        UserLoginTask(String email, String password) {
+////            mEmail = email;
+////            mPassword = password;
+////        }
+//// --Commented out by Inspection STOP (4/8/18, 8:50 PM)
+//
+//        @Override
+//        protected Boolean doInBackground(Void... params) {
+//            // TODO: attempt authentication against a network service.
+//
+//            // TODO: register the new account here.
+//            return true;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(final Boolean success) {
+//            showProgress(false);
+//
+//            if (success) {
+//                finish();
+//            } else {
+//                mPasswordView.setError(getString(R.string.error_incorrect_password));
+//                mPasswordView.requestFocus();
+//            }
+//        }
+//
+//        @Override
+//        protected void onCancelled() {
+//            showProgress(false);
+//        }
+//    }
+// --Commented out by Inspection STOP (4/8/18, 8:50 PM)
 }
 

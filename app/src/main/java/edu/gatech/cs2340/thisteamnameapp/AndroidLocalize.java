@@ -1,24 +1,29 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
-/**
- * Created by marianamatias on 4/4/18.
- */
+//Created by Mariana Matias on 2/20/18.
 
-        import java.util.Locale;
-        import android.os.Bundle;
+//        import java.util.Locale;
+//        import android.os.Bundle;
+        import android.annotation.SuppressLint;
         import android.app.Activity;
-        import android.content.Intent;
-        import android.content.res.Configuration;
-        import android.content.res.Resources;
-        import android.util.DisplayMetrics;
-        import android.view.View;
-        import android.widget.AdapterView;
-        import android.widget.ArrayAdapter;
-        import android.widget.Button;
-        import android.widget.Spinner;
-        import android.widget.Toast;
-        import android.widget.AdapterView.OnItemSelectedListener;
+//        import android.content.Intent;
+//        import android.content.res.Configuration;
+//        import android.content.res.Resources;
+//        import android.util.DisplayMetrics;
+//        import android.view.View;
+//        import android.widget.AdapterView;
+//        import android.widget.ArrayAdapter;
+//        import android.widget.Button;
+//        import android.widget.Spinner;
+//        import android.widget.Toast;
+//        import android.widget.AdapterView.OnItemSelectedListener;
 
+
+/**
+ * Localization class for Internationalization
+ * Created by Mariana
+ */
+@SuppressLint("Registered")
 public class AndroidLocalize extends Activity {
 //    Spinner spinnerctrl;
 //    Button btn;
@@ -31,7 +36,8 @@ public class AndroidLocalize extends Activity {
 //
 //        spinnerctrl = (Spinner) findViewById(R.id.spinner2);
 //        String[] arr = {"English", "Spanish", "French"};
-//        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, arr);
+//        ArrayAdapter<String> adapter =
+//              new ArrayAdapter(this, android.R.layout.simple_spinner_item, arr);
 //        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        spinnerctrl.setAdapter(adapter);
 //

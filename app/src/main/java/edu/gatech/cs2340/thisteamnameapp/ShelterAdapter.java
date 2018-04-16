@@ -11,11 +11,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import android.content.Intent;
-/**
- * Created by Paige McAuliffe on 3/7/18.
- */
 
-public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHolder> implements Filterable {
+
+/**
+ * Shelter adapter class
+ * Created by Paige McAuliffe on 2/20/18.
+ */
+@SuppressWarnings("CyclicClassDependency")
+public class ShelterAdapter extends
+        RecyclerView.Adapter<ShelterAdapter.MyViewHolder> implements Filterable {
     private final List<Shelter> shelterList;
     private List<Shelter> shelterListFiltered;
     private final ShelterAdapterListener listener;
@@ -39,7 +43,8 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
                     listener.onShelterSelected(shelterListFiltered.get(getAdapterPosition()));
                     Context context = view.getContext();
                     Intent intent = new Intent(context, ShelterDetailActivity.class);
-                    intent.putExtra(ShelterDetailFragment.ARG_ITEM_ID, shelterListFiltered.get(getAdapterPosition()).getId());
+                    intent.putExtra(ShelterDetailFragment.ARG_ITEM_ID,
+                            shelterListFiltered.get(getAdapterPosition()).getId());
                     context.startActivity(intent);
 
                 }
@@ -49,15 +54,23 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
     /**
      * @param context the current context
      * @param shelterList the list of shelters to be filtered
-     * @param listener the listesner
+     * @param listener the listener
      */
-    public ShelterAdapter(Context context, List<Shelter> shelterList, ShelterAdapterListener listener) {
-        Context context1 = context;
+    public ShelterAdapter(Context context, List<Shelter>
+            shelterList, ShelterAdapterListener listener) {
         this.listener = listener;
+        //noinspection AssignmentToCollectionOrArrayFieldFromParameter
         this.shelterList = shelterList;
+        //noinspection AssignmentToCollectionOrArrayFieldFromParameter
         this.shelterListFiltered = shelterList;
     }
 
+    /**
+     * created view holder
+     * @param parent parent viewGroup
+     * @param viewType the viewType
+     * @return MyViewHolder
+     */
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
@@ -65,18 +78,31 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
 
         return new MyViewHolder(itemView);
     }
+
+    /**
+     * changes name of viewholder to name of shelter at position
+     * @param holder viewholder
+     * @param position position of where shelter is
+     */
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         final Shelter shelter = shelterListFiltered.get(position);
         holder.name.setText(shelter.getName());
     }
 
+    /**
+     * gets size of filtered list
+     * @return size of filtered list
+     */
     @Override
     public int getItemCount() {
         return shelterListFiltered.size();
     }
 
-
+    /**
+     * returns filter results
+     * @return filter trying to get
+     */
     @Override
     public Filter getFilter() {
         return new Filter() {
@@ -85,7 +111,8 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
                 String charString = charSequence.toString();
 
                 boolean filterby = false;
-                String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn", "Young Adults"};
+                String[] arr = {"Anyone", " Male", "Female", "Children", "Family/Newborn",
+                        "Young Adults"};
                 for (String p: arr) {
                     if (charString.equals(p)) {
                         List<Shelter> filteredList = new ArrayList<>();
@@ -96,7 +123,9 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
                         } else {
                             for (Shelter s: shelterList) {
                                 //System.out.println(s.getGender());
-                                if (s.getGender().toLowerCase().contains(charString.toLowerCase())) {
+                                if ((s.getGender() != null)
+                                        && (s.getGender().toLowerCase()
+                                        .contains(charString.toLowerCase()))){
                                     filteredList.add(s);
                                 }
                             }
@@ -126,6 +155,12 @@ public class ShelterAdapter extends RecyclerView.Adapter<ShelterAdapter.MyViewHo
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                if (filterResults.values == null) {
+                    throw new NullPointerException("Filter results is null");
+                }
+                if (! (filterResults.values instanceof Shelter)) {
+                    throw new ClassCastException("Casting issue with filter results");
+                }
                 shelterListFiltered = (ArrayList<Shelter>) filterResults.values;
                 notifyDataSetChanged();
             }

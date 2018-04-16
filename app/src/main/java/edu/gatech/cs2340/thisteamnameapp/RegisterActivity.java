@@ -31,6 +31,7 @@ import android.widget.Toast;
 /**
  * A login screen that offers login via email/password.
  */
+@SuppressWarnings("CyclicClassDependency")
 public class RegisterActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**

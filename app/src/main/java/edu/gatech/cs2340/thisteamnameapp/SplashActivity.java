@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
  * creates splash screen
  *
  */
+@SuppressWarnings("CyclicClassDependency")
 public class SplashActivity extends AppCompatActivity {
 
     /**

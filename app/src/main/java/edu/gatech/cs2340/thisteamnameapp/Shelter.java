@@ -13,6 +13,7 @@ import java.io.Serializable;
  * Created by paigemca on 2/26/18.
  */
 //need to change capacity to int!!
+@SuppressWarnings({"ClassWithTooManyDependents", "CyclicClassDependency"})
 public class Shelter implements Serializable {
     @Nullable
     private final String shelterName;

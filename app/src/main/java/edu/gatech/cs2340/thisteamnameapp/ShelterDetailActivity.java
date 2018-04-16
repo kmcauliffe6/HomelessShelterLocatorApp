@@ -15,6 +15,7 @@ import android.view.MenuItem;
  * item details are presented side-by-side with a list of items
  * in a {@link ShelterListActivity}.
  */
+@SuppressWarnings("CyclicClassDependency")
 public class ShelterDetailActivity extends AppCompatActivity {
 
     @Override

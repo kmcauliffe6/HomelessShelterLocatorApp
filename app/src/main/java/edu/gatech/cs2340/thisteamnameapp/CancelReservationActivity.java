@@ -16,6 +16,7 @@ import android.widget.Toast;
  *
  */
 
+@SuppressWarnings("CyclicClassDependency")
 public class CancelReservationActivity extends AppCompatActivity {
     private Shelter mItem;
 

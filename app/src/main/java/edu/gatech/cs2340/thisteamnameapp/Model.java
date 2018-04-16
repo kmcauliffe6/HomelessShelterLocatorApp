@@ -21,7 +21,7 @@ import java.util.Map;
  * Created by paigemca on 2/20/18.
  */
 
-@SuppressWarnings("ClassWithOnlyPrivateConstructors")
+@SuppressWarnings({"ClassWithOnlyPrivateConstructors", "CyclicClassDependency"})
 public class Model implements Serializable {
     private static final Model _instance = new Model();
     /**

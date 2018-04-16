@@ -16,6 +16,7 @@ import java.util.List;
 /**
  * activity that displays shelters on a map using Google Maps API
  */
+@SuppressWarnings("CyclicClassDependency")
 public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private String filterBy;

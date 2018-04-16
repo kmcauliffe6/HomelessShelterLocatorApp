@@ -19,6 +19,7 @@ import android.widget.Toast;
  *
  */
 
+@SuppressWarnings("CyclicClassDependency")
 public class CheckOutActivity extends AppCompatActivity {
 
     /**

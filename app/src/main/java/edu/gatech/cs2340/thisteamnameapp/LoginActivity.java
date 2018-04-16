@@ -32,6 +32,7 @@ import java.util.Objects;
 /**
  * A login screen that offers login via email/password.
  */
+@SuppressWarnings("CyclicClassDependency")
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
     /**

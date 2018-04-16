@@ -16,6 +16,7 @@ import java.io.File;
 /**
  * welcome screen with buttons for log-in and register activity
  */
+@SuppressWarnings("CyclicClassDependency")
 class MainActivity extends AppCompatActivity {
 
     @Override

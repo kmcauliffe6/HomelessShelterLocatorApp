@@ -38,6 +38,7 @@ import java.util.List;
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  */
+@SuppressWarnings("CyclicClassDependency")
 public class ShelterListActivity
         extends AppCompatActivity implements ShelterAdapter.ShelterAdapterListener {
 
@@ -126,7 +127,7 @@ public class ShelterListActivity
                 .getSearchableInfo(getComponentName()));
         searchView.setMaxWidth(Integer.MAX_VALUE);
         // listening to search query text change
-        //noinspection SameReturnValue,SameReturnValue,SameReturnValue,SameReturnValue
+        //noinspection SameReturnValue,SameReturnValue,SameReturnValue,SameReturnValue,SameReturnValue,SameReturnValue
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

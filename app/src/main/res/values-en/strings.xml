@@ -30,7 +30,6 @@
     <string name="backtoshelters">back</string>
     <string name="checkout">Claim A Bed</string>
     <!-- Strings from search tutorial -->
-    <string name="action_settings">Settings</string>
     <string name="toolbar_title">Shelters</string>
     <string name="action_search">Search</string>
     <string name="search_hint">Type name…</string>

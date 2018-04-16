@@ -22,6 +22,7 @@ import java.util.Locale;
 /**
  * main screen with buttons for "see shelters" and "log out"
  */
+@SuppressWarnings("CyclicClassDependency")
 public class ApplicationActivity extends AppCompatActivity {
 
     private Spinner spinnerctrl;

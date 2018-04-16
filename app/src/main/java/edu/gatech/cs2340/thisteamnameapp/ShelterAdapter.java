@@ -17,6 +17,7 @@ import android.content.Intent;
  * Shelter adapter class
  * Created by Paige McAuliffe on 2/20/18.
  */
+@SuppressWarnings("CyclicClassDependency")
 public class ShelterAdapter extends
         RecyclerView.Adapter<ShelterAdapter.MyViewHolder> implements Filterable {
     private final List<Shelter> shelterList;
@@ -57,7 +58,6 @@ public class ShelterAdapter extends
      */
     public ShelterAdapter(Context context, List<Shelter>
             shelterList, ShelterAdapterListener listener) {
-        Context context1 = context;
         this.listener = listener;
         //noinspection AssignmentToCollectionOrArrayFieldFromParameter
         this.shelterList = shelterList;

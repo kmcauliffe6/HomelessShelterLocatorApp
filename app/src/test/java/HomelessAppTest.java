@@ -162,4 +162,27 @@ public class HomelessAppTest {
                 Integer.parseInt(testShelter.getVacancy()));
     }
 
+    /**
+     * testing whether user is checked out
+     * author: nishat yikes
+     */
+    @Test
+    public void testCheckedOut () {
+        //public boolean isCheckedOut() {
+        //return (!"Not Checked In".equals(shelterCheckedInto));
+
+        // the user is checking in to one shelter
+        u.setShelterCheckedInto("Test Shelter");
+        assertEquals("User is checked in", u.isCheckedOut(), false);
+
+        // the user is checking into another shelter
+        u.setShelterCheckedInto("Another Test Shelter");
+        assertEquals("User is checked in", u.isCheckedOut(), false);
+
+        // the user is checking out
+        u.setShelterCheckedInto("Not Checked In");
+        assertEquals("user is not checked in", u.isCheckedOut(), true);
+
+    }
+
 }

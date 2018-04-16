@@ -130,6 +130,7 @@ public class ShelterListActivity
         //noinspection SameReturnValue,SameReturnValue,
         // SameReturnValue,SameReturnValue,SameReturnValue,
         // SameReturnValue,SameReturnValue,SameReturnValue
+        //noinspection SameReturnValue,SameReturnValue
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

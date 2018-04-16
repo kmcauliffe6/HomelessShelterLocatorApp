@@ -69,7 +69,6 @@ public class AndroidLocalize extends Activity {
 //            }
 //
 //            public void onNothingSelected(AdapterView<?> arg0) {
-//                // TODO Auto-generated method stub
 //            }
 //
 //        });

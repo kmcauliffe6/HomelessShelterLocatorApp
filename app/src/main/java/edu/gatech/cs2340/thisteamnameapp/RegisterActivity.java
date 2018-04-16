@@ -220,9 +220,6 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
 //
 //        @Override
 //        protected Boolean doInBackground(Void... params) {
-//            // TODO: attempt authentication against a network service.
-//
-//            // TODO: register the new account here.
 //            return true;
 //        }
 //

@@ -59,7 +59,9 @@ public class ShelterAdapter extends
             shelterList, ShelterAdapterListener listener) {
         Context context1 = context;
         this.listener = listener;
+        //noinspection AssignmentToCollectionOrArrayFieldFromParameter
         this.shelterList = shelterList;
+        //noinspection AssignmentToCollectionOrArrayFieldFromParameter
         this.shelterListFiltered = shelterList;
     }
 
@@ -121,7 +123,9 @@ public class ShelterAdapter extends
                         } else {
                             for (Shelter s: shelterList) {
                                 //System.out.println(s.getGender());
-                                if (s.getGender().toLowerCase().contains(charString.toLowerCase())){
+                                if (s.getGender() != null
+                                        && s.getGender().toLowerCase()
+                                        .contains(charString.toLowerCase())){
                                     filteredList.add(s);
                                 }
                             }

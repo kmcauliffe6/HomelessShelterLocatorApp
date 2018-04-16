@@ -2,6 +2,8 @@ package edu.gatech.cs2340.thisteamnameapp;
 
 
 
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 
 
@@ -12,14 +14,22 @@ import java.io.Serializable;
  */
 //need to change capacity to int!!
 public class Shelter implements Serializable {
+    @Nullable
     private final String shelterName;
+    @Nullable
     private final String capacity;
+    @Nullable
     private final String gender;
+    @Nullable
     private final String longitude;
+    @Nullable
     private final String latitude;
+    @Nullable
     private final String address;
+    @Nullable
     private final String phoneNumber;
     private final int id;
+    @Nullable
     private final String details;
     private int bedsCheckedOut;
     /**
@@ -35,9 +45,9 @@ public class Shelter implements Serializable {
      *  @param details details about the shelter
      */
 
-    public Shelter(String shelterName, String capacity, String gender,
-            String longitude, String latitude, String address,
-            String phoneNumber, int id, String details) {
+    public Shelter(@Nullable String shelterName, @Nullable String capacity, @Nullable String gender,
+                   @Nullable String longitude, @Nullable String latitude, @Nullable String address,
+                   @Nullable String phoneNumber, int id, @Nullable String details) {
         this.shelterName = shelterName;
         this.capacity = capacity;
         this.gender = gender;
@@ -81,24 +91,28 @@ public class Shelter implements Serializable {
     /**
      * @return shelter capacity
      */
+    @Nullable
     public String getCapacity() {
         return capacity;
     }
     /**
      * @return gender
      */
+    @Nullable
     public String getGender() {
         return gender;
     }
     /**
      * @return longitude
      */
+    @Nullable
     public String getLongitude() {
         return longitude;
     }
     /**
      * @return latitude
      */
+    @Nullable
     public String getLatitude() {
         return latitude;
     }
@@ -111,6 +125,7 @@ public class Shelter implements Serializable {
     /**
      * @return shelter address
      */
+    @Nullable
     public String getAddress() {
         return address;
     }

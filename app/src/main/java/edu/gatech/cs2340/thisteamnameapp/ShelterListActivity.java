@@ -49,7 +49,7 @@ public class ShelterListActivity
     private static final String TAG = MainActivity.class.getSimpleName();
     private List<Shelter> shelterList;
     private ShelterAdapter mAdapter;
-    private static Context mContext;
+    private Context mContext;
 
 
     @Override
@@ -126,6 +126,7 @@ public class ShelterListActivity
                 .getSearchableInfo(getComponentName()));
         searchView.setMaxWidth(Integer.MAX_VALUE);
         // listening to search query text change
+        //noinspection SameReturnValue,SameReturnValue,SameReturnValue,SameReturnValue
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -146,7 +147,7 @@ public class ShelterListActivity
     /**
      * @return current context of app
      */
-    public static Context getContext(){
+    public Context getContext(){
         return mContext;
     }
 

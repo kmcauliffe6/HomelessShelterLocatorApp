@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.thisteamnameapp;
 
+import android.support.annotation.Nullable;
+
 import java.io.Serializable;
 import java.io.PrintWriter;
 
@@ -9,9 +11,13 @@ import java.io.PrintWriter;
  */
 
 public class User implements Serializable {
-    private String name;
+    @Nullable
+    private final String name;
+    @Nullable
     private final String userid;
+    @Nullable
     private final String password;
+    @Nullable
     private final String actType;
     private String shelterCheckedInto;
 
@@ -22,7 +28,8 @@ public class User implements Serializable {
      * @param password used for log in
      * @param type the user's account type (admin, shelter employee, etc)
      */
-    public User(String name, String userid, String password, String type) {
+    public User(@Nullable String name, @Nullable String userid,
+                @Nullable String password, @Nullable String type) {
         this.name = name;
         this.userid = userid;
         this.password = password;
@@ -60,11 +67,13 @@ public class User implements Serializable {
 // --Commented out by Inspection STOP (4/8/18, 8:48 PM)
     /** getter for userid instance variable
      * @return userid the user's id  */
+    @Nullable
     public String getUserid() {
         return userid;
     }
     /** getter for password instance variable
      * @return the user's name  */
+    @Nullable
     public String getPassword() {
         return password;
     }

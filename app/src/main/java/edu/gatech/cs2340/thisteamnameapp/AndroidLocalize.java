@@ -4,6 +4,7 @@ package edu.gatech.cs2340.thisteamnameapp;
 
 //        import java.util.Locale;
 //        import android.os.Bundle;
+        import android.annotation.SuppressLint;
         import android.app.Activity;
 //        import android.content.Intent;
 //        import android.content.res.Configuration;
@@ -22,6 +23,7 @@ package edu.gatech.cs2340.thisteamnameapp;
  * Localization class for Internationalization
  * Created by Mariana
  */
+@SuppressLint("Registered")
 public class AndroidLocalize extends Activity {
 //    Spinner spinnerctrl;
 //    Button btn;

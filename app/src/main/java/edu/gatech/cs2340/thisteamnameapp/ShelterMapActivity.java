@@ -45,7 +45,6 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        GoogleMap mMap = googleMap;
         //noinspection MagicNumber, desired zoom for map
         int zoom = 11;
 
@@ -53,10 +52,10 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
         for (Shelter s: shelters) {
             LatLng loc = new LatLng(Double.parseDouble(s.getLatitude()),
                     Double.parseDouble(s.getLongitude()));
-            mMap.addMarker(new MarkerOptions().position(loc).title(s.getName()).snippet(
+            googleMap.addMarker(new MarkerOptions().position(loc).title(s.getName()).snippet(
                     "Current Vacancies: "+ s.getVacancy()));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
                     new LatLng(Double.parseDouble(s.getLatitude()),
                             Double.parseDouble(s.getLongitude())), zoom));
         }
@@ -74,7 +73,8 @@ public class ShelterMapActivity extends FragmentActivity implements OnMapReadyCa
                     filteredShelters = shelters;
                 } else {
                     for (Shelter s: shelters) {
-                        if (s.getGender().toLowerCase().contains(filterBy.toLowerCase())) {
+                        if (s.getGender() != null
+                                && s.getGender().toLowerCase().contains(filterBy.toLowerCase())) {
                             filteredShelters.add(s);
                         }
                     }

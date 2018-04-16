@@ -51,8 +51,8 @@ public class CheckOutActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         beds.setAdapter(adapter);
 
-
-        int id = getIntent().getIntExtra("id", 1000);
+        Intent it = getIntent();
+        int id = it.getIntExtra("id", 1000);
         mItem = umf.getShelterByID(id);
 
         TextView vacancy = findViewById(R.id.vacancies);

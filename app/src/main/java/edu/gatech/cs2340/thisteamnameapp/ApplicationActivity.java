@@ -40,7 +40,7 @@ public class ApplicationActivity extends AppCompatActivity {
         spinnerctrl = (Spinner) findViewById(R.id.languagespinner);
         String[] arr = {"English", "Spanish", "French"};
         final ArrayAdapter<String> adapter =
-                new ArrayAdapter(this, android.R.layout.simple_spinner_item, arr);
+                new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerctrl.setAdapter(adapter);
 

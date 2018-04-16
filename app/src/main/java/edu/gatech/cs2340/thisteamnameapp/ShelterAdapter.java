@@ -155,6 +155,12 @@ public class ShelterAdapter extends
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                if (filterResults.values == null) {
+                    throw new NullPointerException("Filter results is null");
+                }
+                if (! (filterResults.values instanceof Shelter)) {
+                    throw new ClassCastException("Casting issue with filter results");
+                }
                 shelterListFiltered = (ArrayList<Shelter>) filterResults.values;
                 notifyDataSetChanged();
             }

@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         final Spinner actTypeSpinner = findViewById(R.id.spinner);
         String[] arr = {"Admin", "User", "Shelter Employee"};
         ArrayAdapter<String> adapter =
-                new ArrayAdapter(this,android.R.layout.simple_spinner_item, arr);
+                new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         actTypeSpinner.setAdapter(adapter);
 

@@ -141,7 +141,8 @@ public class Model implements Serializable {
      */
     public Shelter findItemByID(int id) {
         for (Shelter d : shelters) {
-            if (d.getId() == id) {return d;}
+            if (d.getId() == id) {
+                return d;}
         }
         return null;
     }

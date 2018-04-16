@@ -194,11 +194,27 @@ public class HomelessAppTest {
     }
 
     /**
-     * testing whether user can check into a shelter
+     * testing whether entering ID returns the right shelter
      * author: Katie
      */
     @Test
-    public void test() {
+    public void testfindItemByID() {
         //
+  //      testShelter = new Shelter("Katie", "50", "Female",
+                "1", "1", "301 10th St", "4445556678",
+                123, "the best shelter!");
+//        u = new User("katie","1", "pass", "admin");
+
+       // Model m = new Model();
+        //m.shelters = {}
+        Shelter myshelter = testfindItemByID(11);
+        // the user is looking for a specific shelter
+        assertEquals("correct shelter sent", findItemByID(11), myshelter.getName());
+
+        //User checking is looking for a specific shelter that doesn't exist
+      //  assertEquals("returns the fact that the shelter id is not valid", findItemByID(), true);
+
+        // the user is trying to find specific shelter and returns right shelter
+        //assertEquals("", testfindItemByID();, false);
     }
 }

@@ -142,6 +142,8 @@ public class Shelter implements Serializable {
      * updates vacancy count
      * @param b the number of beds to be checked out
      * @return boolean whether or not the beds could be removed
+     *
+     * Checks out a bed, Decreases Vacancy
      */
     public boolean updateVacancy(int b) {
         ModelManagementFacade m = ModelManagementFacade.getInstance();
@@ -181,6 +183,8 @@ public class Shelter implements Serializable {
      * updates vacancy count
      * @param b the number of beds to be returned
      * @return boolean whether or not the beds could be returned
+     *
+     * Returning beds, should INCREASE vacancies
      */
     public boolean decreaseVacancy(int b) {
         ModelManagementFacade m = ModelManagementFacade.getInstance();

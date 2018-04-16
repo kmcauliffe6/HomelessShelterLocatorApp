@@ -37,6 +37,7 @@ public class HomelessAppTest {
     /**
      * testing getting vacancy
      */
+    @Test
     public void getVacancy() {
         testShelter = new Shelter("Bura's", "10", "Female",
                 "1", "1", "301 10th St", "4445556678",

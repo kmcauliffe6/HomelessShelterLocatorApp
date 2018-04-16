@@ -153,9 +153,14 @@ public class Shelter implements Serializable {
      * @return number of vacancies
      */
     public String getVacancy() {
-        int vacancies = Integer.parseInt(getCapacity()) - getBedsCheckedOut();
-        return Integer.toString(vacancies);
-
+        int cap = Integer.parseInt(getCapacity());
+        int out = getBedsCheckedOut();
+        int vacancies = cap - out;
+            if (vacancies >= 0) {
+                return Integer.toString(vacancies);
+            } else {
+                return Integer.toString(0);
+            }
     }
     /**
      * method that takes in a number of beds (b), checks if current

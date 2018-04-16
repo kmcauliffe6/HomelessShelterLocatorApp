@@ -36,6 +36,7 @@ public class HomelessAppTest {
 
     /**
      * testing getting vacancy
+     * author: Bura
      */
     @Test
     public void getVacancy() {
@@ -54,12 +55,12 @@ public class HomelessAppTest {
                 Integer.parseInt(testShelter.getVacancy()));
 
         //bringing vacancy back up
-        testShelter.decreaseVacancy(2);
-        assertEquals("vacancy decreased properly", 7,
+        testShelter.decreaseVacancy(1);
+        assertEquals("vacancy decreased properly", 6,
                 Integer.parseInt(testShelter.getVacancy()));
 
         //vacancy = 0
-        testShelter.updateVacancy(7);
+        testShelter.updateVacancy(6);
         assertEquals("accurate when vacancy = 0", 0,
                 Integer.parseInt(testShelter.getVacancy()));
 
@@ -71,6 +72,7 @@ public class HomelessAppTest {
 
     /**
      * testing updating vacancy
+     * author: Paige
     */
     @Test
     public void testUpdateVacancy() {
@@ -112,6 +114,7 @@ public class HomelessAppTest {
 
     /**
      * testing decreasing vacancy
+     * author: Mariana
      */
     @Test
     public void testDecreaseVacancy() {
@@ -163,26 +166,39 @@ public class HomelessAppTest {
     }
 
     /**
-     * testing whether user is checked out
-     * author: nishat yikes
+     * testing whether user can check into a shelter
+     * author: Nishat
      */
     @Test
-    public void testCheckedOut () {
+    public void testCheckIn() {
+        testShelter = new Shelter("Mari's", "50", "Female",
+                "1", "1", "301 10th St", "4445556678",
+                123, "the best shelter!");
+        u = new User("nish","1", "pass", "admin");
         //public boolean isCheckedOut() {
         //return (!"Not Checked In".equals(shelterCheckedInto));
 
         // the user is checking in to one shelter
-        u.setShelterCheckedInto("Test Shelter");
-        assertEquals("User is checked in", u.isCheckedOut(), false);
+        assertEquals("Can't check into a null shelter", u.checkIn(""), false);
 
-        // the user is checking into another shelter
-        u.setShelterCheckedInto("Another Test Shelter");
-        assertEquals("User is checked in", u.isCheckedOut(), false);
+        //User checking in to a test shelter
+        assertEquals("User is checked in", u.checkIn("Mari's"), true);
 
-        // the user is checking out
-        u.setShelterCheckedInto("Not Checked In");
-        assertEquals("user is not checked in", u.isCheckedOut(), true);
+        // the user is trying to check into the same shelter
+        assertEquals("User can't check into same shelter", u.checkIn("Mari's"), false);
+
+        // user checks into a new shelter
+        assertEquals("User checks into a new shelter", u.checkIn("Nishat's"), true);
+        assertEquals("Checks into the right shelter", u.getShelterCheckedInto(), "Nishat's");
 
     }
 
+    /**
+     * testing whether user can check into a shelter
+     * author: Katie
+     */
+    @Test
+    public void test() {
+        //
+    }
 }

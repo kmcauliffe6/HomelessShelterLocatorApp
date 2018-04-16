@@ -37,10 +37,10 @@ public class ApplicationActivity extends AppCompatActivity {
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        spinnerctrl = (Spinner) findViewById(R.id.languagespinner);
+        spinnerctrl = findViewById(R.id.languagespinner);
         String[] arr = {"English", "Spanish", "French"};
         final ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arr);
+                new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerctrl.setAdapter(adapter);
 

@@ -47,7 +47,7 @@ public class CheckOutActivity extends AppCompatActivity {
 
         final Spinner beds = findViewById(R.id.checkOutSpinner);
         String[] arr = {"1", "2", "3", "4", "5", "6"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, arr);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         beds.setAdapter(adapter);

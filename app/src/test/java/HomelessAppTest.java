@@ -9,7 +9,7 @@ import static junit.framework.TestCase.assertEquals;
 //import static org.mockito.Mockito.*;
 
 /**
- * Created by nishat and mariana on 4/6/18.
+ * Testing File for app
  */
 
 public class HomelessAppTest {

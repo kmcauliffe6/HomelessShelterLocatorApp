@@ -1,6 +1,7 @@
-# homelessapp
-CS2340 Team 72
+Homeless Shelter Locator App
+Created for Georgia Tech CS2340
 
-firebase branch: temporary branch while i figure out firebase lol
-dev branch: do work here
-master branch: working code for next demo 
+Team 72
+
+Project was one of four finalists selected for potential implementation by a local nonprofit. 
+
